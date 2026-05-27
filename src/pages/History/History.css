@@ -1,0 +1,48 @@
+.history-description {
+  color: #8B5CF6;
+  font-size: 12px;
+}
+
+.history-stats{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.stat-pill {
+  /* background-color: #a0ffcc; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.stat-pill-label {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+
+.stat-pill-value {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: #7C3AED;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.filter-card {
+  display: flex;
+  gap: 2px;
+  padding: 2px 2px;
+  background: #fff;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 20px;
+}

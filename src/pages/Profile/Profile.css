@@ -1,0 +1,329 @@
+/* ── page wrapper ── */
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #F5F3FF;
+  padding-bottom: 80px;
+}
+
+/* ── purple hero header ── */
+.profile-header {
+  background: #7C3AED;
+  padding: 24px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.edit-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  font-size: 11px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.edit-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #EDE9FE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+}
+
+.profile-goal {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+/* ── lifetime stats ── */
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #E9E4FF;
+  border-bottom: 0.5px solid #E9E4FF;
+}
+
+.profile-stat {
+  background: #fff;
+  padding: 14px 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.profile-stat-value {
+  font-size: 20px;
+  font-weight: 500;
+  color: #7C3AED;
+}
+
+.profile-stat-label {
+  font-size: 10px;
+  color: #888;
+}
+
+/* ── content wrapper ── */
+.profile-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── fitness goal card ── */
+.goal-card {
+  background: #EDE9FE;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.goal-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #7C3AED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.goal-info {
+  flex: 1;
+}
+
+.goal-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #7C3AED;
+  margin: 0 0 3px;
+}
+
+.goal-desc {
+  font-size: 11px;
+  color: #8B5CF6;
+  margin: 0;
+}
+
+/* ── profile sections ── */
+.profile-section {
+  background: #fff;
+  border: 0.5px solid #E9E4FF;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 12px 14px;
+  border-bottom: 0.5px solid #E9E4FF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.section-edit {
+  font-size: 12px;
+  color: #7C3AED;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-weight: 500;
+}
+
+/* ── info list — dl dt dd ── */
+.info-list {
+  margin: 0;
+  padding: 0;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 0.5px solid #F5F3FF;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-size: 12px;
+  color: #888;
+  margin: 0;
+}
+
+.info-value {
+  font-size: 12px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.info-value.purple {
+  color: #7C3AED;
+}
+
+/* ── settings list ── */
+.settings-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 0.5px solid #F5F3FF;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.settings-row:last-child {
+  border-bottom: none;
+}
+
+.settings-row:hover {
+  background: #F5F3FF;
+}
+
+.settings-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.settings-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: #EDE9FE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.settings-label {
+  font-size: 12px;
+  color: #1a1a1a;
+}
+
+.settings-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.settings-value {
+  font-size: 12px;
+  color: #888;
+}
+
+.settings-arrow {
+  color: #888;
+  font-size: 16px;
+}
+
+/* ── logout button ── */
+.logout-btn {
+  width: 100%;
+  padding: 14px;
+  background: #fff;
+  border: 0.5px solid #FFE4E4;
+  border-radius: 14px;
+  color: #E24B4A;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+
+.logout-btn:hover {
+  background: #FFF5F5;
+}
+
+.logout-btn:active {
+  transform: scale(0.98);
+}
+
+/* ── tablet 768px ── */
+@media (min-width: 768px) {
+  .profile-content {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 20px;
+    padding-bottom: 20px;
+  }
+
+  .profile-header {
+    padding: 32px 16px 40px;
+  }
+
+  .profile-avatar {
+    width: 88px;
+    height: 88px;
+    font-size: 36px;
+  }
+
+  .profile-name {
+    font-size: 24px;
+  }
+
+  .profile-stat-value {
+    font-size: 24px;
+  }
+}
+
+/* ── desktop 1024px ── */
+@media (min-width: 1024px) {
+  .profile-content {
+    max-width: 700px;
+  }
+}

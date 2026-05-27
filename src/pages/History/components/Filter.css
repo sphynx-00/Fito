@@ -1,0 +1,22 @@
+.filter-pill {
+  flex: 1;
+  background: #fff;
+  color: #7C3AED;
+  font-weight: bold;
+  /* border: 1px solid #7C3AED; */
+  border-style: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  width: fit-content;   /* ← shrinks to content width */
+  cursor: pointer;
+}
+
+.filter-pill:active {
+  transform: scale(0.9);
+  transition: transform 0.1s ease;
+}
+
+.filter-pill.active {
+  background: #7C3AED;
+  color: #fff;
+}

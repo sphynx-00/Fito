@@ -1,0 +1,33 @@
+*::-webkit-scrollbar {
+  display: none;                  /* ← Chrome, Safari */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  /* important — prevents width overflow */
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;          
+}
+
+.app-body {
+  display: flex;
+  flex: 1;
+}
+
+.main-content {
+  flex: 1;
+  padding: 16px;
+  padding-bottom: 65px;
+  position: relative;
+}
+
+
+@media (min-width: 768px) {
+  
+}

@@ -1,0 +1,98 @@
+.workout-card {
+  background: #fff;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.card-title { font-size: 14px; font-weight: bold; margin: 0; }
+.card-title-hide { display: none; }
+
+.badge { font-size: 10px; padding: 3px 9px; border-radius: 20px; font-weight: bold; }
+.badge-done       { background: #F5F3FF; color: #7C3AED; }
+.badge-progress  { background: #F5F3FF; color: #7C3AED; }
+.badge-pending  { background: #f4f4f4; color: #888; }
+
+/* dot inside badge */
+.badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.badge-done::before     { background: #7C3AED }
+.badge-progress::before { background: #7C3AED }
+.badge-pending::before  { background: #888;    }
+
+.recovery-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+  text-align: center;
+  gap: 8px;
+}
+
+.recovery-icon {
+  font-size: 40px;
+}
+
+.recovery-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.recovery-message {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+.recovery-tips {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.recovery-tip {
+  font-size: 13px;
+  color: #555;
+  background: #f9f9f9;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-align: left;
+  margin: 0;
+  border: 0.5px solid #e0e0e0;
+}
+
+.complete-btn {
+  color: #F5F3FF;
+  background: #7C3AED;
+  border-style: none;
+  border-radius: 4px;
+  padding: 8px 8px;
+  display: block;        /* ← makes width and margin auto work */
+  margin: 12px auto 0;  /* ← auto left and right centers it */
+  width: fit-content;   /* ← shrinks to content width */
+  cursor: pointer;
+}
+
+.complete-btn:active {
+  transform: scale(0.9);
+  transition: transform 0.1s ease;
+}

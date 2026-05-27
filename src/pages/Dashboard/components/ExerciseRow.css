@@ -1,0 +1,43 @@
+.exercise-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 2px solid #F5F3FF;
+}
+
+.exercise-row:last-child { border-bottom: none; }
+
+.ex-name  { font-size: 12px; font-weight: bold; }
+.ex-sets  { font-size: 12px; color: #888; }
+.ex-done  { display: flex; align-items: center; gap: 8px; }
+
+.check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid #ccc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.check.completed {
+  background: #7C3AED;
+  border-color: #7C3AED;
+  position: relative;
+}
+
+/* checkmark inside */
+.check.completed::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}

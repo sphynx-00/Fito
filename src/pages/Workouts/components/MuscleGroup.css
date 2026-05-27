@@ -1,0 +1,41 @@
+.muscle-card {
+  background: #fff;
+  border: 0.5px solid #E9E4FF;
+  border-radius: 14px;
+  padding: 14px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.muscle-card:hover {
+  background: #EDE9FE;
+  border-color: #7C3AED;
+}
+
+.muscle-card:active {
+  transform: scale(0.95);
+}
+
+.muscle-card.active {
+  background: #7C3AED;
+  border-color: #7C3AED;
+}
+
+.muscle-icon {
+  font-size: 24px;
+}
+
+.muscle-name {
+  font-size: 11px;
+  font-weight: 500;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.muscle-card.active .muscle-name {
+  color: #fff;
+}

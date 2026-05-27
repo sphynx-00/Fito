@@ -1,0 +1,105 @@
+/* ── exercise section ── */
+.exercise-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── exercise list ── */
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ── exercise card ── */
+.exercise-card {
+  background: #fff;
+  border: 0.5px solid #E9E4FF;
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.exercise-card:hover {
+  border-color: #7C3AED;
+  background: #F5F3FF;
+}
+
+/* .exercise-card:active {
+  transform: scale(0.98);
+} */
+
+/* ── thumbnail ── */
+.exercise-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #EDE9FE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* ── info ── */
+.exercise-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.exercise-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.exercise-meta {
+  font-size: 11px;
+  color: #888;
+  margin: 0;
+}
+
+/* ── muscle tag ── */
+.muscle-tag {
+  display: inline-block;
+  background: #EDE9FE;
+  color: #7C3AED;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+/* ── arrow ── */
+.exercise-arrow {
+  color: #8B5CF6;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.add-btn {
+  color: #F5F3FF;
+  background: #7C3AED;
+  border-style: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  width: fit-content;   /* ← shrinks to content width */
+  cursor: pointer;
+}
+
+.add-btn:active {
+  transform: scale(0.9);
+  transition: transform 0.1s ease;
+}

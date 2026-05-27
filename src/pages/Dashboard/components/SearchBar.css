@@ -1,0 +1,35 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 30px;       /* ← pill shape */
+  padding: 10px 16px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.search-input {
+  flex: 1;                   /* ← takes up all middle space */
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: transparent;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+}
+
+.search-icon {
+  color: #aaa;
+  flex-shrink: 0;
+}
+
+.expand-icon {
+  color: #aaa;
+  flex-shrink: 0;
+  cursor: pointer;
+}

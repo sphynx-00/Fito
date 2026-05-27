@@ -1,0 +1,69 @@
+.weekly-card {
+  /* background: #fff; */
+  background: #F5F3FF;
+  /* border: 0.5px solid #e0e0e0; */
+  border-radius: 12px;
+  margin: 10px 0;
+}
+
+.goal-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 0 14px;
+}
+
+.goal-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.goal-label { font-size: 12px; color: #888; }
+.goal-count  { font-size: 12px; font-weight: 500; }
+
+.progress-track {
+  width: 100%;
+  height: 6px;
+  background: #ebebeb;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #7C3AED;
+  border-radius: 3px;
+}
+
+.day-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.day-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.dot {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.dot-done  { background: white; color: #7C3AED; border: 1px solid #7C3AED; }
+.dot-today { background: #7C3AED;  color: #F5F3FF; }
+.dot-empty { background: white; color: #aaa; border: 1px solid #aaa; }
+
+.day-name   { font-size: 9px; color: #aaa; }
+.day-today { font-size: 9px; color: #7C3AED; }
+.next-label { font-size: 12px; color: #888; margin: 12px 0 0; }

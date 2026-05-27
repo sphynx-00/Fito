@@ -1,0 +1,101 @@
+.nav-bottom {
+  position: fixed;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  height: 50px;
+  background: #fff;
+  border-top: 0.5px solid #e0e0e0;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  justify-content: center;
+  gap: 4px;
+  flex: 1;
+  cursor: pointer;
+  color: #000000;
+}
+
+.nav-center-btn {
+  width: 40px;        /* ← bigger circle */
+  height: 40px;
+  border-radius: 50%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;              /* ← fixed icon container width */
+  height: 24px;             /* ← fixed icon container height */
+}
+
+.nav-label { 
+  font-size: 12px;
+  font-weight: 500;
+ }
+
+.nav-brand { 
+  display: none; 
+}
+
+.nav-sidebar {
+  display: none;
+}
+
+/* hover effect */
+.nav-bottom .nav-item:hover {
+  color: #8B5CF6;
+  transition: color 0.2s ease;
+}
+
+/* click / press effect */
+.nav-bottom .nav-item:active {
+  /* background: #EDE9FE; */
+  transform: scale(0.9);
+  transition: transform 0.1s ease;
+}
+
+.nav-bottom .nav-item.active {
+  color: #6D28D9;
+}
+
+
+@media (min-width: 768px) {
+  .nav-bottom { display: none; }
+  .nav-icon { display: none; }
+  
+  .nav-brand {
+    display: flex;
+    padding: 15px;
+    border-bottom: 0.5px solid #e0e0e0;
+  }
+
+  .nav-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    min-height: 100vh;
+    background: #fff;
+    border-right: 0.5px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+  }
+
+  .nav-item {
+    flex: 0;
+    padding: 10px 16px;
+    align-items: baseline;
+  }
+}

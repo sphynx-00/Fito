@@ -1,0 +1,42 @@
+.semi-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.semi-circle {
+  position: relative;
+  width: 100%;        /* ← fills the card width */
+  height: 200px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.semi-circle svg {
+  width: 100%;        /* ← svg scales with the wrapper */
+  height: 100%;
+}
+
+.semi-text {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.semi-value {
+  font-size: 40px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.semi-unit {
+  font-size: 11px;
+  color: #888;
+  margin-top: 2px;
+}

@@ -1,0 +1,15 @@
+.workouts-description {
+  color: #8B5CF6;
+  font-size: 12px;
+}
+
+.muscle-section {
+  margin: 16px 0;
+}
+
+.muscle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 5px;
+}

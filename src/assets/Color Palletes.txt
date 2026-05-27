@@ -1,0 +1,44 @@
+Here are all the colors used in the hero banner design:
+
+
+Primary purple:
+css#7C3AED   /* main purple — hero background, center nav button */
+#6D28D9   /* dark purple — hero glow circle 1 */
+#8B5CF6   /* mid purple — hero glow circle 2, active nav icon */
+
+
+Light purple:
+css#EDE9FE   /* very light purple — search icon background */
+#E9E4FF   /* border color — stat cards, workout card */
+Page background:
+css#F5F3FF   /* lightest purple tint — app background */
+Dark nav:
+css#1E1128   /* very dark purple — bottom nav background */
+
+
+Text:
+css#1a1a1a   /* near black — primary text */
+#888      /* gray — secondary text, units */
+Hero internals:
+cssrgba(255, 255, 255, 0.2)    /* tag background */
+rgba(255, 255, 255, 0.75)   /* subtitle text */
+rgba(255, 255, 255, 0.65)   /* stat label text */
+rgba(255, 255, 255, 0.3)    /* divider line */
+#ffffff                      /* stat values, title */
+
+
+Cards:
+css#ffffff   /* card background */
+Full palette as CSS variables you can drop into :root:
+css:root {
+  --primary:        #7C3AED;
+  --primary-dark:   #6D28D9;
+  --primary-mid:    #8B5CF6;
+  --primary-light:  #EDE9FE;
+  --primary-border: #E9E4FF;
+  --primary-bg:     #F5F3FF;
+  --nav-dark:       #1E1128;
+  --text-primary:   #1a1a1a;
+  --text-secondary: #888888;
+  --card-bg:        #ffffff;
+}
