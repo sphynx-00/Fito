@@ -118,12 +118,13 @@ export function saveWorkoutHistory(workoutName, exercises) {
 
   saveToStorage(completedWorkout);
 
-  console.log(completedWorkout);
+  console.log(completedWorkout.day);
 }
 
 function saveToStorage(completedWorkout) {
-  const existing = JSON.parse(localStorage.getItem('completedWorkout') || '[]');
+  const existing = loadFromStorage();
   const updated  = [completedWorkout, ...existing];
+
   localStorage.setItem('completedWorkout', JSON.stringify(updated));
 }
 

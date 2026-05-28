@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { completedWorkouts } from '../../models/completedWorkouts';
+import { loadFromStorage } from '../../models/completedWorkouts';
 import HistoryCard from './components/HistoryCard';
 import Filter from './components/Filter';
 import './History.css';
@@ -9,6 +10,11 @@ const FILTERS = ['All', 'This week', 'Last week'];
 
 function History() {
   const [selectedFilter, setSelectedFilter] = useState('All');
+  const [workoutHistory, setWorkoutHistory] = useState(() => {
+    return loadFromStorage();
+  });
+
+
 
   return (
     <main className='history-content'>
@@ -47,14 +53,16 @@ function History() {
        </nav>
 
        <section className='history-cards'>
-        {completedWorkouts && completedWorkouts
+        {workoutHistory && workoutHistory
         .filter(w => w.name !== 'Recovery')
-        .map((completedWorkout) => (
+        .map((workout) => (
           <HistoryCard 
-            key={completedWorkout.id}
-            workoutName={completedWorkout.name}
-            completedExercises={completedWorkout.exercises.length}
-            exercises={completedWorkout.exercises}
+            key={workout.id}
+            workoutName={workout.name}
+            completedExercises={workout.exercises.length}
+            exercises={workout.exercises}
+            day={workout.day}
+            month={workout.month}
           />
         ))}
           

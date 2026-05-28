@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './HistoryCard.css';
 
-function HistoryCard({ workoutName, completedExercises, exercises }) {
+function HistoryCard({ day, month, workoutName, completedExercises, exercises }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -10,8 +10,8 @@ function HistoryCard({ workoutName, completedExercises, exercises }) {
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <time className="history-date-badge" dateTime="2026-04-28">
-          <span className="history-day">21</span>
-          <span className="history-month">MAY</span>
+          <span className="history-day">{day}</span>
+          <span className="history-month">{month}</span>
         </time>
 
         <div className="history-info">
