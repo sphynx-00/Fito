@@ -2,8 +2,12 @@ import ExerciseRow from "./ExerciseRow";
 import recovery from "../../../assets/recover1.svg";
 import './TodaysWorkout.css';
 import { saveWorkoutHistory } from "../../../models/completedWorkouts";
+import { useState } from "react";
+import CompletedState from "./CompletedState";
 
 function TodaysWorkout({ workoutName, exercises, completedList, handleToggle }) {
+  const [isCompleted, setIsCompleted] = useState(false);
+
   const totalExercises = completedList.length;
   const completedExercises = completedList.filter(c => c === true).length;
   const isRecovery = workoutName === 'Recovery';
@@ -22,6 +26,10 @@ function TodaysWorkout({ workoutName, exercises, completedList, handleToggle }) 
     return 'badge-pending';
   };
 
+  const handleComplete = (workoutName, exercises) => {
+    saveWorkoutHistory(workoutName, exercises);
+    setIsCompleted(true);
+  }
 
   return (
     <div>
@@ -32,7 +40,11 @@ function TodaysWorkout({ workoutName, exercises, completedList, handleToggle }) 
           <span className={`badge ${getBadgeClass()}`}>{getBadgeStatus()}</span>
         </div>
 
-          {isRecovery ? (
+          {isCompleted ? (
+            <CompletedState 
+              workoutName={workoutName}
+            />
+          ) : isRecovery ? (
             <div className="recovery-state">
               <span className="recovery-icon">
                 <img
@@ -58,9 +70,9 @@ function TodaysWorkout({ workoutName, exercises, completedList, handleToggle }) 
             ))
           )}
 
-          {completedExercises === totalExercises && totalExercises > 0 && (
+          {!isCompleted && completedExercises === totalExercises && totalExercises > 0 && (
             <button className="complete-btn"
-              onClick={() => saveWorkoutHistory(workoutName, exercises)}
+              onClick={() => handleComplete(workoutName, exercises)}
             >
               Workout Complete!
             </button>
