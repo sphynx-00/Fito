@@ -6,30 +6,33 @@ import { useState } from "react";
 import CompletedState from "./CompletedState";
 
 function TodaysWorkout({ workoutName, exercises, completedList, handleToggle }) {
-  const [isCompleted, setIsCompleted] = useState(false);
+const [isCompleted, setIsCompleted] = useState(() => {
+  return JSON.parse(localStorage.getItem('isCompleted') || 'false');
+});
 
-  const totalExercises = completedList.length;
-  const completedExercises = completedList.filter(c => c === true).length;
-  const isRecovery = workoutName === 'Recovery';
+const totalExercises = completedList.length;
+const completedExercises = completedList.filter(c => c === true).length;
+const isRecovery = workoutName === 'Recovery';
 
-  const getBadgeStatus = () => {
-    if (isRecovery) return null
-    if (completedExercises === totalExercises && totalExercises > 0) return 'Done'
-    if (completedExercises > 0) return 'In Progress'
-    return 'Pending';
-  };
+const getBadgeStatus = () => {
+  if (isRecovery) return null
+  if (completedExercises === totalExercises && totalExercises > 0) return 'Done'
+  if (completedExercises > 0) return 'In Progress'
+  return 'Pending';
+};
 
-  const getBadgeClass = () => {
-    if (isRecovery) return '';
-    if (completedExercises === totalExercises && totalExercises > 0) return 'badge-done'
-    if (completedExercises > 0) return 'badge-progress'
-    return 'badge-pending';
-  };
+const getBadgeClass = () => {
+  if (isRecovery) return '';
+  if (completedExercises === totalExercises && totalExercises > 0) return 'badge-done'
+  if (completedExercises > 0) return 'badge-progress'
+  return 'badge-pending';
+};
 
-  const handleComplete = (workoutName, exercises) => {
-    saveWorkoutHistory(workoutName, exercises);
-    setIsCompleted(true);
-  }
+const handleComplete = (workoutName, exercises) => {
+  saveWorkoutHistory(workoutName, exercises);
+  setIsCompleted(true);
+  localStorage.setItem('isCompleted', 'true');
+}
 
   return (
     <div>

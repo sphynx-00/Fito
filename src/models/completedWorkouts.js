@@ -117,8 +117,6 @@ export function saveWorkoutHistory(workoutName, exercises) {
   };
 
   saveToStorage(completedWorkout);
-
-  console.log(completedWorkout.day);
 }
 
 function saveToStorage(completedWorkout) {

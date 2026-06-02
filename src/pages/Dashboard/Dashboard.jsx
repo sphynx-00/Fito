@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { programs } from "../../models/program";
 import { getWorkoutStats, getTodayWithGreeting } from "../../utils/workoutUtils";
 import StatCard from "../Dashboard/components/StatCard";
@@ -10,9 +10,24 @@ import './Dashboard.css';
 function Dashboard() {
 const { todaysWorkout, total, completed, percentage, } = getWorkoutStats(programs);
 
-const [completedList, setCompletedList] = useState(
-  todaysWorkout.exercises ? todaysWorkout.exercises.map(e => e.completed) : []
-);
+// function for Today's workout
+const [completedList, setCompletedList] = useState(() => {
+  const saved = JSON.parse(localStorage.getItem('completedList') || '[]');
+
+  if (saved.length === 0) {
+   // Will change this with a proper message or UI if it is newly opened
+    return todaysWorkout?.exercises 
+      ? todaysWorkout.exercises.map(e => e.completed) 
+      : [];
+  }
+
+  return saved;
+});
+
+useEffect(() => {
+  localStorage.setItem('completedList', JSON.stringify(completedList));
+}, [completedList]);
+// function for Today's workout
 
 const handleToggle = (index) => {
   const updated = [...completedList];
