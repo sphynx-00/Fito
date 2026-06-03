@@ -28,10 +28,14 @@ const getBadgeClass = () => {
   return 'badge-pending';
 };
 
-const handleComplete = (workoutName, exercises) => {
-  saveWorkoutHistory(workoutName, exercises);
-  setIsCompleted(true);
+const handleComplete = () => {
+  localStorage.setItem('completedList', JSON.stringify(completedList));
+
   localStorage.setItem('isCompleted', 'true');
+
+  saveWorkoutHistory(workoutName, exercises);
+
+  setIsCompleted(true);
 }
 
   return (

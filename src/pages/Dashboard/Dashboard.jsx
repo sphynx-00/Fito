@@ -12,21 +12,31 @@ const { todaysWorkout, total, completed, percentage, } = getWorkoutStats(program
 
 // function for Today's workout
 const [completedList, setCompletedList] = useState(() => {
+  const today = new Date().toISOString().split('T')[0];
+  const savedDate = localStorage.getItem('workoutDate');
+  
+  if (savedDate !== today) {
+    localStorage.setItem('workoutDate', today);
+    localStorage.setItem('completedList', '[]');
+    localStorage.setItem('isCompleted', false);
+    return todaysWorkout?.exercises?.map(() => false) || [];
+  }
+  
+
   const saved = JSON.parse(localStorage.getItem('completedList') || '[]');
 
-  if (saved.length === 0) {
+  if (saved.length > 0) {
    // Will change this with a proper message or UI if it is newly opened
-    return todaysWorkout?.exercises 
-      ? todaysWorkout.exercises.map(e => e.completed) 
-      : [];
+    return saved;
   }
 
-  return saved;
+  return todaysWorkout?.exercises?.map(() => false) || []
 });
 
 useEffect(() => {
-  localStorage.setItem('completedList', JSON.stringify(completedList));
-}, [completedList]);
+    localStorage.setItem('completedList', JSON.stringify(completedList));
+  }, [completedList]);
+
 // function for Today's workout
 
 const handleToggle = (index) => {
@@ -53,7 +63,7 @@ const { date, greeting } = getTodayWithGreeting();
           total={total}
           percentage={percentage}
          />
-        <HeroBanner 
+        <HeroBanner
           workoutName={todaysWorkout?.name}
           exercises={todaysWorkout?.exercises?.length}
           completedExercises={completedExercises}
