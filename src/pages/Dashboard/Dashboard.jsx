@@ -8,7 +8,7 @@ import HeroBanner from "../Dashboard/components/HeroBanner";
 import './Dashboard.css';
 
 function Dashboard() {
-const { todaysWorkout, total, completed, percentage, } = getWorkoutStats(programs);
+const { todaysWorkout, total, completed, percentage } = getWorkoutStats(programs);
 
 // function for Today's workout
 const [completedList, setCompletedList] = useState(() => {
@@ -20,17 +20,15 @@ const [completedList, setCompletedList] = useState(() => {
     localStorage.setItem('completedList', '[]');
     localStorage.setItem('isCompleted', false);
     return todaysWorkout?.exercises?.map(() => false) || [];
+  // Will change this with a proper message or UI if it is newly opened //
   }
   
 
   const saved = JSON.parse(localStorage.getItem('completedList') || '[]');
 
   if (saved.length > 0) {
-   // Will change this with a proper message or UI if it is newly opened
     return saved;
   }
-
-  return todaysWorkout?.exercises?.map(() => false) || []
 });
 
 useEffect(() => {
