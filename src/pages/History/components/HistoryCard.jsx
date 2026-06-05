@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './HistoryCard.css';
 
-function HistoryCard({ day, month, workoutName, completedExercises, exercises }) {
+function HistoryCard({ day, month, workoutName, completedExercises, exercises, onclick }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -35,7 +35,9 @@ function HistoryCard({ day, month, workoutName, completedExercises, exercises })
             </div>
           ))}
 
-          <button className="delete-btn">
+          <button className="delete-btn"
+            onClick={onclick}
+          >
             Delete
           </button>
         </div>

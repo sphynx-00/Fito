@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { completedWorkouts } from '../../models/completedWorkouts';
+import { useState } from 'react';
 import { loadFromStorage } from '../../models/completedWorkouts';
 import HistoryCard from './components/HistoryCard';
 import Filter from './components/Filter';
@@ -14,7 +13,12 @@ function History() {
     return loadFromStorage();
   });
 
+const handleDelete = (workoutId) => {
+  const updatedWorkoutHistory = workoutHistory.filter(w => w.id !== workoutId);
+  setWorkoutHistory(updatedWorkoutHistory);
 
+  localStorage.setItem('completedWorkout', JSON.stringify(updatedWorkoutHistory));
+}
 
   return (
     <main className='history-content'>
@@ -63,6 +67,7 @@ function History() {
             exercises={workout.exercises}
             day={workout.day}
             month={workout.month}
+            onclick={() => handleDelete(workout.id)}
           />
         ))}
           
