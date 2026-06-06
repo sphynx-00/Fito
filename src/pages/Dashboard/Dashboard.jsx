@@ -29,6 +29,8 @@ const [completedList, setCompletedList] = useState(() => {
   if (saved.length > 0) {
     return saved;
   }
+
+  return todaysWorkout?.exercises?.map(() => false) || [];
 });
 
 useEffect(() => {

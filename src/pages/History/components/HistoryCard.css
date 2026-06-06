@@ -8,6 +8,7 @@
   gap: 12px;
   cursor: pointer;
   margin-top: 5px;
+  
 }
 
 
@@ -16,9 +17,6 @@
   background: #F5F3FF;
 }
 
-/* .history-card:active {
-  transform: scale(0.98);
-} */
 
 .history-card.open {
   border-color: #7C3AED;
@@ -115,6 +113,7 @@
   align-items: center;
   padding: 8px 0;
   border-bottom: 2px solid #F5F3FF;
+  
 }
 
 .history-ex-row:last-child { border-bottom: none; }

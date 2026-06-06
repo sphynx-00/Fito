@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { loadFromStorage } from '../../models/completedWorkouts';
 import HistoryCard from './components/HistoryCard';
 import Filter from './components/Filter';
+import DeleteModal from './components/DeleteModal';
 import './History.css';
+
 
 
 const FILTERS = ['All', 'This week', 'Last week'];
@@ -14,10 +16,10 @@ function History() {
   });
 
 const handleDelete = (workoutId) => {
-  const updatedWorkoutHistory = workoutHistory.filter(w => w.id !== workoutId);
-  setWorkoutHistory(updatedWorkoutHistory);
+  // const updatedWorkoutHistory = workoutHistory.filter(w => w.id !== workoutId);
+  // setWorkoutHistory(updatedWorkoutHistory);
 
-  localStorage.setItem('completedWorkout', JSON.stringify(updatedWorkoutHistory));
+  // localStorage.setItem('completedWorkout', JSON.stringify(updatedWorkoutHistory));
 }
 
   return (
@@ -70,11 +72,7 @@ const handleDelete = (workoutId) => {
             onclick={() => handleDelete(workout.id)}
           />
         ))}
-          
-
-
        </section>
-
     </main>
   );
 }
