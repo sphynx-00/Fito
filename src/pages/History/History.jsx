@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { loadFromStorage } from '../../models/completedWorkouts';
 import HistoryCard from './components/HistoryCard';
 import Filter from './components/Filter';
 import DeleteModal from './components/DeleteModal';
 import './History.css';
-
+import Toast from './components/Toast';
 
 
 const FILTERS = ['All', 'This week', 'Last week'];
@@ -15,12 +15,40 @@ function History() {
     return loadFromStorage();
   });
 
-const handleDelete = (workoutId) => {
-  // const updatedWorkoutHistory = workoutHistory.filter(w => w.id !== workoutId);
-  // setWorkoutHistory(updatedWorkoutHistory);
+// Delete functions   
+  const [showModal, setShowModal] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [selectedWorkout, setSelectedWorkout] = useState(null);
 
-  // localStorage.setItem('completedWorkout', JSON.stringify(updatedWorkoutHistory));
-}
+  const handleDelete = (workout) => {
+    setSelectedWorkout(workout);
+    setShowModal(true);
+  }
+
+  const handleCancel = () => {
+    setShowModal(false);
+  }
+
+  const handleConfirmDelete = () => {
+    const workoutId = selectedWorkout.id
+    const updatedWorkoutHistory = workoutHistory.filter(w => w.id !== workoutId);
+    setWorkoutHistory(updatedWorkoutHistory);
+    localStorage.setItem('completedWorkout', JSON.stringify(updatedWorkoutHistory));
+
+    setShowModal(false);
+    setShowToast(true);
+  }
+
+  useEffect(() => {
+    if (showToast) {
+      const timer = setTimeout(() => {
+        setShowToast(false);
+      }, 30000);                    // ← 3 seconds
+
+      return () => clearTimeout(timer);  // ← cleanup
+    }
+  }, [showToast]);
+// Delete functions 
 
   return (
     <main className='history-content'>
@@ -69,10 +97,26 @@ const handleDelete = (workoutId) => {
             exercises={workout.exercises}
             day={workout.day}
             month={workout.month}
-            onclick={() => handleDelete(workout.id)}
+            onclick={() => handleDelete(workout)}
           />
         ))}
        </section>
+
+       {showModal && (
+          <DeleteModal
+            onCancel={() => handleCancel()}
+            onConfirm={() => handleConfirmDelete()}
+            workoutName={selectedWorkout.name}
+          />
+        )}
+
+        {showToast && (
+          <Toast 
+            message="Workout deleted"
+            sub={`${selectedWorkout.name} has been removed from history`}
+            onClose={() => setShowToast(false)}
+           />
+        )}
     </main>
   );
 }

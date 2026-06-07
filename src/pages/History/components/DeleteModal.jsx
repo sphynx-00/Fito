@@ -1,6 +1,7 @@
 import './DeleteModal.css';
 
 function DeleteModal({ workoutName, onConfirm, onCancel }) {
+
   return (
     <div className="modal-overlay">
       <div className="modal">
