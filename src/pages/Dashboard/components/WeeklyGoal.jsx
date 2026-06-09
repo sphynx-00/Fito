@@ -5,7 +5,7 @@ const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 function WeeklyGoal({ program, completed, total, percentage }) {
   const today = new Date();
-  const startOfWeek = getStartOfWeek();
+  const startOfWeek = getStartOfWeek(today);
 
   return (
     <div className="weekly-card">

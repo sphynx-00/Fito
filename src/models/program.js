@@ -242,8 +242,8 @@ export const programs = [{
 //   {
 //     id: 1,
 //     name: 'Upper',
-//     date: '2026-06-04',
-//     day: '4',
+//     date: '2026-06-09',
+//     day: '9',
 //     month: 'JUN',
 //     status: 'Done',
 //     exercises: [
@@ -256,66 +256,66 @@ export const programs = [{
 //   {
 //     id: 2,
 //     name: 'Lower',
-//     date: '2026-06-03',
-//     day: '3',
+//     date: '2026-06-08',
+//     day: '8',
 //     month: 'JUN',
 //     status: 'Done',
 //     exercises: [
-//       { name: 'Squat',               sets: 2, reps: 8 },
-//       { name: 'Leg Press',           sets: 2, reps: 8 },
-//       { name: 'Romanian Deadlift',   sets: 2, reps: 8 },
+//       { name: 'Squat',             sets: 2, reps: 8 },
+//       { name: 'Leg Press',         sets: 2, reps: 8 },
+//       { name: 'Romanian Deadlift', sets: 2, reps: 8 },
 //     ]
 //   },
 //   {
 //     id: 3,
 //     name: 'Push',
+//     date: '2026-06-07',
+//     day: '7',
+//     month: 'JUN',
+//     status: 'Done',
+//     exercises: [
+//       { name: 'Bench Press',   sets: 2, reps: 8 },
+//       { name: 'Pec Deck',      sets: 2, reps: 8 },
+//       { name: 'Lateral Raise', sets: 2, reps: 8 },
+//     ]
+//   },
+//   {
+//     id: 4,
+//     name: 'Pull',
+//     date: '2026-06-04',
+//     day: '4',
+//     month: 'JUN',
+//     status: 'Done',
+//     exercises: [
+//       { name: 'Lat Pulldown',  sets: 2, reps: 8 },
+//       { name: 'Machine Rows',  sets: 2, reps: 8 },
+//       { name: 'Preacher Curls',sets: 2, reps: 8 },
+//     ]
+//   },
+//   {
+//     id: 5,
+//     name: 'Legs',
+//     date: '2026-06-03',
+//     day: '3',
+//     month: 'JUN',
+//     status: 'Done',
+//     exercises: [
+//       { name: 'Deadlift',            sets: 2, reps: 8 },
+//       { name: 'Hamstring Leg Curls', sets: 2, reps: 8 },
+//       { name: 'Leg Extension',       sets: 2, reps: 8 },
+//     ]
+//   },
+//   {
+//     id: 6,
+//     name: 'Upper',
 //     date: '2026-06-02',
 //     day: '2',
 //     month: 'JUN',
 //     status: 'Done',
 //     exercises: [
-//       { name: 'Bench Press',         sets: 2, reps: 8 },
-//       { name: 'Pec Deck',            sets: 2, reps: 8 },
-//       { name: 'Lateral Raise',       sets: 2, reps: 8 },
-//     ]
-//   }, {
-//     id: 4,
-//     name: 'Upper',
-//     date: '2026-05-04',
-//     day: '4',
-//     month: 'MAY',
-//     status: 'Done',
-//     exercises: [
 //       { name: 'Incline Bench Press', sets: 2, reps: 8 },
 //       { name: 'Pec Deck',            sets: 2, reps: 8 },
-//       { name: 'Lateral Raise',       sets: 2, reps: 8 },
 //       { name: 'Weighted Pull Ups',   sets: 2, reps: 8 },
-//     ]
-//   },
-//   {
-//     id: 5,
-//     name: 'Lower',
-//     date: '2026-05-03',
-//     day: '3',
-//     month: 'MAY',
-//     status: 'Done',
-//     exercises: [
-//       { name: 'Squat',               sets: 2, reps: 8 },
-//       { name: 'Leg Press',           sets: 2, reps: 8 },
-//       { name: 'Romanian Deadlift',   sets: 2, reps: 8 },
-//     ]
-//   },
-//   {
-//     id: 6,
-//     name: 'Push',
-//     date: '2026-05-02',
-//     day: '2',
-//     month: 'MAY',
-//     status: 'Done',
-//     exercises: [
-//       { name: 'Bench Press',         sets: 2, reps: 8 },
-//       { name: 'Pec Deck',            sets: 2, reps: 8 },
-//       { name: 'Lateral Raise',       sets: 2, reps: 8 },
 //     ]
 //   },
 // ];

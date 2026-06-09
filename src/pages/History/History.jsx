@@ -5,6 +5,7 @@ import Filter from './components/Filter';
 import DeleteModal from './components/DeleteModal';
 import './History.css';
 import Toast from './components/Toast';
+import { getStartOfWeek } from '../../utils/workoutUtils';
 
 
 const FILTERS = ['All', 'This week', 'Last week'];
@@ -14,6 +15,44 @@ function History() {
   const [workoutHistory, setWorkoutHistory] = useState(() => {
     return loadFromStorage();
   });
+
+// Filter functions
+  // Boundaries
+  const today = new Date();
+  const startOfThisWeek = getStartOfWeek(today);
+
+  const startOfLastWeek = new Date(startOfThisWeek);
+  startOfLastWeek.setDate(startOfThisWeek.getDate() - 7);
+
+  const endOfLastWeek   = new Date(startOfThisWeek);
+  endOfLastWeek.setDate(startOfThisWeek.getDate() - 1);
+  endOfLastWeek.setHours(23, 59, 59, 999);
+
+  // Conditions
+
+  const getFilteredWorkouts = () => {
+    if (selectedFilter === 'All') return workoutHistory;
+
+    if (selectedFilter === 'This week') {
+      return workoutHistory.filter(w => {
+        const workoutDate = new Date(w.date);
+        return workoutDate >= startOfThisWeek && workoutDate <= today;
+      });
+    }
+
+    if (selectedFilter === 'Last week') {
+      return workoutHistory.filter(w => {
+        const workoutDate = new Date(w.date);
+        return workoutDate >= startOfLastWeek && workoutDate <= endOfLastWeek;
+      });
+    }
+
+     return workoutHistory;
+  }
+
+const filteredWorkouts = getFilteredWorkouts();
+
+// Filter functions
 
 // Delete functions   
   const [showModal, setShowModal] = useState(false);
@@ -43,7 +82,7 @@ function History() {
     if (showToast) {
       const timer = setTimeout(() => {
         setShowToast(false);
-      }, 30000);                    // ← 3 seconds
+      }, 3000);                    // ← 3 seconds
 
       return () => clearTimeout(timer);  // ← cleanup
     }
@@ -87,7 +126,7 @@ function History() {
        </nav>
 
        <section className='history-cards'>
-        {workoutHistory && workoutHistory
+        {filteredWorkouts
         .filter(w => w.name !== 'Recovery')
         .map((workout) => (
           <HistoryCard 

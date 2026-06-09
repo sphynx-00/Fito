@@ -8,6 +8,19 @@
   box-sizing: border-box;  /* important — prevents width overflow */
 }
 
+/* Removes the tap highlight on all elements */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Also removes touch callout & user select if you want a more native app feel */
+* {
+  -webkit-touch-callout: none;      /* disables iOS long-press menu */
+  -webkit-user-select: none;        /* prevents text selection */
+  user-select: none;
+}
+
 .app {
   display: flex;
   flex-direction: column;

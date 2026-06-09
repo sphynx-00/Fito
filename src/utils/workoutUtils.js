@@ -57,8 +57,8 @@ export function getPercentage(completed, total) {
   return Math.round((completed / total) * 100);
 }
 
-export function getStartOfWeek() {
-  const today = new Date();
+export function getStartOfWeek(date) {
+  const today = new Date(date);
   const dayOfWeek = today.getDay();
 
   const diff = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
