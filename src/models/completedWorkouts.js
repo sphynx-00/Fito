@@ -106,6 +106,7 @@ export function saveWorkoutHistory(workoutName, exercises) {
     id:        Date.now(),
     name:      workoutName,
     date:      today.toISOString().split('T')[0],
+    duration:  45,            // ← hardcode for now
     day:       today.getDate().toString(),
     month:     today.toLocaleString('default', { month: 'short' }).toUpperCase(),
     status:    'Done',

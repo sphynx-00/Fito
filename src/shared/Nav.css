@@ -1,14 +1,16 @@
 .nav-bottom {
   position: fixed;
   bottom:0px;
-  left:0px;
-  right:0px;
+  left: 50%;
+  transform: translateX(-50%);
   height: 50px;
   background: #fff;
   border-top: 0.5px solid #e0e0e0;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   z-index: 100;
+  width: 100%;
+  max-width: 430px;
 }
 
 .nav-item {
@@ -72,7 +74,7 @@
 }
 
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .nav-bottom { display: none; }
   .nav-icon { display: none; }
   
@@ -98,4 +100,4 @@
     padding: 10px 16px;
     align-items: baseline;
   }
-}
+} */

@@ -7,8 +7,10 @@ import WeeklyGoal from "../Dashboard/components/WeeklyGoal";
 import HeroBanner from "../Dashboard/components/HeroBanner";
 import './Dashboard.css';
 
+
 function Dashboard() {
 const { todaysWorkout, total, completed, percentage } = getWorkoutStats(programs);
+
 
 // function for Today's workout
 const [completedList, setCompletedList] = useState(() => {
