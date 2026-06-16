@@ -1,6 +1,6 @@
 import './HeroBanner.css';
 
-function HeroBanner({workoutName, exercises, completedExercises, totalExercises, percentage}) {
+function HeroBanner({workoutName, exercises, completedExercises, totalExercises, percentage, weekStreak}) {
   return (
     <section className="hero-banner">
       {/* decorative circles */}
@@ -29,7 +29,7 @@ function HeroBanner({workoutName, exercises, completedExercises, totalExercises,
           <div className="hero-divider" />
 
           <div className="hero-stat">
-            <span className="hero-stat-value">3</span>
+            <span className="hero-stat-value">{weekStreak}</span>
             <span className="hero-stat-label">wk streak</span>
           </div>
 

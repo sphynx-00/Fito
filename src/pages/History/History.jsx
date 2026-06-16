@@ -6,7 +6,7 @@ import DeleteModal from './components/DeleteModal';
 import './History.css';
 import Toast from './components/Toast';
 import { getStartOfWeek } from '../../utils/workoutUtils';
-import { calculateWeekStreak, getFilteredBoundary, getFilteredWorkouts } from './historyUtils';
+import { calculateWeekStreak, getFilteredWorkouts } from './historyUtils';
 
 
 const FILTERS = ['All', 'This week', 'Last week'];
@@ -21,7 +21,7 @@ function History() {
   const totalHours = workoutHistory.reduce((total, w) => total + (w.duration || 45), 0) / 60;
   const weekStreak = calculateWeekStreak(getStartOfWeek, workoutHistory);
 
-  const filteredBoundary = getFilteredBoundary(getStartOfWeek);
+ 
   const filteredWorkouts = getFilteredWorkouts(selectedFilter, workoutHistory);
 
 // Filter functions

@@ -1,8 +1,6 @@
 import { getStartOfWeek } from "../../utils/workoutUtils";
 
 export function calculateWeekStreak(getStartOfWeek, workoutHistory) {
-  console.log(workoutHistory);
-
   if (workoutHistory.length === 0) return 0;
 
   // Step 1 — get unique weeks from workout history
