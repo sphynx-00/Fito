@@ -1,6 +1,12 @@
+import { loadFromStorage } from '../../models/completedWorkouts';
+import { progressStats } from '../../utils/progressStats';
+import { getStartOfWeek } from '../../utils/workoutUtils';
 import './Profile.css';
 
 function Profile() {
+  const workoutHistory = loadFromStorage();
+  const { totalWorkouts, totalHours, weekStreak } = progressStats(workoutHistory, getStartOfWeek);
+
   return (
     <main className="profile-page">
 
@@ -15,15 +21,15 @@ function Profile() {
       {/* lifetime stats */}
       <section className="profile-stats" aria-label="Lifetime stats">
         <div className="profile-stat">
-          <span className="profile-stat-value">24</span>
+          <span className="profile-stat-value">{totalWorkouts}</span>
           <span className="profile-stat-label">Workouts</span>
         </div>
         <div className="profile-stat">
-          <span className="profile-stat-value">18h</span>
+          <span className="profile-stat-value">{totalHours}h</span>
           <span className="profile-stat-label">Total time</span>
         </div>
         <div className="profile-stat">
-          <span className="profile-stat-value">4</span>
+          <span className="profile-stat-value">{weekStreak}</span>
           <span className="profile-stat-label">Wk streak</span>
         </div>
       </section>

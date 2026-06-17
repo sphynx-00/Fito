@@ -6,7 +6,8 @@ import DeleteModal from './components/DeleteModal';
 import './History.css';
 import Toast from './components/Toast';
 import { getStartOfWeek } from '../../utils/workoutUtils';
-import { calculateWeekStreak, getFilteredWorkouts } from './historyUtils';
+import { getFilteredWorkouts } from './historyUtils';
+import { progressStats } from '../../utils/progressStats';
 
 
 const FILTERS = ['All', 'This week', 'Last week'];
@@ -17,11 +18,8 @@ function History() {
     return loadFromStorage();
   });
 
-  const totalWorkouts = workoutHistory.length;
-  const totalHours = workoutHistory.reduce((total, w) => total + (w.duration || 45), 0) / 60;
-  const weekStreak = calculateWeekStreak(getStartOfWeek, workoutHistory);
+  const { totalWorkouts, totalHours, weekStreak } = progressStats(workoutHistory, getStartOfWeek);
 
- 
   const filteredWorkouts = getFilteredWorkouts(selectedFilter, workoutHistory);
 
 // Filter functions
