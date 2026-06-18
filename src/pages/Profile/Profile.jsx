@@ -1,11 +1,20 @@
+import { useState } from 'react';
 import { loadFromStorage } from '../../models/completedWorkouts';
 import { progressStats } from '../../utils/progressStats';
 import { getStartOfWeek } from '../../utils/workoutUtils';
 import './Profile.css';
+import EditMetricsModal from './EditMetricsModal';
+import { defaultUser } from '../../models/userModel';
 
 function Profile() {
   const workoutHistory = loadFromStorage();
   const { totalWorkouts, totalHours, weekStreak } = progressStats(workoutHistory, getStartOfWeek);
+
+  const [isEditingBodyMetrics, setIsEditingBodyMetrics] = useState(false);
+  const editBodyMetrics = () => {
+    setIsEditingBodyMetrics(true);
+  }
+
 
   return (
     <main className="profile-page">
@@ -49,7 +58,9 @@ function Profile() {
         <section className="profile-section" aria-label="Body metrics">
           <div className="section-header">
             <h2 className="section-title">Body metrics</h2>
-            <button className="section-edit">Edit</button>
+            <button className="section-edit"
+              onClick={editBodyMetrics}
+            >Edit</button>
           </div>
           <dl className="info-list">
             <div className="info-row">
@@ -125,6 +136,13 @@ function Profile() {
 
         {/* logout */}
         <button className="logout-btn">Log out</button>
+
+        {isEditingBodyMetrics &&
+          <EditMetricsModal
+            user={defaultUser}
+            onCancel={() => setIsEditingBodyMetrics(false)}
+           />
+        }
 
       </div>
 
