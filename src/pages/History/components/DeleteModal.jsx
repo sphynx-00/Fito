@@ -3,23 +3,23 @@ import './DeleteModal.css';
 function DeleteModal({ workoutName, onConfirm, onCancel }) {
 
   return (
-    <div className="modal-overlay">
-      <div className="modal">
+    <div className="delete-modal-overlay">
+      <div className="delete-modal">
 
-        <div className="modal-icon">🗑️</div>
+        <div className="delete-modal-icon">🗑️</div>
 
-        <h2 className="modal-title">Delete workout?</h2>
+        <h2 className="delete-modal-title">Delete workout?</h2>
 
-        <p className="modal-desc">
+        <p className="delete-modal-desc">
           This will permanently remove your {workoutName} workout
           from history. This cannot be undone.
         </p>
 
-        <div className="modal-actions">
-          <button className="modal-cancel" onClick={onCancel}>
+        <div className="delete-modal-actions">
+          <button className="delete-modal-cancel" onClick={onCancel}>
             Cancel
           </button>
-          <button className="modal-delete" onClick={onConfirm}>
+          <button className="delete-modal-delete" onClick={onConfirm}>
             Delete
           </button>
         </div>

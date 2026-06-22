@@ -1,5 +1,5 @@
 /* ── modal overlay ── */
-.modal-overlay {
+.delete-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@
 }
 
 /* ── modal box ── */
-.modal {
+.delete-modal {
   background: #fff;
   border-radius: 16px;
   padding: 24px;
@@ -25,7 +25,7 @@
   text-align: center;
 }
 
-.modal-icon {
+.delete-modal-icon {
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -36,28 +36,28 @@
   font-size: 22px;
 }
 
-.modal-title {
+.delete-modal-title {
   font-size: 16px;
   font-weight: 500;
   color: #1a1a1a;
   margin: 0;
 }
 
-.modal-desc {
+.delete-modal-desc {
   font-size: 12px;
   color: #888;
   margin: 0;
   line-height: 1.6;
 }
 
-.modal-actions {
+.delete-modal-actions {
   display: flex;
   gap: 8px;
   width: 100%;
   margin-top: 4px;
 }
 
-.modal-cancel {
+.delete-modal-cancel {
   flex: 1;
   padding: 10px;
   border-radius: 10px;
@@ -70,11 +70,11 @@
   transition: background 0.2s ease;
 }
 
-.modal-cancel:hover {
+.delete-modal-cancel:hover {
   background: #F5F3FF;
 }
 
-.modal-delete {
+.delete-modal-delete {
   flex: 1;
   padding: 10px;
   border-radius: 10px;
@@ -87,5 +87,5 @@
   transition: background 0.2s ease;
 }
 
-.modal-delete:hover  { background: #DC2626; }
-.modal-delete:active { transform: scale(0.97); }
+.delete-modal-delete:hover  { background: #DC2626; }
+.delete-modal-delete:active { transform: scale(0.97); }

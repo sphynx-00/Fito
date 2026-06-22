@@ -1,6 +1,30 @@
+import { useState } from 'react';
 import './EditMetricsModal.css';
+import { saveUser } from './profileUtils';
 
-function EditMetricsModal({ user, onSave, onCancel }) {
+function EditMetricsModal({ user, onCancel, onSave }) {
+  const [formData, setFormData] = useState({
+    age:           user?.age           ?? '',
+    height:        user?.height        ?? '',
+    weight:        user?.weight        ?? '',
+    goalWeight:    user?.goalWeight    ?? '',
+    dailyCalories: user?.dailyCalories ?? '',
+    fitnessGoal:   user?.fitnessGoal   ?? 'build-muscle',
+});
+
+  const handleChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value
+    });
+  };
+
+  const saveChanges = () => {
+    saveUser(formData);
+    onSave();
+    console.log(formData);
+  }
+
   return (
     <div className="modal-overlay">
       <div className="modal">
@@ -18,10 +42,12 @@ function EditMetricsModal({ user, onSave, onCancel }) {
             <label className="form-label" htmlFor="age">Age</label>
             <div className="form-input-wrap">
               <input
+                onChange={handleChange}
                 id="age"
+                name="age"
                 className="form-input"
                 type="number"
-                defaultValue={user.age}
+                value={formData.age}
               />
               <span className="form-unit">yrs</span>
             </div>
@@ -33,10 +59,12 @@ function EditMetricsModal({ user, onSave, onCancel }) {
               <label className="form-label" htmlFor="height">Height</label>
               <div className="form-input-wrap">
                 <input
+                  onChange={handleChange}
                   id="height"
+                  name="height"
                   className="form-input"
                   type="number"
-                  defaultValue={user.height}
+                  value={formData.height}
                 />
                 <span className="form-unit">cm</span>
               </div>
@@ -46,10 +74,12 @@ function EditMetricsModal({ user, onSave, onCancel }) {
               <label className="form-label" htmlFor="weight">Weight</label>
               <div className="form-input-wrap">
                 <input
+                  onChange={handleChange}
                   id="weight"
+                  name="weight"
                   className="form-input"
                   type="number"
-                  defaultValue={user.weight}
+                  value={formData.weight}
                 />
                 <span className="form-unit">kg</span>
               </div>
@@ -62,10 +92,12 @@ function EditMetricsModal({ user, onSave, onCancel }) {
               <label className="form-label" htmlFor="goalWeight">Goal weight</label>
               <div className="form-input-wrap">
                 <input
+                  onChange={handleChange}
                   id="goalWeight"
+                  name="goalWeight"
                   className="form-input"
                   type="number"
-                  defaultValue={user.goalWeight}
+                  value={formData.goalWeight}
                 />
                 <span className="form-unit">kg</span>
               </div>
@@ -75,10 +107,12 @@ function EditMetricsModal({ user, onSave, onCancel }) {
               <label className="form-label" htmlFor="dailyCalories">Daily cal</label>
               <div className="form-input-wrap">
                 <input
+                  onChange={handleChange}
                   id="dailyCalories"
+                  name="dailyCalories"
                   className="form-input"
                   type="number"
-                  defaultValue={user.dailyCalories}
+                  value={formData.dailyCalories}
                 />
                 <span className="form-unit">kcal</span>
               </div>
@@ -90,9 +124,11 @@ function EditMetricsModal({ user, onSave, onCancel }) {
             <label className="form-label" htmlFor="fitnessGoal">Fitness goal</label>
             <div className="form-input-wrap">
               <select
+                onChange={handleChange}
                 id="fitnessGoal"
+                name="fitnessGoal"
                 className="form-select"
-                defaultValue={user.fitnessGoal}
+                value={formData.fitnessGoal}
               >
                 <option value="build-muscle">Build Muscle</option>
                 <option value="lose-weight">Lose Weight</option>
@@ -106,7 +142,7 @@ function EditMetricsModal({ user, onSave, onCancel }) {
         {/* footer */}
         <div className="modal-footer">
           <button className="btn-cancel" onClick={onCancel}>Cancel</button>
-          <button className="btn-save"   onClick={onSave}>Save changes</button>
+          <button className="btn-save"   onClick={() => saveChanges()}>Save changes</button>
         </div>
 
       </div>

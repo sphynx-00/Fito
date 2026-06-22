@@ -1,9 +1,10 @@
 import { defaultUser } from "../../models/userModel";
 
-export function saveUser() {
-  localStorage.setItem('user', JSON.stringify(defaultUser));
+export function saveUser(formData) {
+  localStorage.setItem('user', JSON.stringify(formData));
 }
 
 export function loadUser() {
-  return JSON.parse(localStorage.getItem('user'));
+  const saved = JSON.parse(localStorage.getItem('user') || 'null');
+  return saved || defaultUser;
 }

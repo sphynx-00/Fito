@@ -4,7 +4,7 @@ import { progressStats } from '../../utils/progressStats';
 import { getStartOfWeek } from '../../utils/workoutUtils';
 import './Profile.css';
 import EditMetricsModal from './EditMetricsModal';
-import { defaultUser } from '../../models/userModel';
+import { loadUser } from './profileUtils';
 
 function Profile() {
   const workoutHistory = loadFromStorage();
@@ -15,7 +15,9 @@ function Profile() {
     setIsEditingBodyMetrics(true);
   }
 
+  const [user, setUser] = useState(() => loadUser);
 
+  
   return (
     <main className="profile-page">
 
@@ -139,8 +141,9 @@ function Profile() {
 
         {isEditingBodyMetrics &&
           <EditMetricsModal
-            user={defaultUser}
+            user={user}
             onCancel={() => setIsEditingBodyMetrics(false)}
+            onSave={() => setIsEditingBodyMetrics(false)}
            />
         }
 
