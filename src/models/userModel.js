@@ -14,9 +14,3 @@ export const defaultUser = {
   weeklyTarget:   5,          // days per week
   preferredUnit:  'kg',       // 'kg' | 'lbs'
 };
-
-export const fitnessGoals = [
-  { value: 'build-muscle',  label: 'Build Muscle'  },
-  { value: 'lose-weight',   label: 'Lose Weight'   },
-  { value: 'stay-active',   label: 'Stay Active'   },
-];

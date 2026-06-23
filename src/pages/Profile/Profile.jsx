@@ -15,8 +15,12 @@ function Profile() {
     setIsEditingBodyMetrics(true);
   }
 
-  const [user, setUser] = useState(() => loadUser);
-
+  const [user, setUser] = useState(() => loadUser());
+  
+  const handleSave = (updatedUser) => {
+    setUser(updatedUser);
+    setIsEditingBodyMetrics(false);
+  }
   
   return (
     <main className="profile-page">
@@ -51,7 +55,7 @@ function Profile() {
         <div className="goal-card">
           <div className="goal-icon">🎯</div>
           <div className="goal-info">
-            <p className="goal-title">Build Muscle</p>
+            <p className="goal-title">{user.fitnessGoal}</p>
             <p className="goal-desc">Your current fitness goal</p>
           </div>
         </div>
@@ -67,19 +71,19 @@ function Profile() {
           <dl className="info-list">
             <div className="info-row">
               <dt className="info-label">Age</dt>
-              <dd className="info-value">25 years</dd>
+              <dd className="info-value">{user.age} years</dd>
             </div>
             <div className="info-row">
               <dt className="info-label">Height</dt>
-              <dd className="info-value">175 cm</dd>
+              <dd className="info-value">{user.height} cm</dd>
             </div>
             <div className="info-row">
               <dt className="info-label">Weight</dt>
-              <dd className="info-value">72 kg</dd>
+              <dd className="info-value">{user.weight} kg</dd>
             </div>
             <div className="info-row">
               <dt className="info-label">Goal weight</dt>
-              <dd className="info-value">62 kg</dd>
+              <dd className="info-value">{user.goalWeight} kg</dd>
             </div>
           </dl>
         </section>
@@ -143,7 +147,7 @@ function Profile() {
           <EditMetricsModal
             user={user}
             onCancel={() => setIsEditingBodyMetrics(false)}
-            onSave={() => setIsEditingBodyMetrics(false)}
+            onSave={handleSave}
            />
         }
 

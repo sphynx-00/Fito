@@ -21,8 +21,7 @@ function EditMetricsModal({ user, onCancel, onSave }) {
 
   const saveChanges = () => {
     saveUser(formData);
-    onSave();
-    console.log(formData);
+    onSave(formData);
   }
 
   return (
@@ -142,7 +141,7 @@ function EditMetricsModal({ user, onCancel, onSave }) {
         {/* footer */}
         <div className="modal-footer">
           <button className="btn-cancel" onClick={onCancel}>Cancel</button>
-          <button className="btn-save"   onClick={() => saveChanges()}>Save changes</button>
+          <button className="btn-save"   onClick={saveChanges}>Save changes</button>
         </div>
 
       </div>
