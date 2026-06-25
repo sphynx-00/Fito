@@ -5,21 +5,27 @@ import { getStartOfWeek } from '../../utils/workoutUtils';
 import './Profile.css';
 import EditMetricsModal from './EditMetricsModal';
 import { loadUser } from './profileUtils';
+import EditProgramModal from './EditProgramModal';
 
 function Profile() {
   const workoutHistory = loadFromStorage();
   const { totalWorkouts, totalHours, weekStreak } = progressStats(workoutHistory, getStartOfWeek);
 
-  const [isEditingBodyMetrics, setIsEditingBodyMetrics] = useState(false);
+  const [isEditing, setIsEditing] = useState(null);
+
   const editBodyMetrics = () => {
-    setIsEditingBodyMetrics(true);
+    setIsEditing('metrics');
+  }
+
+  const editProgram = () => {
+    setIsEditing('program');
   }
 
   const [user, setUser] = useState(() => loadUser());
   
   const handleSave = (updatedUser) => {
     setUser(updatedUser);
-    setIsEditingBodyMetrics(false);
+    setIsEditing(null);
   }
   
   return (
@@ -92,7 +98,9 @@ function Profile() {
         <section className="profile-section" aria-label="Program info">
           <div className="section-header">
             <h2 className="section-title">Program</h2>
-            <button className="section-edit">Edit</button>
+            <button className="section-edit"
+              onClick={editProgram}
+            >Edit</button>
           </div>
           <dl className="info-list">
             <div className="info-row">
@@ -143,16 +151,24 @@ function Profile() {
         {/* logout */}
         <button className="logout-btn">Log out</button>
 
-        {isEditingBodyMetrics &&
+        {isEditing === 'metrics' && (
           <EditMetricsModal
             user={user}
-            onCancel={() => setIsEditingBodyMetrics(false)}
+            onCancel={() => setIsEditing(null)}
             onSave={handleSave}
            />
-        }
+        )}
+
+        {isEditing === 'program' && (
+          <EditProgramModal
+            user={user}
+            onCancel={() => setIsEditing(null)}
+           />
+        )}
+          
 
       </div>
-
+        
     </main>
   );
 }
