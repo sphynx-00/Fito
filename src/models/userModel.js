@@ -8,7 +8,7 @@ export const defaultUser = {
   dailyCalories:  1400,       // kcal
 
   // fitness goal
-  fitnessGoal:    'build-muscle',  // 'build-muscle' | 'lose-weight' | 'stay-active'
+  fitnessGoal:    'Build-Muscle',  // 'Build-Muscle' | 'Lose-Weight' | 'Stay-Active'
 
   // program
   weeklyTarget:   5,          // days per week

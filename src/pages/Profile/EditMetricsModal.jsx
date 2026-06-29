@@ -9,7 +9,7 @@ function EditMetricsModal({ user, onCancel, onSave }) {
     weight:        user?.weight        ?? '',
     goalWeight:    user?.goalWeight    ?? '',
     dailyCalories: user?.dailyCalories ?? '',
-    fitnessGoal:   user?.fitnessGoal   ?? 'build-muscle',
+    fitnessGoal:   user?.fitnessGoal   ?? 'Build-Muscle',
 });
 
   const handleChange = (event) => {

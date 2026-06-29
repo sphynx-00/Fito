@@ -1,6 +1,10 @@
+import { useState } from 'react';
+import { programs } from '../../models/program';
 import './EditProgramModal.css';
 
-function EditProgramModal({ user, programs, onSave, onCancel }) {
+function EditProgramModal({ onSave, onCancel }) {
+  const [selectedProgram, setSelectedProgram] = useState('UL/PPL');
+
   return (
     <div className="edit-program-overlay">
       <div className="edit-program-modal">
@@ -18,45 +22,27 @@ function EditProgramModal({ user, programs, onSave, onCancel }) {
           <div>
             <label className="form-label">Current Program</label>
             <div className="program-list">
-
-              <div className="program-item selected">
-                <div className="program-radio">
-                  <div className="program-radio-dot" />
+              {programs.map((program) => (
+                <div
+                  key={program.id}
+                  className={`program-item ${selectedProgram === program.title ? 'selected' : ''}`}
+                  onClick={() => setSelectedProgram(program.title)}
+                >
+                  <div className="program-radio">
+                    <div className="program-radio-dot" />
+                  </div>
+                  <div className="program-info">
+                    <p className="program-name">{program.title}</p>
+                    <p className="program-desc">{program.description}</p>
+                  </div>
+                  <span className="program-badge">{program.difficulty}</span>
                 </div>
-                <div className="program-info">
-                  <p className="program-name">UL/PPL</p>
-                  <p className="program-desc">Upper Lower Push Pull Legs</p>
-                </div>
-                <span className="program-badge">Intermediate</span>
-              </div>
-
-              <div className="program-item">
-                <div className="program-radio">
-                  <div className="program-radio-dot" />
-                </div>
-                <div className="program-info">
-                  <p className="program-name">Bro Split</p>
-                  <p className="program-desc">One muscle group per day</p>
-                </div>
-                <span className="program-badge">Beginner</span>
-              </div>
-
-              <div className="program-item">
-                <div className="program-radio">
-                  <div className="program-radio-dot" />
-                </div>
-                <div className="program-info">
-                  <p className="program-name">Full Body</p>
-                  <p className="program-desc">Train whole body every session</p>
-                </div>
-                <span className="program-badge">Beginner</span>
-              </div>
-
+              ))}
             </div>
           </div>
 
           {/* weekly target */}
-          <div>
+          {/* <div>
             <label className="form-label" htmlFor="weeklyTarget">Weekly Target</label>
             <div className="form-input-wrap">
               <select id="weeklyTarget" className="form-select">
@@ -66,7 +52,7 @@ function EditProgramModal({ user, programs, onSave, onCancel }) {
                 <option value="6">6 days per week</option>
               </select>
             </div>
-          </div>
+          </div> */}
 
           {/* start date */}
           <div>

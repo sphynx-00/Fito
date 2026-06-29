@@ -4,24 +4,17 @@ import { progressStats } from '../../utils/progressStats';
 import { getStartOfWeek } from '../../utils/workoutUtils';
 import './Profile.css';
 import EditMetricsModal from './EditMetricsModal';
-import { loadUser } from './profileUtils';
+import { loadUser, profileManager } from './profileUtils';
 import EditProgramModal from './EditProgramModal';
 
 function Profile() {
   const workoutHistory = loadFromStorage();
   const { totalWorkouts, totalHours, weekStreak } = progressStats(workoutHistory, getStartOfWeek);
 
+  const [user, setUser] = useState(() => loadUser());
   const [isEditing, setIsEditing] = useState(null);
 
-  const editBodyMetrics = () => {
-    setIsEditing('metrics');
-  }
-
-  const editProgram = () => {
-    setIsEditing('program');
-  }
-
-  const [user, setUser] = useState(() => loadUser());
+  const {editMetrics, editProgram} = profileManager(isEditing, setIsEditing);
   
   const handleSave = (updatedUser) => {
     setUser(updatedUser);
@@ -36,7 +29,7 @@ function Profile() {
         <button className="edit-btn">Edit</button>
         <div className="profile-avatar">👤</div>
         <h1 className="profile-name">Sean</h1>
-        <p className="profile-goal">Build muscle · Active</p>
+        <p className="profile-goal">{user.fitnessGoal} · Active</p>
       </header>
 
       {/* lifetime stats */}
@@ -71,7 +64,7 @@ function Profile() {
           <div className="section-header">
             <h2 className="section-title">Body metrics</h2>
             <button className="section-edit"
-              onClick={editBodyMetrics}
+              onClick={editMetrics}
             >Edit</button>
           </div>
           <dl className="info-list">
@@ -165,10 +158,8 @@ function Profile() {
             onCancel={() => setIsEditing(null)}
            />
         )}
-          
 
       </div>
-        
     </main>
   );
 }

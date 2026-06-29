@@ -8,3 +8,15 @@ export function loadUser() {
   const saved = JSON.parse(localStorage.getItem('user') || 'null');
   return saved || defaultUser;
 }
+
+export function profileManager(isEditing, setIsEditing) {
+  const editMetrics = () => setIsEditing('metrics');
+  const editProgram = () => setIsEditing('program');
+  
+
+
+  return {
+    editMetrics,
+    editProgram
+  };
+}
