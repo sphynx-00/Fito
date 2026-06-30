@@ -1,6 +1,6 @@
 .weekly-card {
   /* background: #fff; */
-  background: #F5F3FF;
+  background: var(--bg-page);
   /* border: 0.5px solid #e0e0e0; */
   border-radius: 12px;
   margin: 10px 0;
@@ -21,7 +21,7 @@
 .goal-label { font-size: 12px; color: #888; }
 .goal-count  { font-size: 12px; font-weight: 500; }
 
-.progress-track {
+/* .progress-track {
   width: 100%;
   height: 6px;
   background: #ebebeb;
@@ -34,7 +34,7 @@
   height: 100%;
   background: #7C3AED;
   border-radius: 3px;
-}
+} */
 
 .day-dots {
   display: flex;
@@ -60,10 +60,10 @@
   font-weight: 500;
 }
 
-.dot-done  { background: white; color: #7C3AED; border: 1px solid #7C3AED; }
-.dot-today { background: #7C3AED;  color: #F5F3FF; }
-.dot-empty { background: white; color: #aaa; border: 1px solid #aaa; }
+.dot-done  { background: var(--bg-card); color: var(--primary); border: 1px solid var(--primary); }
+.dot-today { background: var(--primary);  color: var(--bg-card); }
+.dot-empty { background: var(--bg-card); color: #aaa; border: 1px solid #aaa; }
 
 .day-name   { font-size: 9px; color: #aaa; }
-.day-today { font-size: 9px; color: #7C3AED; }
+.day-today { font-size: 9px; color: var(--primary); }
 .next-label { font-size: 12px; color: #888; margin: 12px 0 0; }

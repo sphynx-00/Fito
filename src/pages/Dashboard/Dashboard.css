@@ -1,5 +1,5 @@
 .dashboard-date {
-  color: #8B5CF6;
+  color: var(--primary-mid);
   margin-bottom: 8px;
   font-size: 12px;
   font-weight: bold;

@@ -6,6 +6,7 @@ import './Profile.css';
 import EditMetricsModal from './EditMetricsModal';
 import { loadUser, profileManager } from './profileUtils';
 import EditProgramModal from './EditProgramModal';
+import DarkModeToggle from './DarkModeToggle';
 
 function Profile() {
   const workoutHistory = loadFromStorage();
@@ -131,13 +132,7 @@ function Profile() {
               </div>
               <span className="settings-value">On ›</span>
             </li>
-            <li className="settings-row">
-              <div className="settings-left">
-                <div className="settings-icon">🌙</div>
-                <span className="settings-label">Dark mode</span>
-              </div>
-              <span className="settings-value">Off ›</span>
-            </li>
+            <DarkModeToggle />
           </ul>
         </section>
 

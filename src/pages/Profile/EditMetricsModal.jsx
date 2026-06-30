@@ -129,9 +129,9 @@ function EditMetricsModal({ user, onCancel, onSave }) {
                 className="form-select"
                 value={formData.fitnessGoal}
               >
-                <option value="build-muscle">Build Muscle</option>
-                <option value="lose-weight">Lose Weight</option>
-                <option value="stay-active">Stay Active</option>
+                <option value="Build Muscle">Build Muscle</option>
+                <option value="Lose Weight">Lose Weight</option>
+                <option value="Stay Active">Stay Active</option>
               </select>
             </div>
           </div>
