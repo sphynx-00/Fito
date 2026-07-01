@@ -16,7 +16,7 @@
   max-width: 430px;        /* ← max mobile width */
   margin: 0 auto;          /* ← centers it horizontally */
   min-height: 100vh;
-  background: #F5F3FF;
+  background: var(--bg-page);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);  /* ← subtle shadow */
   position: relative;
 }

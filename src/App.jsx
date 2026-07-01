@@ -5,8 +5,25 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Workouts from './pages/Workouts/Workouts';
 import History from './pages/History/History';
 import Profile from './pages/Profile/Profile';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'light';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }, [theme]);
+
   return (
     <div className="app">
       {/* <Navbar /> */}
@@ -18,7 +35,9 @@ function App() {
               <Route index element={<Dashboard />} />
               <Route path='/workouts' element={<Workouts />} />
               <Route path='/history' element={<History />} />
-              <Route path='/profile' element={<Profile />} />
+              <Route path='/profile' element={
+                <Profile theme={theme} setTheme={setTheme} />
+              } />
             </Routes>
 
           </main>

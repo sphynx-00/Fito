@@ -8,7 +8,7 @@ import { loadUser, profileManager } from './profileUtils';
 import EditProgramModal from './EditProgramModal';
 import DarkModeToggle from './DarkModeToggle';
 
-function Profile() {
+function Profile({ theme, setTheme }) {
   const workoutHistory = loadFromStorage();
   const { totalWorkouts, totalHours, weekStreak } = progressStats(workoutHistory, getStartOfWeek);
 
@@ -132,7 +132,10 @@ function Profile() {
               </div>
               <span className="settings-value">On ›</span>
             </li>
-            <DarkModeToggle />
+            <DarkModeToggle 
+              theme={theme}
+              setTheme={setTheme}
+            />
           </ul>
         </section>
 

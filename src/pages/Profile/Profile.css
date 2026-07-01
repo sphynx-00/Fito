@@ -217,7 +217,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 14px;
-  border-bottom: 0.5px solid #F5F3FF;
+  border-bottom: 0.5px solid var(--bg-page);
   cursor: pointer;
   transition: background 0.2s ease;
 }
@@ -227,7 +227,7 @@
 }
 
 .settings-row:hover {
-  background: #F5F3FF;
+  background: var(--bg-page);
 }
 
 .settings-left {
