@@ -7,15 +7,15 @@
 
 .stat-card {
   /* background-color: #a0ffcc; */
-  background: #fff;
-  border: 0.5px solid #e0e0e0;
+  background: var(--bg-db-card);
+  border: 0.5px solid var(--border-color);
   border-radius: 10px;
   padding: 14px 16px;
 }
 
 .stat-label {
   font-size: 10px;
-  color: #aaa;
+  color: var(--text-secondary);
   margin-bottom: 8px;
 }
 
@@ -23,7 +23,7 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
-  color: #7C3AED;
+  color: var(--primary);
   display: flex;
   flex-direction: column;
   gap: 2px;

@@ -1,6 +1,6 @@
 .workout-card {
-  background: #fff;
-  border: 0.5px solid #e0e0e0;
+  background: var(--bg-db-card);
+  border: 0.5px solid var(--border-color);
   border-radius: 12px;
   padding: 16px;
   margin: 16px 0;
@@ -13,7 +13,7 @@
   margin-bottom: 14px;
 }
 
-.card-title { font-size: 14px; font-weight: bold; margin: 0; }
+.card-title { font-size: 14px; font-weight: bold; margin: 0; color: var(--text-primary); }
 .card-title-hide { display: none; }
 
 .badge { font-size: 10px; padding: 3px 9px; border-radius: 20px; font-weight: bold; }
@@ -51,7 +51,7 @@
 .recovery-title {
   font-size: 16px;
   font-weight: 500;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin: 0;
 }
 

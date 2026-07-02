@@ -3,13 +3,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
-  border-bottom: 2px solid #F5F3FF;
+  border-bottom: 2px solid var(--border-color-bottom);
 }
 
 .exercise-row:last-child { border-bottom: none; }
 
-.ex-name  { font-size: 12px; font-weight: bold; }
-.ex-sets  { font-size: 12px; color: #888; }
+.ex-name  { font-size: 12px; font-weight: bold; color: var(--text-primary); }
+.ex-sets  { font-size: 12px; color: var(--text-secondary); }
 .ex-done  { display: flex; align-items: center; gap: 8px; }
 
 .check {

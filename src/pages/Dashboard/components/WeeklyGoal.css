@@ -60,7 +60,7 @@
   font-weight: 500;
 }
 
-.dot-done  { background: var(--bg-card); color: var(--primary); border: 1px solid var(--primary); }
+.dot-done  { background: var(--bg-db-card); color: var(--text-primary-weekly); border: 1px solid var(--primary-done); }
 .dot-today { background: var(--primary);  color: var(--bg-card); }
 .dot-empty { background: var(--bg-card); color: #aaa; border: 1px solid #aaa; }
 

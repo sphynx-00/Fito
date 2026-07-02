@@ -1,6 +1,6 @@
 .hero-banner {
   position: relative;
-  background: var(--primary);
+  background: var(--bg-db-hero-card);
   border-radius: 16px;
   padding: 16px;
   min-height: 110px;
@@ -14,7 +14,7 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: var(--primary-dark);
+  background: #6D28D9;;
   top: -30px;
   right: -20px;
 }
