@@ -2,7 +2,7 @@
   width: 44px;
   height: 24px;
   border-radius: 20px;
-  background: var(--border-color);
+  background: var(--primary-light);
   position: relative;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -10,14 +10,14 @@
 }
 
 .toggle-switch.active {
-  background: var(--primary);
+  background: var(--primary-knob-light);
 }
 
 .toggle-knob {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--primary);
   position: absolute;
   top: 3px;
   left: 3px;

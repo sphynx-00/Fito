@@ -1,6 +1,6 @@
 .history-card {
-  background: #fff;
-  border: 0.5px solid #E9E4FF;
+  background: var(--bg-card);
+  border: 0.5px solid var(--border-color);
   border-radius: 14px;
   padding: 12px 14px;
   display: flex;
@@ -14,7 +14,7 @@
 
 .history-card:hover {
   border-color: #7C3AED;
-  background: #F5F3FF;
+  background: var(--bg-card-hover);
 }
 
 
@@ -62,7 +62,7 @@
 .history-name {
   font-size: 14px;
   font-weight: 500;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin: 0;
 }
 
@@ -97,7 +97,7 @@
 }
 
 .history-exercises {
-  background: #fff;
+  background: var(--bg-card);
   border: 0.5px solid #7C3AED;
   border-top: none;
   border-radius: 0 0 14px 14px;  /* ← flat bottom when expanded */
@@ -112,13 +112,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
-  border-bottom: 2px solid #F5F3FF;
+  border-bottom: 1px solid var(--border-color-bottom);
   
 }
 
 .history-ex-row:last-child { border-bottom: none; }
 
-.history-ex-name  { font-size: 12px; font-weight: bold; }
+.history-ex-name  { font-size: 12px; color: var(--text-primary); font-weight: bold; }
 .history-ex-sets  { font-size: 12px; color: #888; }
 
 .delete-btn {

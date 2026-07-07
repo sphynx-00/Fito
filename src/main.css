@@ -1,19 +1,25 @@
 :root {
   /* backgrounds */
-  --bg-page:    #F5F3FF;
-  --bg-card:    #FFFFFF;
-  --bg-db-card: #FFFFFF;
+  --bg-page:         #F5F3FF;
+  /* --bg-card:    #FFFFFF; */
+  --bg-card:         #FFFFFF;
+  --bg-card-active:  #7C3AED;
   --bg-db-hero-card: #7C3AED;
-  --bg-nav:     #1E1128;
+  --bg-nav:          #1E1128;
+
+  /* nav */
+  --nav-item: #000000;
+
 
   /* text */
-  --text-primary:   #1a1a1a;
-  --text-primary-weekly:   #7C3AED;
-  --text-secondary: #888888;
-  --text-tertiary:  #aaaaaa;
+  --text-primary:            #1a1a1a;
+  --text-primary-stat-value: #7C3AED;
+  --text-primary-weekly:     #7C3AED;
+  --text-secondary:          #888888;
+  --text-tertiary:           #aaaaaa;
 
   /* borders */
-  --border-color: #E9E4FF;
+  --border-color:        #E9E4FF;
   --border-color-bottom: #F5F3FF;
 
   /* purple theme */
@@ -22,6 +28,8 @@
   --primary-dark:  #6D28D9;
   --primary-mid:   #8B5CF6;
   --primary-light: #EDE9FE;
+  --primary-knob: #1a0b29;
+  --primary-knob-light: #EDE9FE;
 
   /* status colors */
   --success-bg:   #e1f5ee;
@@ -37,11 +45,17 @@
   --bg-page:    #1a0b29;
   --bg-card:    #1E1830;
   --bg-db-hero-card: linear-gradient(135deg, #322757, #322850);
-  --bg-db-card: linear-gradient(135deg, #322757, #322850);
+  --bg-card: linear-gradient(135deg, #322757, #322850);
+  --bg-card-hover: linear-gradient(135deg, #322757, #322850);
+  --bg-card-active: linear-gradient(135deg, #8d70ee, #1c1438);
   --bg-nav:     #0F0A18;
+
+  /* nav */
+  --nav-item: #FFFFFF;
 
   /* text */
   --text-primary:        #F3F1F8;
+  --text-primary-stat-value: #F3F1F8;
   --text-primary-weekly: #F3F1F8;
   --text-secondary:      #A8A3B8;
   --text-tertiary:       #6B6680;
@@ -51,11 +65,12 @@
   --border-color-bottom: #9F7AEA;
 
   /* purple theme */
-  --primary:       #9F7AEA;
+  --primary:       #F3F1F8;
   --primary-done: transparent;
   --primary-dark:  #7C3AED;
   --primary-mid:   #A78BFA;
-  --primary-light: #2D2347;
+  --primary-light: #1a0b29;
+  --primary-knob-light: #1a0b29;
 
   /* status colors */
   --success-bg:   #0F2922;

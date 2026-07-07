@@ -37,7 +37,7 @@
 .toast-title {
   font-size: 12px;
   font-weight: 500;
-  color: #7C3AED;
+  color: var(--primary-mid);
   margin: 0 0 2px;
 }
 

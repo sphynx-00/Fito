@@ -4,8 +4,8 @@
   left: 50%;
   transform: translateX(-50%);
   height: 50px;
-  background: #fff;
-  border-top: 0.5px solid #e0e0e0;
+  background: var(--bg-page);
+  border-top: 1px solid var(--border-color);
   display: flex;
   justify-content: space-around;
   z-index: 100;
@@ -22,7 +22,7 @@
   gap: 4px;
   flex: 1;
   cursor: pointer;
-  color: #000000;
+  color: var(--nav-item);
 }
 
 .nav-center-btn {
@@ -70,7 +70,7 @@
 }
 
 .nav-bottom .nav-item.active {
-  color: #6D28D9;
+  color: var(--primary-mid);
 }
 
 

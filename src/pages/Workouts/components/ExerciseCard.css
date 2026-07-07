@@ -17,8 +17,8 @@
 
 /* ── exercise card ── */
 .exercise-card {
-  background: #fff;
-  border: 0.5px solid #E9E4FF;
+  background: var(--bg-card);
+  border: 0.5px solid var(--border-color);
   border-radius: 14px;
   padding: 12px 14px;
   display: flex;
@@ -30,7 +30,7 @@
 
 .exercise-card:hover {
   border-color: #7C3AED;
-  background: #F5F3FF;
+  background: var(--bg-card-hover);
 }
 
 /* .exercise-card:active {
@@ -61,13 +61,13 @@
 .exercise-name {
   font-size: 13px;
   font-weight: 500;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin: 0;
 }
 
 .exercise-meta {
   font-size: 11px;
-  color: #888;
+  color: var(--text-secondary);
   margin: 0;
 }
 

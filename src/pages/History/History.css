@@ -1,3 +1,7 @@
+.history-title {
+  color: var(--text-primary);
+}
+
 .history-description {
   color: #8B5CF6;
   font-size: 12px;
@@ -16,8 +20,8 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  background: #fff;
-  border: 0.5px solid #e0e0e0;
+  background: var(--bg-card);
+  border: 0.5px solid var(--border-color);
   border-radius: 10px;
   padding: 14px 16px;
 }
@@ -32,7 +36,7 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
-  color: #7C3AED;
+  color: var(--text-primary-stat-value);
   display: flex;
   flex-direction: column;
   gap: 2px;

@@ -17,6 +17,6 @@
 }
 
 .filter-pill.active {
-  background: #7C3AED;
+  background: var(--bg-card-active);
   color: #fff;
 }

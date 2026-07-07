@@ -1,5 +1,5 @@
 .workout-card {
-  background: var(--bg-db-card);
+  background: var(--bg-card);
   border: 0.5px solid var(--border-color);
   border-radius: 12px;
   padding: 16px;

@@ -1,3 +1,7 @@
+.workouts-title {
+  color: var(--text-primary);
+}
+
 .workouts-description {
   color: #8B5CF6;
   font-size: 12px;
