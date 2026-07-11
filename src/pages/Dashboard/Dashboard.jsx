@@ -8,9 +8,12 @@ import HeroBanner from "../Dashboard/components/HeroBanner";
 import './Dashboard.css';
 import { loadFromStorage } from "../../models/completedWorkouts";
 import { calculateWeekStreak } from "../History/historyUtils";
+import { loadUser } from "../Profile/profileUtils";
 
 
 function Dashboard() {
+const userStats = loadUser();
+
 const { todaysWorkout, total, completed, percentage } = getWorkoutStats(programs);
 const workoutHistory = loadFromStorage();
 
@@ -79,9 +82,9 @@ const { date, greeting } = getTodayWithGreeting();
         />
         <h4>Current Stats</h4>
         <div className="stats-grid">
-          <StatCard label="Start weight" value="72" unit="kg" />
-          <StatCard label="Goal weight" value="62" unit="kg" />
-          <StatCard label="Daily calories" value="1,400" unit="kcal" />
+          <StatCard label="Start weight" value={userStats.weight} unit="kg" />
+          <StatCard label="Goal weight" value={userStats.goalWeight} unit="kg" />
+          <StatCard label="Daily calories" value={userStats.dailyCalories} unit="kcal" />
         </div>
 
         <div className="cards-row">
