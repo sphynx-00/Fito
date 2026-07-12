@@ -1,15 +1,15 @@
-import { calculateWeekStreak } from "../pages/History/historyUtils";
+import { calculateDayStreak } from "../pages/History/historyUtils";
 
 
-export function progressStats(workoutHistory, getStartOfWeek) {
+export function progressStats(workoutHistory) {
   const totalWorkouts = workoutHistory.length;
   const totalHours = workoutHistory.reduce((total, w) => total + (w.duration || 45), 0) / 60;
-  const weekStreak = calculateWeekStreak(getStartOfWeek, workoutHistory);
+  const dayStreak = calculateDayStreak(workoutHistory);
   
 
   return {
     totalWorkouts,
     totalHours,
-    weekStreak
+    dayStreak
   };
 }

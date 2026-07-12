@@ -1,7 +1,7 @@
 import './HeroBanner.css';
 import { FlameIcon } from 'lucide-react';
 
-function HeroBanner({workoutName, exercises, completedExercises, totalExercises, percentage, weekStreak}) {
+function HeroBanner({workoutName, exercises, completedExercises, totalExercises, percentage, dayStreak}) {
   return (
     <section className="hero-banner">
       {/* decorative circles */}
@@ -31,10 +31,10 @@ function HeroBanner({workoutName, exercises, completedExercises, totalExercises,
 
           <div className="hero-stat">
             <div className="hero-stat-streak">
-              <span className="hero-stat-value">{weekStreak}</span>
+              <span className="hero-stat-value">{dayStreak}</span>
               <span className="hero-stat-icon"><FlameIcon size={20} /></span>
             </div>
-            <span className="hero-stat-label">wk streak</span>
+            <span className="hero-stat-label">day streak</span>
           </div>
 
           <div className="hero-divider" />

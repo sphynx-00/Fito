@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { programs } from "../../models/program";
-import { getWorkoutStats, getTodayWithGreeting, getStartOfWeek } from "../../utils/workoutUtils";
+import { getWorkoutStats, getTodayWithGreeting } from "../../utils/workoutUtils";
 import StatCard from "../Dashboard/components/StatCard";
 import TodaysWorkout from "../Dashboard/components/TodaysWorkout";
 import WeeklyGoal from "../Dashboard/components/WeeklyGoal";
 import HeroBanner from "../Dashboard/components/HeroBanner";
 import './Dashboard.css';
 import { loadFromStorage } from "../../models/completedWorkouts";
-import { calculateWeekStreak } from "../History/historyUtils";
+import { calculateDayStreak } from "../History/historyUtils";
 import { loadUser } from "../Profile/profileUtils";
 
 
@@ -17,7 +17,7 @@ const userStats = loadUser();
 const { todaysWorkout, total, completed, percentage } = getWorkoutStats(programs);
 const workoutHistory = loadFromStorage();
 
-const weekStreak = calculateWeekStreak(getStartOfWeek, workoutHistory);
+const dayStreak = calculateDayStreak(workoutHistory);
 
 // function for Today's workout
 const [completedList, setCompletedList] = useState(() => {
@@ -78,7 +78,7 @@ const { date, greeting } = getTodayWithGreeting();
           completedExercises={completedExercises}
           totalExercises={totalExercises}
           percentage={percentage}
-          weekStreak={weekStreak}
+          dayStreak={dayStreak}
         />
         <h4>Current Stats</h4>
         <div className="stats-grid">

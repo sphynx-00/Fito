@@ -38,6 +38,42 @@ export function calculateWeekStreak(getStartOfWeek, workoutHistory) {
   return streak;
 }
 
+
+export function calculateDayStreak(workoutHistory) {
+  if (workoutHistory.length === 0) return 0;
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // get unique workout dates sorted newest first
+  const workoutDates = workoutHistory
+    .filter(w => w.name !== 'Recovery')
+    .map(w => {
+      const date = new Date(w.date.replace(/-/g, '/'));
+      date.setHours(0, 0, 0, 0);
+      return date.toLocaleDateString('en-CA');
+    });
+
+  const uniqueDates = [...new Set(workoutDates)].sort().reverse();
+
+  let streak = 0;
+
+  for (let i = 0; i < uniqueDates.length; i++) {
+    const expectedDate = new Date(today);
+    expectedDate.setDate(today.getDate() - i);
+    const expectedDateStr = expectedDate.toLocaleDateString('en-CA');
+
+    if (uniqueDates[i] === expectedDateStr) {
+      streak++;
+    } else {
+      break;
+    }
+  }
+
+  return streak;
+}
+
+
 // Filter functions
   // Boundaries
   export function getFilteredBoundary(getStartOfWeek) {

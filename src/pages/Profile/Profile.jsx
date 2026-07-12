@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { loadFromStorage } from '../../models/completedWorkouts';
 import { progressStats } from '../../utils/progressStats';
-import { getStartOfWeek } from '../../utils/workoutUtils';
 import './Profile.css';
 import EditMetricsModal from './EditMetricsModal';
 import { loadUser, profileManager } from './profileUtils';
@@ -10,7 +9,7 @@ import DarkModeToggle from './DarkModeToggle';
 
 function Profile({ theme, setTheme }) {
   const workoutHistory = loadFromStorage();
-  const { totalWorkouts, totalHours, weekStreak } = progressStats(workoutHistory, getStartOfWeek);
+  const { totalWorkouts, totalHours, dayStreak } = progressStats(workoutHistory);
 
   const [user, setUser] = useState(() => loadUser());
   const [isEditing, setIsEditing] = useState(null);
@@ -44,8 +43,8 @@ function Profile({ theme, setTheme }) {
           <span className="profile-stat-label">Total time</span>
         </div>
         <div className="profile-stat">
-          <span className="profile-stat-value">{weekStreak}</span>
-          <span className="profile-stat-label">Wk streak</span>
+          <span className="profile-stat-value">{dayStreak}</span>
+          <span className="profile-stat-label">Day streak</span>
         </div>
       </section>
 
