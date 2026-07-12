@@ -59,7 +59,7 @@ const totalExercises = completedList.length;
 const { date, greeting } = getTodayWithGreeting();
 
   return (
-      <main className="dashboard-content">
+      <main className="dashboard-content page-transition">
         {/* <SearchBar /> */}
         {/* <SemiCircleProgress /> */}
         <header className="dashboard-header">

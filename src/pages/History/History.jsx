@@ -62,7 +62,7 @@ function History() {
 
 
   return (
-    <main className='history-content'>
+    <main className="history-content page-transition">
       <header className="history-header">
         <h3 className="history-title">History</h3>
         <p className="history-description">Track your progress over time</p>

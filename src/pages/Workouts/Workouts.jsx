@@ -14,7 +14,7 @@ function Workouts() {
   const exercises = exercisesByMuscle[selectedMuscle];
 
   return (
-    <main className="workouts-content">
+    <main className="workouts-content page-transition">
       <header className="workouts-header">
         <h3 className="workouts-title">Workouts</h3>
         <p className="workouts-description">Choose a muscle group</p>

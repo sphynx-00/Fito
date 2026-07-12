@@ -22,7 +22,7 @@ function Profile({ theme, setTheme }) {
   }
   
   return (
-    <main className="profile-page">
+    <main className="profile-page page-transition">
 
       {/* purple hero header */}
       <header className="profile-header">
