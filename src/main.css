@@ -15,6 +15,7 @@
   --text-primary:            #1a1a1a;
   --text-primary-stat-value: #7C3AED;
   --text-primary-weekly:     #7C3AED;
+  --text-primary-program:    #7C3AED;
   --text-secondary:          #888888;
   --text-tertiary:           #aaaaaa;
 
@@ -57,6 +58,7 @@
   --text-primary:        #F3F1F8;
   --text-primary-stat-value: #F3F1F8;
   --text-primary-weekly: #F3F1F8;
+  --text-primary-program: #1a0b29;
   --text-secondary:      #A8A3B8;
   --text-tertiary:       #6B6680;
 

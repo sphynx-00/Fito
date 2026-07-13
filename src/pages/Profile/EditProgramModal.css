@@ -13,7 +13,7 @@
 }
 
 .edit-program-modal {
-  background: #fff;
+  background: var(--bg-page);
   border-radius: 16px;
   width: 100%;
   max-width: 340px;
@@ -21,7 +21,7 @@
 }
 
 .edit-program-header {
-  background: #7C3AED;
+  background: var(--bg-db-hero-card);
   padding: 14px 16px;
   display: flex;
   justify-content: center;
@@ -69,7 +69,7 @@
   align-items: center;
   gap: 10px;
   padding: 10px 12px;
-  border: 0.5px solid #E9E4FF;
+  border: 0.5px solid var(--border-color);
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -77,7 +77,6 @@
 
 .program-item:hover {
   border-color: #7C3AED;
-  background: #F5F3FF;
 }
 
 .program-item.selected {
@@ -97,8 +96,8 @@
 }
 
 .program-item.selected .program-radio {
-  border-color: #7C3AED;
-  background: #7C3AED;
+  border-color: var(--bg-db-hero-card);
+  background: var(--bg-db-hero-card);
 }
 
 .program-radio-dot {
@@ -118,11 +117,11 @@
 .program-name {
   font-size: 12px;
   font-weight: 500;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin: 0 0 2px;
 }
 
-.program-item.selected .program-name { color: #7C3AED; }
+.program-item.selected .program-name { color: var(--bg-db-hero-card); }
 
 .program-desc {
   font-size: 10px;
@@ -135,12 +134,12 @@
   padding: 2px 7px;
   border-radius: 8px;
   background: #EDE9FE;
-  color: #7C3AED;
+  color: var(--text-primary-program);
   flex-shrink: 0;
 }
 
 .program-item.selected .program-badge {
-  background: #7C3AED;
+  background: var(--bg-db-hero-card);
   color: #fff;
 }
 
@@ -207,7 +206,7 @@
   padding: 10px;
   border-radius: 10px;
   border: none;
-  background: #7C3AED;
+  background: var(--bg-db-hero-card);
   color: #fff;
   font-size: 12px;
   font-weight: 500;

@@ -16,7 +16,7 @@
 
 /* ── modal box ── */
 .modal {
-  background: #fff;
+  background: var(--bg-page);
   border-radius: 16px;
   width: 100%;
   max-width: 340px;       /* ← constrains modal width */
@@ -27,7 +27,7 @@
 
 /* ── header ── */
 .modal-header {
-  background: #7C3AED;
+  background: var(--bg-db-hero-card);
   padding: 16px;
   display: flex;
   justify-content: center;

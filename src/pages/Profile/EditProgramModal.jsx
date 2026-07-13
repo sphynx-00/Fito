@@ -12,7 +12,6 @@ function EditProgramModal({ onSave, onCancel }) {
         {/* header */}
         <div className="edit-program-header">
           <h2 className="edit-program-title">Edit Program</h2>
-          <span className="edit-program-close" onClick={onCancel}>×</span>
         </div>
 
         {/* body */}
