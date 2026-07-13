@@ -1,11 +1,11 @@
 import ExerciseRow from "./ExerciseRow";
 import recovery from "../../../assets/recover1.svg";
 import './TodaysWorkout.css';
-import { saveWorkoutHistory } from "../../../models/completedWorkouts";
+import { loadFromStorage, saveWorkoutHistory } from "../../../models/completedWorkouts";
 import { useState } from "react";
 import CompletedState from "./CompletedState";
 
-function TodaysWorkout({ workoutName, exercises, completedList, handleToggle }) {
+function TodaysWorkout({ workoutName, exercises, completedList, handleToggle, onComplete }) {
 const [isCompleted, setIsCompleted] = useState(() => {
   return JSON.parse(localStorage.getItem('isCompleted') || 'false');
 });
@@ -34,7 +34,7 @@ const handleComplete = () => {
   localStorage.setItem('isCompleted', 'true');
 
   saveWorkoutHistory(workoutName, exercises);
-
+  onComplete(loadFromStorage());
   setIsCompleted(true);
 }
 

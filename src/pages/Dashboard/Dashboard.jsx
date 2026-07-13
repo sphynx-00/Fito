@@ -15,7 +15,7 @@ function Dashboard() {
 const userStats = loadUser();
 
 const { todaysWorkout, total, completed, percentage } = getWorkoutStats(programs);
-const workoutHistory = loadFromStorage();
+  const [workoutHistory, setWorkoutHistory] = useState(() => loadFromStorage());
 
 const dayStreak = calculateDayStreak(workoutHistory);
 
@@ -93,6 +93,7 @@ const { date, greeting } = getTodayWithGreeting();
              workoutName={todaysWorkout?.name}
              completedList={completedList}
              handleToggle={handleToggle} 
+             onComplete={setWorkoutHistory}
           />
         </div>
          {/* <WeeklyGoal 

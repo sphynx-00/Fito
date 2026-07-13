@@ -18,7 +18,7 @@ function History() {
     return loadFromStorage();
   });
 
-  const { totalWorkouts, totalHours, weekStreak } = progressStats(workoutHistory, getStartOfWeek);
+  const { totalWorkouts, totalHours, dayStreak } = progressStats(workoutHistory, getStartOfWeek);
 
   const filteredWorkouts = getFilteredWorkouts(selectedFilter, workoutHistory);
 
@@ -80,8 +80,8 @@ function History() {
         </div>
 
         <div className='stat-pill'>
-          <span className='stat-pill-value'>{weekStreak}</span>
-          <span className='stat-pill-label'>Wk streak</span>
+          <span className='stat-pill-value'>{dayStreak}</span>
+          <span className='stat-pill-label'>Day streak</span>
         </div>
 
       </section>
