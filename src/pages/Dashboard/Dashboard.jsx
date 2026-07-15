@@ -15,13 +15,13 @@ function Dashboard() {
 const userStats = loadUser();
 
 const { todaysWorkout, total, completed, percentage } = getWorkoutStats(programs);
-  const [workoutHistory, setWorkoutHistory] = useState(() => loadFromStorage());
+const [workoutHistory, setWorkoutHistory] = useState(() => loadFromStorage());
 
 const dayStreak = calculateDayStreak(workoutHistory);
 
 // function for Today's workout
 const [completedList, setCompletedList] = useState(() => {
-  const today = new Date().toISOString().split('T')[0];
+  const today = new Date('2026/7/13').toLocaleDateString();
   const savedDate = localStorage.getItem('workoutDate');
   
   if (savedDate !== today) {

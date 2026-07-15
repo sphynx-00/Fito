@@ -47,11 +47,7 @@ const handleComplete = () => {
           <span className={`badge ${getBadgeClass()}`}>{getBadgeStatus()}</span>
         </div>
 
-          {isCompleted ? (
-            <CompletedState 
-              workoutName={workoutName}
-            />
-          ) : isRecovery ? (
+          {isRecovery ? (
             <div className="recovery-state">
               <span className="recovery-icon">
                 <img
@@ -64,6 +60,10 @@ const handleComplete = () => {
                 Your muscles grow on rest days. Take it easy today!
               </p>
             </div>
+          ) : isCompleted ? (
+              <CompletedState 
+                workoutName={workoutName}
+              />
           ) : (
             exercises && exercises.map((exercise, index) => (
               <ExerciseRow

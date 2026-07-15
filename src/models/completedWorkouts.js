@@ -101,11 +101,11 @@ export const completedWorkouts = [
 
 export function saveWorkoutHistory(workoutName, exercises) {
   const today = new Date();
-
+  
   const completedWorkout = {
     id:        Date.now(),
     name:      workoutName,
-    date:      today.toISOString().split('T')[0],
+    date:      today.toLocaleDateString('en-CA'),
     duration:  45,            // ← hardcode for now
     day:       today.getDate().toString(),
     month:     today.toLocaleString('default', { month: 'short' }).toUpperCase(),

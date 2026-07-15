@@ -3,7 +3,7 @@ import './WeeklyGoal.css';
 
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
-function WeeklyGoal({ program, completed, total, percentage }) {
+function WeeklyGoal() {
   const today = new Date();
   const startOfWeek = getStartOfWeek(today);
 
