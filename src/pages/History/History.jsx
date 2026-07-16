@@ -43,7 +43,6 @@ function History() {
     const updatedWorkoutHistory = workoutHistory.filter(w => w.id !== workoutId);
     setWorkoutHistory(updatedWorkoutHistory);
     localStorage.setItem('completedWorkout', JSON.stringify(updatedWorkoutHistory));
-    localStorage.setItem('isCompleted', false);
     setShowModal(false);
     setShowToast(true);
   }

@@ -6,7 +6,7 @@ export const programs = [{
     totalDays: 6,           
     restDays: [2, 5],          
     isActive: true,            
-    startDate: '2026/06/01',  //Change this when user starts the workout
+    startDate: '2026/06/05',  //Change this when user starts the workout
     workouts: [{
       workoutId: 1,
       name: 'Upper',
@@ -38,10 +38,11 @@ export const programs = [{
       name: 'Push',
       exercises: [
         { order: 1, exerciseName: 'Bench Press',          weight: 50, reps: 8, sets: 2 },
-        { order: 2, exerciseName: 'Pec Deck',             weight: 50, reps: 8, sets: 2 },
-        { order: 3, exerciseName: 'Lateral Raise',        weight: 50, reps: 8, sets: 2 },
-        { order: 4, exerciseName: 'Cable Head Extension', weight: 50, reps: 8, sets: 2 },
-        { order: 5, exerciseName: 'Kickback Extension',   weight: 50, reps: 8, sets: 2 },
+        { order: 2, exerciseName: 'Shoulder Press',       weight: 50, reps: 8, sets: 2 },
+        { order: 3, exerciseName: 'Pec Deck',             weight: 50, reps: 8, sets: 2 },
+        { order: 4, exerciseName: 'Lateral Raise',        weight: 50, reps: 8, sets: 2 },
+        { order: 5, exerciseName: 'Cable Head Extension', weight: 50, reps: 8, sets: 2 },
+        { order: 6, exerciseName: 'Kickback Extension',   weight: 50, reps: 8, sets: 2 },
       ]
     }, {
       workoutId: 5,

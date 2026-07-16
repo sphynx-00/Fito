@@ -22,7 +22,7 @@ export function getActiveProgram(programs) {
 
 export function getDiffDays(startDate) {
   const start = new Date(startDate);
-  const today  = new Date();
+  const today  = new Date('2026/07/13');
   
   start.setHours(0, 0, 0, 0);
   today.setHours(0, 0, 0, 0);

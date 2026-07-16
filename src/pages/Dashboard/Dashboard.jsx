@@ -21,7 +21,7 @@ const dayStreak = calculateDayStreak(workoutHistory);
 
 // function for Today's workout
 const [completedList, setCompletedList] = useState(() => {
-  const today = new Date('2026/7/13').toLocaleDateString();
+  const today = new Date().toLocaleDateString();
   const savedDate = localStorage.getItem('workoutDate');
   
   if (savedDate !== today) {

@@ -1,5 +1,10 @@
 import { getStartOfWeek } from "../../utils/workoutUtils";
 
+function normalizeDate(date) {
+  const d = new Date(date);
+  return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+}
+
 export function calculateDayStreak(workoutHistory) {
   if (workoutHistory.length === 0) return 0;
 
@@ -22,7 +27,7 @@ export function calculateDayStreak(workoutHistory) {
   for (let i = 0; i < uniqueDates.length; i++) {
     const expectedDate = new Date(today);
     expectedDate.setDate(today.getDate() - i);
-    const expectedDateStr = expectedDate.toLocaleDateString();
+    const expectedDateStr = expectedDate.toLocaleDateString('en-CA');
 
     if (uniqueDates[i] === expectedDateStr) {
       streak++;
@@ -32,11 +37,6 @@ export function calculateDayStreak(workoutHistory) {
   }
 
   return streak;
-}
-
-function normalizeDate(date) {
-  const d = new Date(date);
-  return new Date(d.getFullYear(), d.getMonth(), d.getDate());
 }
 
 // Filter functions
