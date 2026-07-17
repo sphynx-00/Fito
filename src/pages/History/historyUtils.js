@@ -1,6 +1,6 @@
 import { getStartOfWeek } from "../../utils/workoutUtils";
 
-function normalizeDate(date) {
+export function normalizeDate(date) {
   const d = new Date(date);
   return new Date(d.getFullYear(), d.getMonth(), d.getDate());
 }
@@ -69,14 +69,14 @@ export function calculateDayStreak(workoutHistory) {
 
     if (selectedFilter === 'This week') {
       return workoutHistory.filter(w => {
-        const workoutDate = new Date(w.date);
+        const workoutDate = normalizeDate(new Date(w.date));
         return workoutDate >= startOfThisWeek && workoutDate <= today;
       });
     }
 
     if (selectedFilter === 'Last week') {
       return workoutHistory.filter(w => {
-        const workoutDate = new Date(w.date);
+        const workoutDate = normalizeDate(new Date(w.date));
         return workoutDate >= startOfLastWeek && workoutDate <= endOfLastWeek;
       });
     }

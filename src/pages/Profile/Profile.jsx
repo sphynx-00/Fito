@@ -77,7 +77,7 @@ function Profile({ theme, setTheme }) {
               <dd className="info-value">{user.height} cm</dd>
             </div>
             <div className="info-row">
-              <dt className="info-label">Weight</dt>
+              <dt className="info-label">Start Weight</dt>
               <dd className="info-value">{user.weight} kg</dd>
             </div>
             <div className="info-row">

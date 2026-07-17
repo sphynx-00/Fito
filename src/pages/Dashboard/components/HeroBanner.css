@@ -84,7 +84,7 @@
   line-height: 1;
 }
 
-.hero-stat-icon {
+.hero-stat-icon.active {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,6 +94,17 @@
   color: #ff6600;
   filter: drop-shadow(0 0 3px rgba(255, 102, 0, 0.5));
   animation: flicker 2s ease-in-out infinite alternate
+}
+
+.hero-stat-icon.inactive {  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 18px;
+  width: 18px;
+  color: #999;
+  opacity: 0.6;
 }
 
 @keyframes flicker {

@@ -6,7 +6,7 @@ export const programs = [{
     totalDays: 6,           
     restDays: [2, 5],          
     isActive: true,            
-    startDate: '2026/06/05',  //Change this when user starts the workout
+    startDate: '2026/06/04',  //Change this when user starts the workout
     workouts: [{
       workoutId: 1,
       name: 'Upper',
@@ -209,9 +209,9 @@ export const programs = [{
 //   {
 //     id: 1,
 //     name: 'Upper',
-//     date: '2026-06-09',
-//     day: '9',
-//     month: 'JUN',
+//     date: '2026-07-06',
+//     day: '6',
+//     month: 'JUL',
 //     status: 'Done',
 //     exercises: [
 //       { name: 'Incline Bench Press', sets: 2, reps: 8 },
@@ -223,9 +223,9 @@ export const programs = [{
 //   {
 //     id: 2,
 //     name: 'Lower',
-//     date: '2026-06-08',
-//     day: '8',
-//     month: 'JUN',
+//     date: '2026-07-07',
+//     day: '7',
+//     month: 'JUL',
 //     status: 'Done',
 //     exercises: [
 //       { name: 'Squat',             sets: 2, reps: 8 },
@@ -236,9 +236,9 @@ export const programs = [{
 //   {
 //     id: 3,
 //     name: 'Push',
-//     date: '2026-06-07',
-//     day: '7',
-//     month: 'JUN',
+//     date: '2026-07-09',
+//     day: '9',
+//     month: 'JUL',
 //     status: 'Done',
 //     exercises: [
 //       { name: 'Bench Press',   sets: 2, reps: 8 },
@@ -249,9 +249,9 @@ export const programs = [{
 //   {
 //     id: 4,
 //     name: 'Pull',
-//     date: '2026-06-04',
-//     day: '4',
-//     month: 'JUN',
+//     date: '2026-07-13',
+//     day: '13',
+//     month: 'JUL',
 //     status: 'Done',
 //     exercises: [
 //       { name: 'Lat Pulldown',  sets: 2, reps: 8 },
@@ -262,9 +262,9 @@ export const programs = [{
 //   {
 //     id: 5,
 //     name: 'Legs',
-//     date: '2026-06-03',
-//     day: '3',
-//     month: 'JUN',
+//     date: '2026-07-14',
+//     day: '14',
+//     month: 'JUL',
 //     status: 'Done',
 //     exercises: [
 //       { name: 'Deadlift',            sets: 2, reps: 8 },
@@ -275,9 +275,9 @@ export const programs = [{
 //   {
 //     id: 6,
 //     name: 'Upper',
-//     date: '2026-06-02',
-//     day: '2',
-//     month: 'JUN',
+//     date: '2026-07-15',
+//     day: '15',
+//     month: 'JUL',
 //     status: 'Done',
 //     exercises: [
 //       { name: 'Incline Bench Press', sets: 2, reps: 8 },
