@@ -11,7 +11,6 @@ export function calculateDayStreak(workoutHistory) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  // get unique workout dates sorted newest first
   const workoutDates = workoutHistory
     .filter(w => w.name !== 'Recovery')
     .map(w => {
@@ -21,13 +20,28 @@ export function calculateDayStreak(workoutHistory) {
     });
 
   const uniqueDates = [...new Set(workoutDates)].sort().reverse();
+  console.log(uniqueDates);
+  // get today and yesterday as strings
+  const todayStr     = today.toLocaleDateString('en-CA');
+  const yesterday    = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
+  const yesterdayStr = yesterday.toLocaleDateString('en-CA');
+
+  // streak only counts if user worked out today OR yesterday
+  // if neither → streak is 0 (they broke the streak)
+  if (uniqueDates[0] !== todayStr && uniqueDates[0] !== yesterdayStr) {
+    return 0;
+  }
 
   let streak = 0;
 
   for (let i = 0; i < uniqueDates.length; i++) {
-    const expectedDate = new Date(today);
-    expectedDate.setDate(today.getDate() - i);
-    const expectedDateStr = expectedDate.toLocaleDateString('en-CA');
+    
+    // if most recent workout was yesterday start counting from yesterday
+    const startFrom = uniqueDates[0] === todayStr ? today : yesterday;
+    const expected  = new Date(startFrom);
+    expected.setDate(startFrom.getDate() - i);
+    const expectedDateStr = expected.toLocaleDateString('en-CA');
 
     if (uniqueDates[i] === expectedDateStr) {
       streak++;

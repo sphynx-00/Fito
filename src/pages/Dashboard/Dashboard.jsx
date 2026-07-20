@@ -18,6 +18,7 @@ const { todaysWorkout, total, completed, percentage } = getWorkoutStats(programs
 const [workoutHistory, setWorkoutHistory] = useState(() => loadFromStorage());
 
 const dayStreak = calculateDayStreak(workoutHistory);
+console.log(dayStreak);
 
 // function for Today's workout
 const [completedList, setCompletedList] = useState(() => {

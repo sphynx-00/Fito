@@ -6,7 +6,7 @@ export const programs = [{
     totalDays: 6,           
     restDays: [2, 5],          
     isActive: true,            
-    startDate: '2026/06/04',  //Change this when user starts the workout
+    startDate: '2026/06/01',  //Change this when user starts the workout
     workouts: [{
       workoutId: 1,
       name: 'Upper',
