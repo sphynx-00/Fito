@@ -1,5 +1,8 @@
-export function getWorkoutStats(programs) {
-  const activeProgram = getActiveProgram(programs);
+import { programs } from "../models/program";
+import { loadUserProgram } from "../pages/Profile/profileUtils";
+
+export function getWorkoutStats() {
+  const activeProgram = getActiveProgram();
   const workouts      = activeProgram.workouts;
   const diffDays      = getDiffDays(activeProgram.startDate);
   const cycleIndex    = getCycleIndex(diffDays, workouts);
@@ -7,7 +10,7 @@ export function getWorkoutStats(programs) {
   const total         = getTotalWorkouts(workouts);
   const completed     = getCompletedWorkouts(cycleIndex, workouts);
   const percentage    = getPercentage(completed, total);
-
+ 
   return {
     todaysWorkout,
     total,
@@ -16,14 +19,26 @@ export function getWorkoutStats(programs) {
   };
 }
 
-export function getActiveProgram(programs) {
+
+export function getActiveProgram() {
+  const userProgram = loadUserProgram();
+  
+  if (userProgram) {
+    const program = programs.find(p => p.id === userProgram.programId);
+   
+    return {
+      ...program,
+      startDate: userProgram.startDate
+    };
+  }
+
   return programs.find(p => p.isActive === true);
 }
 
 export function getDiffDays(startDate) {
   const start = new Date(startDate);
   const today  = new Date();
-  
+
   start.setHours(0, 0, 0, 0);
   today.setHours(0, 0, 0, 0);
 

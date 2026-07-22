@@ -20,7 +20,7 @@ export function calculateDayStreak(workoutHistory) {
     });
 
   const uniqueDates = [...new Set(workoutDates)].sort().reverse();
-  console.log(uniqueDates);
+
   // get today and yesterday as strings
   const todayStr     = today.toLocaleDateString('en-CA');
   const yesterday    = new Date(today);

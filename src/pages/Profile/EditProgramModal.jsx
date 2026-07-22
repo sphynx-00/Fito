@@ -1,10 +1,25 @@
 import { useState } from 'react';
 import { programs } from '../../models/program';
 import './EditProgramModal.css';
+import { loadUserProgram, saveUserProgram } from './profileUtils';
 
 function EditProgramModal({ onSave, onCancel }) {
-  const [selectedProgram, setSelectedProgram] = useState('UL/PPL');
+  const [selectedProgramId, setSelectedProgramId] = useState(() => {
+    const saved = loadUserProgram();
+    return saved ? saved.programId : 1;
+  });
 
+  const [startDate, setStartDate] = useState(() => {
+    const saved = loadUserProgram();
+    return saved?.startDate || '2026/06/01';  // ← safe fallback
+  });
+
+  const saveChanges = () => {
+    saveUserProgram(selectedProgramId, startDate);
+    onSave({ programId: selectedProgramId, startDate });
+  }
+
+  
   return (
     <div className="edit-program-overlay">
       <div className="edit-program-modal">
@@ -24,8 +39,8 @@ function EditProgramModal({ onSave, onCancel }) {
               {programs.map((program) => (
                 <div
                   key={program.id}
-                  className={`program-item ${selectedProgram === program.title ? 'selected' : ''}`}
-                  onClick={() => setSelectedProgram(program.title)}
+                  className={`program-item ${selectedProgramId === program.id ? 'selected' : ''}`}
+                  onClick={() => setSelectedProgramId(program.id)}
                 >
                   <div className="program-radio">
                     <div className="program-radio-dot" />
@@ -61,6 +76,8 @@ function EditProgramModal({ onSave, onCancel }) {
                 id="startDate"
                 className="form-input"
                 type="date"
+                value={startDate.replace(/\//g, '-')}
+                onChange={(e) => setStartDate(e.target.value.replace(/-/g, '/'))}
               />
             </div>
           </div>
@@ -70,7 +87,7 @@ function EditProgramModal({ onSave, onCancel }) {
         {/* footer */}
         <div className="edit-program-footer">
           <button className="btn-cancel" onClick={onCancel}>Cancel</button>
-          <button className="btn-save" onClick={onSave}>Save changes</button>
+          <button className="btn-save" onClick={saveChanges}>Save changes</button>
         </div>
 
       </div>

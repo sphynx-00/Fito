@@ -3,23 +3,38 @@ import { loadFromStorage } from '../../models/completedWorkouts';
 import { progressStats } from '../../utils/progressStats';
 import './Profile.css';
 import EditMetricsModal from './EditMetricsModal';
-import { loadUser, profileManager } from './profileUtils';
+import { loadUser, loadUserProgram, profileManager } from './profileUtils';
 import EditProgramModal from './EditProgramModal';
 import DarkModeToggle from './DarkModeToggle';
+import { programs } from '../../models/program';
 
 function Profile({ theme, setTheme }) {
   const workoutHistory = loadFromStorage();
   const { totalWorkouts, totalHours, dayStreak } = progressStats(workoutHistory);
 
   const [user, setUser] = useState(() => loadUser());
+
+  const [userProgram, setUserProgram] = useState(() => loadUserProgram());
+  const currentProgram = userProgram
+    ? programs.find(p => p.id === userProgram.programId)
+    : programs.find(p => p.isActive);
+
+  const handleSaveProgram = (updatedProgram) => {
+    setUserProgram(updatedProgram);
+    setIsEditing(null);
+  }
+
+
   const [isEditing, setIsEditing] = useState(null);
 
   const {editMetrics, editProgram} = profileManager(isEditing, setIsEditing);
   
-  const handleSave = (updatedUser) => {
+  const handleSaveMetrics = (updatedUser) => {
     setUser(updatedUser);
     setIsEditing(null);
   }
+
+  
   
   return (
     <main className="profile-page page-transition">
@@ -98,15 +113,15 @@ function Profile({ theme, setTheme }) {
           <dl className="info-list">
             <div className="info-row">
               <dt className="info-label">Current program</dt>
-              <dd className="info-value">UL/PPL</dd>
+              <dd className="info-value">{currentProgram?.title}</dd>
             </div>
-            <div className="info-row">
+            {/* <div className="info-row">
               <dt className="info-label">Weekly target</dt>
               <dd className="info-value">5 days</dd>
-            </div>
+            </div> */}
             <div className="info-row">
               <dt className="info-label">Started</dt>
-              <dd className="info-value">Apr 20, 2026</dd>
+              <dd className="info-value">{userProgram?.startDate || currentProgram?.startDate}</dd>
             </div>
           </dl>
         </section>
@@ -145,14 +160,14 @@ function Profile({ theme, setTheme }) {
           <EditMetricsModal
             user={user}
             onCancel={() => setIsEditing(null)}
-            onSave={handleSave}
+            onSave={handleSaveMetrics}
            />
         )}
 
         {isEditing === 'program' && (
           <EditProgramModal
-            user={user}
             onCancel={() => setIsEditing(null)}
+            onSave={handleSaveProgram}
            />
         )}
 

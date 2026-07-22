@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { programs } from "../../models/program";
 import { getWorkoutStats, getTodayWithGreeting } from "../../utils/workoutUtils";
 import StatCard from "../Dashboard/components/StatCard";
 import TodaysWorkout from "../Dashboard/components/TodaysWorkout";
@@ -14,11 +13,11 @@ import { loadUser } from "../Profile/profileUtils";
 function Dashboard() {
 const userStats = loadUser();
 
-const { todaysWorkout, total, completed, percentage } = getWorkoutStats(programs);
+const { todaysWorkout, total, completed, percentage } = getWorkoutStats();
+
 const [workoutHistory, setWorkoutHistory] = useState(() => loadFromStorage());
 
 const dayStreak = calculateDayStreak(workoutHistory);
-console.log(dayStreak);
 
 // function for Today's workout
 const [completedList, setCompletedList] = useState(() => {
