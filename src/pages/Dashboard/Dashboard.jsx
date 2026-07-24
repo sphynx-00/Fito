@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getWorkoutStats, getTodayWithGreeting } from "../../utils/workoutUtils";
+import { getWorkoutStats, getTodayWithGreeting, getAdjustedDate } from "../../utils/workoutUtils";
 import StatCard from "../Dashboard/components/StatCard";
 import TodaysWorkout from "../Dashboard/components/TodaysWorkout";
 import WeeklyGoal from "../Dashboard/components/WeeklyGoal";
@@ -21,7 +21,7 @@ const dayStreak = calculateDayStreak(workoutHistory);
 
 // function for Today's workout
 const [completedList, setCompletedList] = useState(() => {
-  const today = new Date().toLocaleDateString();
+  const today = getAdjustedDate().toLocaleDateString('en-ca');
   const savedDate = localStorage.getItem('workoutDate');
   
   if (savedDate !== today) {

@@ -1,4 +1,4 @@
-import { getStartOfWeek } from "../../utils/workoutUtils";
+import { getAdjustedDate, getStartOfWeek } from "../../utils/workoutUtils";
 
 export function normalizeDate(date) {
   const d = new Date(date);
@@ -8,7 +8,7 @@ export function normalizeDate(date) {
 export function calculateDayStreak(workoutHistory) {
   if (workoutHistory.length === 0) return 0;
 
-  const today = new Date();
+  const today = getAdjustedDate();
   today.setHours(0, 0, 0, 0);
 
   const yesterday = new Date(today);

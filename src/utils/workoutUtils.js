@@ -19,6 +19,18 @@ export function getWorkoutStats() {
   };
 }
 
+export function getAdjustedDate() {
+  const now = new Date();
+
+  // if current time is before 3AM
+  // treat it as the previous day
+  if (now.getHours() < 3) {
+    now.setDate(now.getDate() - 1);
+  }
+
+  now.setHours(0, 0, 0, 0);
+  return now;
+}
 
 export function getActiveProgram() {
   const userProgram = loadUserProgram();
@@ -37,7 +49,7 @@ export function getActiveProgram() {
 
 export function getDiffDays(startDate) {
   const start = new Date(startDate);
-  const today  = new Date();
+  const today  = getAdjustedDate();
 
   start.setHours(0, 0, 0, 0);
   today.setHours(0, 0, 0, 0);
