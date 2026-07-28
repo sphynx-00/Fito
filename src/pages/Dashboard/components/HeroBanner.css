@@ -1,6 +1,7 @@
 .hero-banner {
+  display: flex;
   position: relative;
-  background: var(--bg-db-hero-card);
+  background: white;
   border-radius: 16px;
   padding: 16px;
   min-height: 110px;
@@ -8,13 +9,20 @@
   margin-bottom: 16px;
 }
 
+.ring-progress-container {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
 /* decorative background circles */
-.hero-glow-1 {
+/* .hero-glow-1 {
   position: absolute;
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: #6D28D9;;
+  background: #6D28D9;
   top: -30px;
   right: -20px;
 }
@@ -27,7 +35,7 @@
   background: var(--primary-mid);
   bottom: -20px;
   right: 40px;
-}
+} */
 
 /* content sits above decorative circles */
 .hero-content {
@@ -38,8 +46,8 @@
 /* workout type tag */
 .hero-tag {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: var(--primary-mid);
+  color: #FFFFFF;
   font-size: 11px;
   padding: 3px 10px;
   border-radius: 20px;
@@ -47,27 +55,27 @@
 }
 
 .hero-title {
-  font-size: 16px;
-  font-weight: 500;
-  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
   margin: 0 0 4px;
 }
 
 .hero-subtitle {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.75);
+  color: #888888;
   margin: 0 0 14px;
 }
 
 /* stats row */
 .hero-stats {
   display: flex;
-  align-items: center;
   gap: 12px;
 }
 
 .hero-stat {
   display: flex;
+  align-items: center;
   flex-direction: column;
 }
 
@@ -80,7 +88,7 @@
 .hero-stat-value {
   font-size: 18px;
   font-weight: 500;
-  color: #fff;
+  color: #7C3AED;
   line-height: 1;
 }
 
@@ -115,7 +123,7 @@
 
 .hero-stat-label {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.65);
+  color: #888888;
   margin-top: 3px;
 }
 
@@ -123,5 +131,5 @@
 .hero-divider {
   width: 0.5px;
   height: 28px;
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--primary-mid);
 }

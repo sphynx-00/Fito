@@ -1,5 +1,6 @@
 import './HeroBanner.css';
 import { FlameIcon } from 'lucide-react';
+import RingProgress from './RingProgress';
 
 function HeroBanner({workoutName, exercises, completedExercises, totalExercises, percentage, dayStreak}) {
   const isActive = dayStreak > 0;
@@ -7,8 +8,8 @@ function HeroBanner({workoutName, exercises, completedExercises, totalExercises,
   return (
     <section className="hero-banner">
       {/* decorative circles */}
-      <div className="hero-glow-1" />
-      <div className="hero-glow-2" />
+      {/* <div className="hero-glow-1" />
+      <div className="hero-glow-2" /> */}
 
       <div className="hero-content">
 
@@ -16,7 +17,7 @@ function HeroBanner({workoutName, exercises, completedExercises, totalExercises,
         <span className="hero-tag">{workoutName} Day</span>
 
         {/* title */}
-        <h2 className="hero-title">Ready to {workoutName} today?</h2>
+        <h2 className="hero-title">Ready for {workoutName} today?</h2>
 
         {/* subtitle */}
         <p className="hero-subtitle">{exercises} exercises · Est. 45 min</p>
@@ -24,12 +25,12 @@ function HeroBanner({workoutName, exercises, completedExercises, totalExercises,
         {/* stats row */}
         <div className="hero-stats">
 
-          <div className="hero-stat">
+          {/* <div className="hero-stat">
             <span className="hero-stat-value">{completedExercises}</span>
             <span className="hero-stat-label">of {totalExercises} done</span>
           </div>
 
-          <div className="hero-divider" />
+          <div className="hero-divider" /> */}
 
           <div className="hero-stat">
             <div className="hero-stat-streak">
@@ -47,6 +48,10 @@ function HeroBanner({workoutName, exercises, completedExercises, totalExercises,
           </div>
         </div>
       </div>
+
+       <div className='ring-progress-container'>
+        <RingProgress progress={completedExercises} total={totalExercises} color="#00F5D4" />
+       </div>
 
     </section>
   );

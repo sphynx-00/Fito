@@ -1,0 +1,8 @@
+.ring-progress {
+  /* Smooth animation */
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* Teal glow on hover */
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              filter 0.1s ease;
+}
