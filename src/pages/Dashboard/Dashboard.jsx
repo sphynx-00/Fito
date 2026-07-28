@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ChartNoAxesColumnIncreasing, Cookie, Goal } from 'lucide-react';
 import { getWorkoutStats, getTodayWithGreeting, getAdjustedDate } from "../../utils/workoutUtils";
 import StatCard from "../Dashboard/components/StatCard";
 import TodaysWorkout from "../Dashboard/components/TodaysWorkout";
@@ -57,7 +58,6 @@ const handleToggle = (index) => {
 const completedExercises = completedList.filter(c => c === true).length;
 const totalExercises = completedList.length;
 const { date, greeting } = getTodayWithGreeting();
-
   return (
       <main className="dashboard-content page-transition">
         {/* <SearchBar /> */}
@@ -82,9 +82,9 @@ const { date, greeting } = getTodayWithGreeting();
         />
         <h4>Current Stats</h4>
         <div className="stats-grid">
-          <StatCard label="Start weight" value={userStats.weight} unit="kg" />
-          <StatCard label="Goal weight" value={userStats.goalWeight} unit="kg" />
-          <StatCard label="Daily calories" value={userStats.dailyCalories} unit="kcal" />
+          <StatCard logo={ChartNoAxesColumnIncreasing} color="#f76b6b" variant="Start-weight" label="Start weight" value={userStats.weight} unit="kg" />
+          <StatCard logo={Cookie} color="#f76b6b" variant="Goal-weight" label="Daily calories" value={userStats.dailyCalories} unit="kcal" />
+          <StatCard logo={Goal} color="#f76b6b" variant="Daily-calories" label="Goal weight" value={userStats.goalWeight} unit="kg" />
         </div>
 
         <div className="cards-row">
