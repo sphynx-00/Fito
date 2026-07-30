@@ -4,7 +4,7 @@ import RingProgress from './RingProgress';
 
 function HeroBanner({workoutName, exercises, completedExercises, totalExercises, percentage, dayStreak}) {
   const isActive = dayStreak > 0;
-
+  const isRecovery = workoutName === 'Recovery';
   return (
     <section className="hero-banner">
       {/* decorative circles */}
@@ -17,7 +17,12 @@ function HeroBanner({workoutName, exercises, completedExercises, totalExercises,
         <span className="hero-tag">{workoutName} Day</span>
 
         {/* title */}
-        <h2 className="hero-title">Ready for {workoutName} today?</h2>
+        {isRecovery ? (
+          <h2 className="hero-title">Rest days are essential to your fitness journey.</h2>
+        ) : ( 
+          <h2 className="hero-title">Action beats intention every time</h2>
+        )}
+        
 
         {/* subtitle */}
         <p className="hero-subtitle">{exercises} exercises · Est. 45 min</p>

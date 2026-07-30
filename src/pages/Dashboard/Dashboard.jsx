@@ -83,8 +83,8 @@ const { date, greeting } = getTodayWithGreeting();
         <h4>Current Stats</h4>
         <div className="stats-grid">
           <StatCard logo={ChartNoAxesColumnIncreasing} color="#f76b6b" variant="Start-weight" label="Start weight" value={userStats.weight} unit="kg" />
-          <StatCard logo={Cookie} color="#f76b6b" variant="Goal-weight" label="Daily calories" value={userStats.dailyCalories} unit="kcal" />
-          <StatCard logo={Goal} color="#f76b6b" variant="Daily-calories" label="Goal weight" value={userStats.goalWeight} unit="kg" />
+          <StatCard logo={Cookie} color="#f76b6b" variant="Daily-calories" label="Daily calories" value={userStats.dailyCalories} unit="kcal" />
+          <StatCard logo={Goal} color="#f76b6b" variant="Goal-weight" label="Goal weight" value={userStats.goalWeight} unit="kg" />
         </div>
 
         <div className="cards-row">

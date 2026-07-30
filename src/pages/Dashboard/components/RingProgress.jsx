@@ -1,6 +1,6 @@
 import './RingProgress.css';
 
-function RingProgress({ progress, total, size = 110, strokeWidth = 12, padding = 2 }) {
+function RingProgress({ progress, total, size = 142, strokeWidth = 12, padding = 2 }) {
   // progress: 0 to 100
   const effectiveSize = size - (padding * 2);
   const radius = (effectiveSize - strokeWidth) / 2;

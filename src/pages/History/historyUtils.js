@@ -6,7 +6,7 @@ export function normalizeDate(date) {
 }
 
 export function calculateDayStreak(workoutHistory) {
-  if (workoutHistory.length === 0) return 0;
+  // if (workoutHistory.length === 0) return 0;
 
   const today = getAdjustedDate();
   today.setHours(0, 0, 0, 0);

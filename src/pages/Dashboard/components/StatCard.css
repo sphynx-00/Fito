@@ -8,7 +8,7 @@
 
 .stat-container {
   position: relative;
-  background-color:#F5F3FF;
+  background-color:var(--bg-page);
 }
 
 .stat-icon{
@@ -32,20 +32,20 @@
 }
 
 .stat-icon.Goal-weight {
-  --card-start: #7ad0ff;
-  --card-end: #6ba6f7;
+  --card-start: #FF6B9D;
+  --card-end: #EE3B8C;
 }
 
 .stat-icon.Daily-calories {
-  --card-start: #FF6B9D;
-  --card-end: #EE3B8C;
+  --card-start: #7ad0ff;
+  --card-end: #6ba6f7;
 }
 
 .stat-card {
   padding: 40px 16px 16px;
   border-radius: 20px;
   background: linear-gradient(160deg, var(--card-start), var(--card-end));
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
   color: #fff;
 }
 
@@ -55,13 +55,13 @@
 }
 
 .stat-card.Goal-weight {
-  --card-start: #7ad0ff;
-  --card-end: #6ba6f7;
+  --card-start: #FF6B9D;
+  --card-end: #EE3B8C;
 }
 
 .stat-card.Daily-calories {
-  --card-start: #FF6B9D;
-  --card-end: #EE3B8C;
+  --card-start: #7ad0ff;
+  --card-end: #6ba6f7;
 }
 
 .stat-label {

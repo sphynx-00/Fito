@@ -7,6 +7,7 @@
   min-height: 110px;
   overflow: hidden;
   margin-bottom: 16px;
+  gap: 5px;
 }
 
 .ring-progress-container {
@@ -39,26 +40,29 @@
 
 /* content sits above decorative circles */
 .hero-content {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   z-index: 2;
 }
 
 /* workout type tag */
 .hero-tag {
-  display: inline-block;
+  width: 81px;
   background: var(--primary-mid);
   color: #FFFFFF;
-  font-size: 11px;
-  padding: 3px 10px;
+  font-size: 14px;
+  padding: 4px 10px;
   border-radius: 20px;
   margin-bottom: 8px;
 }
 
 .hero-title {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 700;
+  max-width: 20ch;
   color: #1a1a1a;
-  margin: 0 0 4px;
+  margin: 0 0 5px;
 }
 
 .hero-subtitle {
@@ -87,7 +91,7 @@
 
 .hero-stat-value {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 700;
   color: #7C3AED;
   line-height: 1;
 }
