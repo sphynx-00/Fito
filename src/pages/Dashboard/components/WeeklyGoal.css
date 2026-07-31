@@ -61,7 +61,7 @@
 }
 
 .dot-done  { background: var(--bg-card); color: var(--text-primary-weekly); border: 1px solid var(--primary-done); }
-.dot-today { background: var(--primary-mid);  color: var(--bg-card); }
+.dot-today { background: var(--primary-dark);  color: var(--bg-card); }
 .dot-empty { background: var(--bg-card); color: #aaa; border: 1px dashed #aaa; }
 
 .day-name   { font-size: 9px; color: #aaa; }

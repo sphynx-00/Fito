@@ -6,8 +6,6 @@ export function normalizeDate(date) {
 }
 
 export function calculateDayStreak(workoutHistory) {
-  // if (workoutHistory.length === 0) return 0;
-
   const today = getAdjustedDate();
   today.setHours(0, 0, 0, 0);
 
@@ -48,7 +46,7 @@ export function calculateDayStreak(workoutHistory) {
     const expectedDate = new Date(startFrom);
     expectedDate.setDate(startFrom.getDate() - i);
     const expectedDateStr = expectedDate.toLocaleDateString('en-CA');
-
+    
     if (uniqueDates[i] === expectedDateStr) {
       streak++;
     } else {
@@ -57,6 +55,10 @@ export function calculateDayStreak(workoutHistory) {
   }
 
   return streak;
+}
+
+export function saveDayStreak(streak) {
+  localStorage.setItem('streak', JSON.stringify(streak));
 }
 
 // export function calculateDayStreak(workoutHistory) {

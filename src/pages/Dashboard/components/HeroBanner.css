@@ -49,12 +49,13 @@
 /* workout type tag */
 .hero-tag {
   width: 81px;
-  background: var(--primary-mid);
+  background: var(--primary-dark);
   color: #FFFFFF;
   font-size: 14px;
   padding: 4px 10px;
   border-radius: 20px;
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .hero-title {
@@ -92,7 +93,7 @@
 .hero-stat-value {
   font-size: 18px;
   font-weight: 700;
-  color: #7C3AED;
+  color: var(--primary-dark);
   line-height: 1;
 }
 

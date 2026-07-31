@@ -1,12 +1,11 @@
 import './ExerciseRow.css';
-import squat from '../../../assets/squat.png';
 
 function ExerciseRow({ name, sets, reps, completed, toggle }) {
   return (
     <div className="exercise-row">
       <span className="ex-name">{name}</span>
       <div className="ex-done">
-        <span className="ex-sets">{sets} sets × {reps} reps</span>
+        <span className="ex-sets">{sets} sets × {reps} reps · 20 kg</span>
         <div className={`check ${completed ? 'completed' : ''}`}
           onClick={toggle}
          />

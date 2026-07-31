@@ -8,4 +8,4 @@
 .dashboard-greeting,
 .dashboard-date,
 h4
- { color: var(--text-primary); }
+ { color: var(--primary-dark); }

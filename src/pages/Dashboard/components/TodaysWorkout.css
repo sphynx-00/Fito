@@ -13,7 +13,7 @@
   margin-bottom: 14px;
 }
 
-.card-title { font-size: 14px; font-weight: bold; margin: 0; color: var(--text-primary); }
+.card-title { font-size: 14px; font-weight: bold; margin: 0; color: var(--primary-mid); }
 .card-title-hide { display: none; }
 
 .badge { font-size: 10px; padding: 3px 9px; border-radius: 20px; font-weight: bold; }
