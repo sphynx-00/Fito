@@ -2,18 +2,20 @@
   background: var(--bg-card);
   border: 0.5px solid var(--border-color);
   border-radius: 12px;
-  padding: 16px;
   margin: 16px 0;
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
   align-items: center;
-  margin-bottom: 14px;
+  padding: 16px;
+  background: var(--primary-dark);
 }
 
-.card-title { font-size: 14px; font-weight: bold; margin: 0; color: var(--primary-mid); }
+.card-title { font-size: 14px; font-weight: bold; margin: 0; color: #fff; }
 .card-title-hide { display: none; }
 
 .badge { font-size: 10px; padding: 3px 9px; border-radius: 20px; font-weight: bold; }
@@ -85,9 +87,9 @@
   background: #7C3AED;
   border-style: none;
   border-radius: 4px;
-  padding: 8px 8px;
+  padding: 8px;
   display: block;        /* ← makes width and margin auto work */
-  margin: 12px auto 0;  /* ← auto left and right centers it */
+  margin: 16px auto;  /* ← auto left and right centers it */
   width: fit-content;   /* ← shrinks to content width */
   cursor: pointer;
 }
