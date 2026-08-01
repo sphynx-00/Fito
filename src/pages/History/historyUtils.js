@@ -1,4 +1,4 @@
-import { getAdjustedDate, getStartOfWeek } from "../../utils/workoutUtils";
+import { getActiveProgram, getAdjustedDate, getDiffDays, getStartOfWeek } from "../../utils/workoutUtils";
 
 export function normalizeDate(date) {
   const d = new Date(date);
@@ -6,13 +6,19 @@ export function normalizeDate(date) {
 }
 
 export function calculateDayStreak(workoutHistory) {
-  const today = getAdjustedDate();
-  today.setHours(0, 0, 0, 0);
+  if (workoutHistory.length === 0) return 0;
 
+  // get adjusted today and yesterday (resets at 3AM)
+  const today = getAdjustedDate();
   const yesterday = new Date(today);
   yesterday.setDate(today.getDate() - 1);
 
-  // get unique workout dates — filter Recovery, sort newest first
+  const todayStr     = today.toLocaleDateString('en-CA');
+  const yesterdayStr = yesterday.toLocaleDateString('en-CA');
+
+  // get all NON-recovery workout dates
+  // sorted newest first
+  // duplicates removed
   const uniqueDates = [
     ...new Set(
       workoutHistory
@@ -27,39 +33,54 @@ export function calculateDayStreak(workoutHistory) {
 
   if (uniqueDates.length === 0) return 0;
 
-  const todayStr     = today.toLocaleDateString('en-CA');
-  const yesterdayStr = yesterday.toLocaleDateString('en-CA');
-
-  // streak is 0 if most recent workout is older than yesterday
+  // streak is 0 if most recent workout
+  // is older than yesterday (3AM adjusted)
   if (uniqueDates[0] !== todayStr && uniqueDates[0] !== yesterdayStr) {
     return 0;
   }
 
   // determine starting point
-  // if worked out today → count from today
-  // if not yet today   → count from yesterday
   const startFrom = uniqueDates[0] === todayStr ? today : yesterday;
 
-  let streak = 0;
+  // get active program to know which days are recovery
+  const activeProgram  = getActiveProgram();
+  const recoveryNames  = ['Recovery'];
 
-  for (let i = 0; i < uniqueDates.length; i++) {
-    const expectedDate = new Date(startFrom);
-    expectedDate.setDate(startFrom.getDate() - i);
-    const expectedDateStr = expectedDate.toLocaleDateString('en-CA');
-    
-    if (uniqueDates[i] === expectedDateStr) {
+  let streak    = 0;
+  let dateIndex = 0;  // tracks position in uniqueDates
+  let daysBack  = 0;  // tracks how many days we go back
+
+  while (dateIndex < uniqueDates.length) {
+    const checkDate = new Date(startFrom);
+    checkDate.setDate(startFrom.getDate() - daysBack);
+    const checkDateStr = checkDate.toLocaleDateString('en-CA');
+
+    // check if this day is a recovery day in the program
+    const diffDays   = Math.floor((today - checkDate) / (1000 * 60 * 60 * 24));
+    const cycleIndex = ((getDiffDays(activeProgram.startDate) - diffDays) % activeProgram.workouts.length + activeProgram.workouts.length) % activeProgram.workouts.length;
+    const workout    = activeProgram.workouts[cycleIndex];
+    const isRecovery = recoveryNames.includes(workout?.name);
+
+    if (isRecovery) {
+      // recovery day — skip without breaking streak
+      daysBack++;
+      continue;
+    }
+
+    // non recovery day — check if user completed a workout
+    if (uniqueDates[dateIndex] === checkDateStr) {
       streak++;
+      dateIndex++;
+      daysBack++;
     } else {
-      break;  // gap found → stop counting
+      // missed a workout day — streak breaks
+      break;
     }
   }
 
   return streak;
 }
 
-export function saveDayStreak(streak) {
-  localStorage.setItem('streak', JSON.stringify(streak));
-}
 
 // export function calculateDayStreak(workoutHistory) {
 //   if (workoutHistory.length === 0) return 0;

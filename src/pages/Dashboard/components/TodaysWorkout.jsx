@@ -68,6 +68,7 @@ const handleComplete = () => {
             exercises && exercises.map((exercise, index) => (
               <ExerciseRow
                 key={exercise.order}
+                number={index + 1}
                 name={exercise.exerciseName}
                 sets={exercise.sets}
                 reps={exercise.reps}

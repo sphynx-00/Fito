@@ -1,4 +1,72 @@
- .exercise-row {
+ .tw-row {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 14px;
+  border-bottom: 0.5px solid var(--bg-page);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.tw-row:last-child {
+  border-bottom: none;
+}
+
+.tw-row:hover {
+  background: var(--bg-page);
+}
+
+.tw-row:active {
+  transform: scale(0.99);
+}
+
+.tw-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.tw-num.completed {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ── exercise info ── */
+.tw-info {
+  flex: 1;
+}
+
+.tw-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0 0 2px;
+}
+
+.tw-sets {
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ── weight ── */
+.tw-weight {
+  font-size: 11px;
+  color: var(--primary);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+ 
+ /* .exercise-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,7 +108,7 @@
   border-top: none;
   border-left: none;
   transform: rotate(45deg);
-}
+} */
 
 /* ============================================ */
 /* .check {
