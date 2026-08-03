@@ -4,6 +4,7 @@ import './TodaysWorkout.css';
 import { loadFromStorage, saveWorkoutHistory } from "../../../models/completedWorkouts";
 import { useState } from "react";
 import CompletedState from "./CompletedState";
+import WeightSheet from "./WeightSheet";
 
 function TodaysWorkout({ workoutName, exercises, completedList, handleToggle, onComplete }) {
 const [isCompleted, setIsCompleted] = useState(() => {

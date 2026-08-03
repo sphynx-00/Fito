@@ -14,7 +14,7 @@ function HeroBanner({workoutName, exercises, completedExercises, totalExercises,
       <div className="hero-content">
 
         {/* workout type tag */}
-        <span className="hero-tag">{workoutName} Day</span>
+        <span className="hero-tag">{workoutName}</span>
 
         {/* title */}
         {isRecovery ? (

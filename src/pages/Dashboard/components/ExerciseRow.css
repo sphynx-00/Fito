@@ -4,7 +4,6 @@
   gap: 11px;
   padding: 11px 14px;
   border-bottom: 0.5px solid var(--bg-page);
-  cursor: pointer;
   transition: background 0.2s ease;
 }
 
@@ -16,9 +15,6 @@
   background: var(--bg-page);
 }
 
-.tw-row:active {
-  transform: scale(0.99);
-}
 
 .tw-num {
   width: 24px;
@@ -33,6 +29,7 @@
   justify-content: center;
   flex-shrink: 0;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .tw-num.completed {
@@ -64,6 +61,11 @@
   color: var(--primary);
   font-weight: 500;
   flex-shrink: 0;
+  cursor: pointer;
+}
+
+.tw-weight:active {
+  transform: scale(0.99);
 }
  
  /* .exercise-row {
