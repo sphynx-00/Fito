@@ -1,5 +1,6 @@
 import { programs } from "../models/program";
 import { loadUserProgram } from "../pages/Profile/profileUtils";
+import { loadExerciseWeights } from "./exerciseUtils";
 
 export function getWorkoutStats() {
   const activeProgram = getActiveProgram();
@@ -10,9 +11,22 @@ export function getWorkoutStats() {
   const total         = getTotalWorkouts(workouts);
   const completed     = getCompletedWorkouts(cycleIndex, workouts);
   const percentage    = getPercentage(completed, total);
+
+  // apply saved weight overrides on top of the base program data
+  const weightOverrides = loadExerciseWeights();
+  
+  const todaysWorkoutWithWeights = todaysWorkout ? {
+    ...todaysWorkout,
+    exercises: todaysWorkout.exercises?.map(exercise => {
+      const key = `${todaysWorkout.workoutId}-${exercise.order}`;
+      return weightOverrides[key] !== undefined
+        ? { ...exercise, weight: weightOverrides[key] }
+        : exercise;
+    })
+  } : todaysWorkout;
  
   return {
-    todaysWorkout,
+    todaysWorkout: todaysWorkoutWithWeights,
     total,
     completed,
     percentage,

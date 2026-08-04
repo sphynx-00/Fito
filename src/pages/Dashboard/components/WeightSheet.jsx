@@ -1,12 +1,18 @@
+import { useState } from 'react';
 import './WeightSheet.css';
 
-function WeightSheet(exercise, increment, decrement, weight, setWeight, onCancel, onSave) {
+function WeightSheet({exercise, onSave, onCancel}) {
+  const [weight, setWeight] = useState(exercise?.weight || 0);
+
+  const increment = () => setWeight(prev => Number(prev) + .5);
+  const decrement = () => setWeight(prev => Number(prev) - .5);
+  
   return (
     <div className="weight-sheet-overlay">
       <div className="weight-sheet">
         <div className="sheet-handle" />
         <div className="sheet-head">
-          <p className="sheet-name">Kantutan</p>
+          <p className="sheet-name">{exercise?.exerciseName}</p>
           <p className="sheet-sub">Adjust weight for this exercise</p>
         </div>
         <div className="stepper">

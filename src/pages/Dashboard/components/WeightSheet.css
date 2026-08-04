@@ -107,7 +107,10 @@
 }
 
 .numinput {
-  width: 70px;
+  width: auto;
+  min-width: 60px;
+  max-width: 110px;
+
   font-size: 32px;
   font-weight: 500;
   color: var(--primary);

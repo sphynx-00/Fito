@@ -15,8 +15,29 @@ function Dashboard() {
 const userStats = loadUser();
 
 const { todaysWorkout, total, completed, percentage } = getWorkoutStats();
-
 const [workoutHistory, setWorkoutHistory] = useState(() => loadFromStorage());
+
+// Save Weight //
+const [exercises, setExercises] = useState(() => {
+  const saved = JSON.parse(localStorage.getItem('exercises') || '[]');
+  return saved.length > 0 ? saved : (todaysWorkout?.exercises || []);
+});
+
+const handleUpdateWeight = (order, newWeight) => {
+  const updated = exercises.map(exercise =>
+    exercise.order === order
+      ? { ...exercise, weight: Number(newWeight) }
+      : exercise
+  );
+  setExercises(updated);
+};
+
+useEffect(() => {
+  localStorage.setItem('exercises', JSON.stringify(exercises));
+}, [exercises]);
+
+// Save Weight //
+
 
 const dayStreak = calculateDayStreak(workoutHistory);
 
@@ -32,7 +53,6 @@ const [completedList, setCompletedList] = useState(() => {
     return todaysWorkout?.exercises?.map(() => false) || [];
   // Will change this with a proper message or UI if it is newly opened //
   }
-  
 
   const saved = JSON.parse(localStorage.getItem('completedList') || '[]');
 
@@ -89,11 +109,12 @@ const { date, greeting } = getTodayWithGreeting();
 
         <div className="cards-row">
           <TodaysWorkout 
-             exercises={todaysWorkout?.exercises}
+             exercises={exercises}
              workoutName={todaysWorkout?.name}
              completedList={completedList}
              handleToggle={handleToggle} 
              onComplete={setWorkoutHistory}
+             onUpdatedWeight={handleUpdateWeight}
           />
         </div>
          {/* <WeeklyGoal 

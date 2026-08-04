@@ -11,11 +11,12 @@
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   align-items: center;
-  padding: 12px;
-  background: var(--primary-dark);
+  padding: 16px;
+  background: var(--bg-card);
+  border-bottom: 0.5px solid var(--bg-page);
 }
 
-.card-title { font-size: 14px; font-weight: bold; margin: 0; color: #fff; }
+.card-title { font-size: 14px; font-weight: bold; margin: 0; color: var(--text-primary); }
 .card-title-hide { display: none; }
 
 .badge { font-size: 10px; padding: 3px 9px; border-radius: 20px; font-weight: bold; }
