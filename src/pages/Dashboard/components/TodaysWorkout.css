@@ -1,101 +1,117 @@
-.workout-card {
-  background: var(--bg-card);
-  border: 0.5px solid var(--border-color);
-  border-radius: 12px;
-  margin: 16px 0;
-}
-
 .card-header {
   display: flex;
   justify-content: space-between;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
   align-items: center;
-  padding: 16px;
-  background: var(--bg-card);
-  border-bottom: 0.5px solid var(--bg-page);
+  padding: 12px;
 }
 
-.card-title { font-size: 14px; font-weight: bold; margin: 0; color: var(--text-primary); }
-.card-title-hide { display: none; }
+.card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
 
-.badge { font-size: 10px; padding: 3px 9px; border-radius: 20px; font-weight: bold; }
-.badge-done       { background: #F5F3FF; color: #7C3AED; }
-.badge-progress  { background: #F5F3FF; color: #7C3AED; }
-.badge-pending  { background: #f4f4f4; color: #888; }
+.card-title-hide {
+  display: none;
+}
 
-/* dot inside badge */
-.badge::before {
-  content: '';
-  width: 6px;
-  height: 6px;
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 8px;
+  padding: 4px 10px 4px 8px;
+  border-radius: 20px;
+  background: var(--divider-strong);
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.badge-dot {
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  display: inline-block;
-  margin-right: 4px;
+  background: var(--text-tertiary);
+  flex-shrink: 0;
 }
 
-.badge-done::before     { background: #7C3AED }
-.badge-progress::before { background: #7C3AED }
-.badge-pending::before  { background: #888;    }
+.badge-done {
+  color: var(--accent-purple);   /* should render as warm gold/tan */
+}
 
+.badge-done .badge-dot {
+  background: var(--accent-purple);
+}
+
+.badge-progress {
+  background: var(--divider-strong);
+  color: var(--text-primary);
+}
+
+.badge-progress .badge-dot {
+  background: var(--text-primary);
+}
+
+.badge-pending {
+  background: var(--divider-strong);
+  color: var(--text-secondary);
+}
+
+.badge-pending .badge-dot {
+  background: var(--text-tertiary);
+}
+
+/* ── recovery state ── */
 .recovery-state {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px 16px;
   text-align: center;
-  gap: 8px;
+  padding: 24px 16px;
+  gap: 4px;
 }
 
 .recovery-icon {
-  font-size: 40px;
+  margin-bottom: 8px;
 }
 
 .recovery-title {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--text-primary);
   margin: 0;
 }
 
 .recovery-message {
-  font-size: 13px;
-  color: #888;
+  font-size: 11px;
+  color: var(--text-secondary);
   margin: 0;
+  max-width: 240px;
 }
 
-.recovery-tips {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-  margin-top: 8px;
-}
-
-.recovery-tip {
-  font-size: 13px;
-  color: #555;
-  background: #f9f9f9;
-  padding: 10px 14px;
-  border-radius: 8px;
-  text-align: left;
-  margin: 0;
-  border: 0.5px solid #e0e0e0;
-}
-
+/* ── complete button ── */
 .complete-btn {
-  color: #F5F3FF;
-  background: #7C3AED;
-  border-style: none;
-  border-radius: 4px;
-  padding: 8px;
-  display: block;        /* ← makes width and margin auto work */
-  margin: 16px auto;  /* ← auto left and right centers it */
-  width: fit-content;   /* ← shrinks to content width */
+  width: 100%;
+  margin-top: 14px;
+  padding: 13px;
+  border-radius: 12px;
+  border: none;
+  background: var(--text-primary);
+  color: var(--bg-page);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.complete-btn:hover {
+  opacity: 0.85;
 }
 
 .complete-btn:active {
-  transform: scale(0.9);
-  transition: transform 0.1s ease;
+  transform: scale(0.98);
 }

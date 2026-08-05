@@ -9,38 +9,26 @@ function WeeklyGoal() {
 
   return (
     <div className="weekly-card">
-      {/* <div className="goal-header">
-        <p className="goal-title">Weekly goal</p>
-      </div>
-
-      <div className="goal-row">
-          <span className="goal-label">{completed} of {total} workouts</span>
-          <span className="goal-count">{percentage}%</span>
-      </div> */}
-
-      {/* <div className="progress-track">
-        <div className="progress-fill"
-          style={{ width: `${percentage}%`}}
-        />
-      </div> */}
-
-      <div className="day-dots">
+      <div className="day-strip">
         {days.map((day, index) => {
           const currentDay = new Date(startOfWeek);
           currentDay.setDate(startOfWeek.getDate() + index);
-          
+
           const isToday = currentDay.toDateString() === today.toDateString();
           const isPast  = currentDay < today && !isToday;
-          
+
+          const stateClass = isToday ? 'today' : isPast ? 'done' : '';
+
           return (
-            <div className="day-dot" key={day}>
-              <div className={`dot ${isToday ? 'dot-today' : isPast ? 'dot-done' : 'dot-empty'}`}>{day[0]}</div>
-              <span className={`${isToday ? 'day-today' : 'day-name'}`}>{day}</span>
+            <div className={`day-card ${stateClass}`} key={day}>
+              <span className="day-name">{day}</span>
+              <span className="day-icon">
+                {isToday ? '●' : isPast ? '✓' : '−'}
+              </span>
             </div>
           );
         })}
       </div>
-        {/* <p className="next-label">Today: {program}</p> */}
     </div>
   );
 }

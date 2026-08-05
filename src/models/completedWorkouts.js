@@ -1,3 +1,5 @@
+import { getAdjustedDate } from "../utils/workoutUtils";
+
 export const completedWorkouts = [
   {
     id: 1,
@@ -100,7 +102,7 @@ export const completedWorkouts = [
 ];
 
 export function saveWorkoutHistory(workoutName, exercises) {
-  const today = new Date();
+  const today = getAdjustedDate();
   
   const completedWorkout = {
     id:        Date.now(),

@@ -1,69 +1,64 @@
 .weekly-card {
-  /* background: #fff; */
-  background: var(--bg-page);
-  /* border: 0.5px solid #e0e0e0; */
-  border-radius: 12px;
-  margin: 10px 0;
+  margin-bottom: 10px;
 }
 
-.goal-title {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 0 0 14px;
-}
-
-.goal-row {
+.day-strip {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
+  gap: 6px;
 }
 
-.goal-label { font-size: 12px; color: #888; }
-.goal-count  { font-size: 12px; font-weight: 500; }
-
-/* .progress-track {
-  width: 100%;
-  height: 6px;
-  background: #ebebeb;
-  border-radius: 3px;
-  overflow: hidden;
-  margin-bottom: 16px;
-}
-
-.progress-fill {
-  height: 100%;
-  background: #7C3AED;
-  border-radius: 3px;
-} */
-
-.day-dots {
-  display: flex;
-  gap: 4px;
-}
-
-.day-dot {
+.day-card {
+  flex: 1;
+  background: var(--bg-card);
+  border: 0.5px solid var(--border-color);
+  border-radius: 16px;
+  padding: 10px 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  flex: 1;
+  gap: 5px;
 }
 
-.dot {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.day-card.today {
+  background: var(--bg-pill);
+  border-color: var(--bg-pill);
+}
+
+.day-name {
   font-size: 10px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.day-card.today .day-name {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.day-icon {
+  font-size: 15px;
+  color: var(--text-tertiary);
+}
+
+.day-card.today .day-icon {
+  color: var(--accent-purple);
+}
+
+.day-card.done .day-icon {
+  color: var(--text-primary);
+}
+
+.day-state {
+  font-size: 9px;
+  color: var(--text-tertiary);
   font-weight: 500;
 }
 
-.dot-done  { background: var(--bg-card); color: var(--text-primary-weekly); border: 1px solid var(--primary-done); }
-.dot-today { background: var(--primary-dark);  color: var(--bg-card); }
-.dot-empty { background: var(--bg-card); color: #aaa; border: 1px dashed #aaa; }
+.day-card.today .day-state {
+  color: #fff;
+  font-weight: 700;
+}
 
-.day-name   { font-size: 9px; color: #aaa; }
-.day-today { font-size: 9px; color: var(--primary); }
-.next-label { font-size: 12px; color: #888; margin: 12px 0 0; }
+.day-card.done .day-state {
+  color: var(--text-primary);
+  font-weight: 600;
+}

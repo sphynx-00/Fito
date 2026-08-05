@@ -8,14 +8,16 @@ import HeroBanner from "../Dashboard/components/HeroBanner";
 import './Dashboard.css';
 import { loadFromStorage } from "../../models/completedWorkouts";
 import { calculateDayStreak } from "../History/historyUtils";
+import WeekStrip from "./components/WeekStrip";
 import { loadUser } from "../Profile/profileUtils";
 
 
-function Dashboard() {
-const userStats = loadUser();
 
+function Dashboard() {
 const { todaysWorkout, total, completed, percentage } = getWorkoutStats();
 const [workoutHistory, setWorkoutHistory] = useState(() => loadFromStorage());
+const userStats = loadUser();
+
 
 // Save Weight //
 const [exercises, setExercises] = useState(() => {
@@ -84,14 +86,16 @@ const { date, greeting } = getTodayWithGreeting();
         {/* <SemiCircleProgress /> */}
         <header className="dashboard-header">
           <p className="dashboard-date">{date}</p>
-          <h3 className="dashboard-greeting">Good {greeting}, Sean!</h3>
+          <h1 className="dashboard-greeting">Good {greeting}, Sean</h1>
         </header>
-         <WeeklyGoal 
+
+        <WeeklyGoal 
           program={todaysWorkout?.name}
           completed={completed}
           total={total}
           percentage={percentage}
-         />
+        />
+
         <HeroBanner
           workoutName={todaysWorkout?.name}
           exercises={todaysWorkout?.exercises?.length}
@@ -100,13 +104,15 @@ const { date, greeting } = getTodayWithGreeting();
           percentage={percentage}
           dayStreak={dayStreak}
         />
+
         <h4>Current Stats</h4>
         <div className="stats-grid">
-          <StatCard logo={ChartNoAxesColumnIncreasing} color="#f76b6b" variant="Start-weight" label="Start weight" value={userStats.weight} unit="kg" />
-          <StatCard logo={Cookie} color="#f76b6b" variant="Daily-calories" label="Daily calories" value={userStats.dailyCalories} unit="kcal" />
-          <StatCard logo={Goal} color="#f76b6b" variant="Goal-weight" label="Goal weight" value={userStats.goalWeight} unit="kg" />
+          <StatCard logo={ChartNoAxesColumnIncreasing} color="#1F1B29;" variant="Start-weight" label="Start weight" value={userStats.weight} unit="kg" />
+          <StatCard logo={Cookie} color="#1F1B29;" variant="Daily-calories" label="Daily calories" value={userStats.dailyCalories} unit="kcal" />
+          <StatCard logo={Goal} color="#1F1B29;" variant="Goal-weight" label="Goal weight" value={userStats.goalWeight} unit="kg" />
         </div>
 
+        <h4>Workout Log</h4>
         <div className="cards-row">
           <TodaysWorkout 
              exercises={exercises}

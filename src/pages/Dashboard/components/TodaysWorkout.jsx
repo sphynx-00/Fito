@@ -52,11 +52,13 @@ const handleComplete = () => {
 
   return (
     <div>
-      <h4 className='title'>Workout Log</h4>
       <div className="workout-card">
         <div className="card-header">
           <p className={isRecovery ? 'card-title-hide' : 'card-title'}>Today's workout</p>
-          <span className={`badge ${getBadgeClass()}`}>{getBadgeStatus()}</span>
+          <span className={isRecovery ? 'badge-hidden' :`badge ${getBadgeClass()}`}>
+            <span className="badge-dot" />
+            {getBadgeStatus()}
+          </span>
         </div>
 
           {isRecovery ? (
@@ -64,7 +66,7 @@ const handleComplete = () => {
               <span className="recovery-icon">
                 <img
                   className="hero-mascot"
-                  src={recovery} width="50" height="50"
+                  src={recovery} width="70" height="70"
                 />
               </span>
               <p className="recovery-title">Rest & Recover</p>

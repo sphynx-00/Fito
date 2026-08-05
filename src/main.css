@@ -1,91 +1,33 @@
 :root {
-  /* backgrounds */
-  --bg-page:         #F5F3FF;
-  /* --bg-card:    #FFFFFF; */
-  --bg-card:         #FFFFFF;
-  --bg-card-active:  #7C3AED;
-  --bg-db-hero-card: #7C3AED;
-  --bg-nav:          #1E1128;
-
-  /* nav */
-  --nav-item: #000000;
-
-
-  /* text */
-  --text-primary:            #1a1a1a;
-  --text-primary-stat-value: #7C3AED;
-  --text-primary-weekly:     #7C3AED;
-  --text-primary-program:    #7C3AED;
-  --text-secondary:          #888888;
-  --text-tertiary:           #aaaaaa;
-
-  /* borders */
-  --border-color:        #E9E4FF;
-  --border-color-bottom: #F5F3FF;
-
-  /* purple theme */
-  --primary:       #7C3AED;
-  --primary-done:  #7C3AED;
-  --primary-dark:  #6D28D9;
-  --primary-mid:   #8B5CF6;
-  --primary-light: #EDE9FE;
-  --primary-knob: #1a0b29;
-  --primary-knob-light: #EDE9FE;
-
-  /* status colors */
-  --success-bg:   #e1f5ee;
-  --success-text: #0F6E56;
-  --warning-bg:   #fff8e6;
-  --warning-text: #a06000;
-  --danger-bg:    #FEE2E2;
-  --danger-text:  #EF4444;
+  --bg-page:        #FAFAFA;
+  --bg-card:        #FFFFFF;
+  --bg-hero:        #1F1B29;
+  --bg-pill:        #1F1B29;
+  --divider:        #F0F0F0;
+  --divider-strong: #EDEDED;
+  --text-primary:   #161616;
+  --text-secondary: #B8B8B8;
+  --text-tertiary:  #D4D4D4;
+  --accent-purple:  #8B5CF6;
+  --logo-purple:  #8B5CF6;
+  --accent-gold:    #E0AE5A;
+  --border-color:   #EDEDED;
 }
 
 [data-theme="dark"] {
-  /* backgrounds */
-  --bg-page:    #1a0b29;
-  --bg-card:    #1E1830;
-  --bg-db-hero-card: linear-gradient(135deg, #322757, #322850);
-  --bg-card: linear-gradient(135deg, #322757, #322850);
-  --bg-card-hover: linear-gradient(135deg, #322757, #322850);
-  --bg-card-active: linear-gradient(135deg, #8d70ee, #1c1438);
-  --bg-nav:     #0F0A18;
-
-  /* nav */
-  --nav-item: #FFFFFF;
-
-  /* text */
-  --text-primary:        #F3F1F8;
-  --text-primary-stat-value: #F3F1F8;
-  --text-primary-weekly: #F3F1F8;
-  --text-primary-program: #1a0b29;
-  --text-secondary:      #A8A3B8;
-  --text-tertiary:       #6B6680;
-
-  /* borders */
-  --border-color: #241236;
-  --border-color-bottom: #9F7AEA;
-
-  /* purple theme */
-  --primary:       #F3F1F8;
-  --primary-done: transparent;
-  --primary-dark:  #7C3AED;
-  --primary-mid:   #A78BFA;
-  --primary-light: #1a0b29;
-  --primary-knob-light: #1a0b29;
-
-  /* status colors */
-  --success-bg:   #0F2922;
-  --success-text: #4ADE80;
-  --warning-bg:   #2A2410;
-  --warning-text: #FBBF24;
-  --danger-bg:    #2D1414;
-  --danger-text:  #F87171;
+  --bg-page:        #0D0D0F;
+  --bg-card:        #151517;
+  --bg-hero:        #000000;
+  --divider:        #1A1A1E;
+  --divider-strong: #1E1E22;
+  --text-primary:   #F2F2F4;
+  --text-secondary: #5A5A62;
+  --text-tertiary:  #3A3A40;
+  --accent-purple:  #A78BFA;
+  --accent-gold:    #E8BE7C;
+  --border-color:   #1E1E22;
 }
 
 body {
-  /* background: #1E1128;
-  background-color: var(--bg-page); */
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-page);
 }
-
