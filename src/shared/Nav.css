@@ -22,7 +22,7 @@
   gap: 4px;
   flex: 1;
   cursor: pointer;
-  color: var(--nav-item);
+  color: var(--nav-color);
 }
 
 .nav-center-btn {
@@ -58,7 +58,7 @@
 
 /* hover effect */
 .nav-bottom .nav-item:hover {
-  color: #8B5CF6;
+  color: var(--accent-purple);
   transition: color 0.2s ease;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .nav-bottom .nav-item.active {
-  color: var(--primary-mid);
+  color: var(--accent-purple);
 }
 
 
