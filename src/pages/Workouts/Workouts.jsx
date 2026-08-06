@@ -1,61 +1,67 @@
 import { useState } from 'react';
-import { exercisesByMuscle } from '../../models/exercisesByMuscle';
-import MuscleGroup from './components/MuscleGroup';
-import { bodyParts } from '../../models/bodyparts';
-import ExerciseCard from './components/ExerciseCard';
 import './Workouts.css';
 
+const filters = ['All', 'Push', 'Pull'];
+
+const bodyParts = [
+  { id: 1, name: 'Chest',     exercises: 5, icon: '💪', iconBg: '#D4A24E' },
+  { id: 2, name: 'Back',      exercises: 5, icon: '🔙', iconBg: '#8B7BE0' },
+  { id: 3, name: 'Legs',      exercises: 6, icon: '🦵', iconBg: '#6BB894' },
+  { id: 4, name: 'Shoulders', exercises: 4, icon: '🏋️', iconBg: '#D08A6B' },
+  { id: 5, name: 'Arms',      exercises: 6, icon: '🦾', iconBg: '#7BA8D4' },
+  { id: 6, name: 'Core',      exercises: 4, icon: '🫀', iconBg: '#C97BA8' },
+];
 
 function Workouts() {
-  const [selectedMuscle, setSelectedMuscle] = useState('');
-  const nameExercise = selectedMuscle;
-  const capitalName = nameExercise.charAt(0).toUpperCase() + nameExercise.slice(1);
-
-  const exercises = exercisesByMuscle[selectedMuscle];
+  const [selectedFilter, setSelectedFilter] = useState('All');
+  const [search, setSearch] = useState('');
 
   return (
     <main className="workouts-content page-transition">
+
       <header className="workouts-header">
-        <h3 className="workouts-title">Workouts</h3>
-        <p className="workouts-description">Choose a muscle group</p>
+        <h1 className="workouts-title">Workouts</h1>
       </header>
 
-      <section className='muscle-section'>
-        <h4 className='section-title'>Muscle groups</h4>
+      <div className="workouts-search">
+        <span className="search-icon">⌕</span>
+        <input
+          type="text"
+          className="search-input"
+          placeholder="Search exercises..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
 
-        <div className='muscle-grid'>
-          {bodyParts && bodyParts.map((bodyPart) => (
-            <MuscleGroup
-              key={bodyPart.id}
-              muscleImage={bodyPart.emoji}
-              muscleName={bodyPart.name}
-              isActive={selectedMuscle === bodyPart.key}
-              onClick={() => setSelectedMuscle(bodyPart.key)}
-            />
-          ))}
-        </div>
-      </section>
+      <div className="workouts-filters">
+        {filters.map((filter) => (
+          <button
+            key={filter}
+            className={`filter-chip ${selectedFilter === filter ? 'active' : ''}`}
+            onClick={() => setSelectedFilter(filter)}
+          >
+            {filter}
+          </button>
+        ))}
+      </div>
 
-      <section className="exercise-section">
-        {selectedMuscle && <h4 className="section-title">{capitalName} exercises</h4>}
-        
-        <ul className="exercise-list">
-          {exercises && exercises.map((exercise) => (
-            <ExerciseCard
-              key={exercise.id}
-              name={exercise.name}
-              sets={exercise.sets}
-              reps={exercise.reps}
-              muscle={exercise.muscle}
-            />
-          ))}
-        </ul>
+      <div className="muscle-grid">
+        {bodyParts.map((part) => (
+          <div className="muscle-card" key={part.id}>
+            <div className="muscle-icon" style={{ background: part.iconBg }}>
+              {part.icon}
+            </div>
+            <div className="muscle-info">
+              <p className="muscle-name">{part.name}</p>
+              <p className="muscle-meta">{part.exercises} exercises</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
-      </section>
     </main>
   );
 }
-
-
 
 export default Workouts;

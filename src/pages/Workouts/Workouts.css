@@ -1,19 +1,126 @@
+.workouts-content {
+  padding-bottom: 90px;
+}
+
+/* ── header ── */
+.workouts-header {
+  padding: 22px 18px 16px;
+}
+
 .workouts-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* ── search ── */
+.workouts-search {
+  margin: 0 18px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-card);
+  border: 0.5px solid var(--border-color);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.search-icon {
+  color: var(--text-tertiary);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 12px;
   color: var(--text-primary);
 }
 
-.workouts-description {
-  color: #8B5CF6;
+.search-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* ── filter chips ── */
+.workouts-filters {
+  display: flex;
+  gap: 8px;
+  padding: 0 18px;
+  margin-bottom: 18px;
+}
+
+.filter-chip {
+  padding: 9px 20px;
+  border-radius: 20px;
   font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 0.5px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.15s ease;
 }
 
-.muscle-section {
-  margin: 16px 0;
+.filter-chip.active {
+  background: var(--bg-hero);
+  color: #fff;
+  border-color: var(--bg-hero);
 }
 
+/* ── muscle grid ── */
 .muscle-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
-  margin-top: 5px;
+  padding: 0 18px;
+}
+
+.muscle-card {
+  background: var(--bg-hero);
+  border-radius: 20px;
+  padding: 16px;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.muscle-card:active {
+  transform: scale(0.97);
+}
+
+.muscle-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+}
+
+.muscle-info {
+  margin-top: auto;
+}
+
+.muscle-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 2px;
+  letter-spacing: -0.01em;
+}
+
+.muscle-meta {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  font-weight: 500;
 }
