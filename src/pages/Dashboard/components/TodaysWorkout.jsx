@@ -26,19 +26,7 @@ const totalExercises = completedList.length;
 const completedExercises = completedList.filter(c => c === true).length;
 const isRecovery = workoutName === 'Recovery';
 
-const getBadgeStatus = () => {
-  if (isRecovery) return null
-  if (completedExercises === totalExercises && totalExercises > 0) return 'Done'
-  if (completedExercises > 0) return 'In Progress'
-  return 'Pending';
-};
 
-const getBadgeClass = () => {
-  if (isRecovery) return '';
-  if (completedExercises === totalExercises && totalExercises > 0) return 'badge-done'
-  if (completedExercises > 0) return 'badge-progress'
-  return 'badge-pending';
-};
 
 const handleComplete = () => {
   localStorage.setItem('completedList', JSON.stringify(completedList));
@@ -53,14 +41,6 @@ const handleComplete = () => {
   return (
     <div>
       <div className="workout-card">
-        <div className="card-header">
-          <p className={isRecovery ? 'card-title-hide' : 'card-title'}>Today's workout</p>
-          <span className={isRecovery ? 'badge-hidden' :`badge ${getBadgeClass()}`}>
-            <span className="badge-dot" />
-            {getBadgeStatus()}
-          </span>
-        </div>
-
           {isRecovery ? (
             <div className="recovery-state">
               <span className="recovery-icon">

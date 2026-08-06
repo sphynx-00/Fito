@@ -16,53 +16,7 @@
   display: none;
 }
 
-.badge {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 8px;
-  padding: 4px 10px 4px 8px;
-  border-radius: 20px;
-  background: var(--divider-strong);
-  color: var(--text-secondary);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
 
-.badge-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--text-tertiary);
-  flex-shrink: 0;
-}
-
-.badge-done {
-  color: var(--accent-purple);   /* should render as warm gold/tan */
-}
-
-.badge-done .badge-dot {
-  background: var(--accent-purple);
-}
-
-.badge-progress {
-  background: var(--divider-strong);
-  color: var(--text-primary);
-}
-
-.badge-progress .badge-dot {
-  background: var(--text-primary);
-}
-
-.badge-pending {
-  background: var(--divider-strong);
-  color: var(--text-secondary);
-}
-
-.badge-pending .badge-dot {
-  background: var(--text-tertiary);
-}
 
 /* ── recovery state ── */
 .recovery-state {
@@ -94,8 +48,9 @@
 
 /* ── complete button ── */
 .complete-btn {
-  width: 100%;
-  margin-top: 14px;
+  display: block;
+  width: auto;
+  margin: 14px auto 0;
   padding: 13px;
   border-radius: 12px;
   border: none;
@@ -106,6 +61,7 @@
   letter-spacing: 0.02em;
   cursor: pointer;
   transition: opacity 0.2s ease;
+  
 }
 
 .complete-btn:hover {

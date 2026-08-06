@@ -17,6 +17,21 @@ function Dashboard() {
 const { todaysWorkout, total, completed, percentage } = getWorkoutStats();
 const [workoutHistory, setWorkoutHistory] = useState(() => loadFromStorage());
 const userStats = loadUser();
+const isRecovery = todaysWorkout?.name === 'Recovery';
+
+const getBadgeStatus = () => {
+  if (isRecovery) return null
+  if (completedExercises === totalExercises && totalExercises > 0) return 'Done'
+  if (completedExercises > 0) return 'In Progress'
+  return 'Pending';
+};
+
+const getBadgeClass = () => {
+  if (isRecovery) return '';
+  if (completedExercises === totalExercises && totalExercises > 0) return 'badge-done'
+  if (completedExercises > 0) return 'badge-progress'
+  return 'badge-pending';
+};
 
 
 // Save Weight //
@@ -112,7 +127,13 @@ const { date, greeting } = getTodayWithGreeting();
           <StatCard logo={Goal} color="#1F1B29;" variant="Goal-weight" label="Goal weight" value={userStats.goalWeight} unit="kg" />
         </div>
 
-        <h4>Workout Log</h4>
+        <div className="workout-log-container">
+          <h4>Workout Log</h4>
+          <span className={isRecovery ? 'badge-hidden' :`badge ${getBadgeClass()}`}>
+            <span className="badge-dot" />
+            {getBadgeStatus()}
+          </span>
+        </div>
         <div className="cards-row">
           <TodaysWorkout 
              exercises={exercises}
