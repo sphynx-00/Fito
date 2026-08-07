@@ -1,23 +1,16 @@
-.workouts-content {
-  padding-bottom: 90px;
-}
 
 /* ── header ── */
-.workouts-header {
-  padding: 22px 18px 16px;
-}
-
 .workouts-title {
   font-size: 22px;
   font-weight: 700;
   color: var(--text-primary);
-  margin: 0;
+  margin-bottom: 10px;
   letter-spacing: -0.01em;
 }
 
 /* ── search ── */
 .workouts-search {
-  margin: 0 18px 14px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -81,46 +74,44 @@
 }
 
 .muscle-card {
-  background: var(--bg-hero);
+  background: var(--bg-card);
   border-radius: 20px;
   padding: 16px;
-  aspect-ratio: 1;
+  aspect-ratio: 0.8;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   cursor: pointer;
   transition: transform 0.15s ease;
+  overflow: hidden;
 }
 
 .muscle-card:active {
   transform: scale(0.97);
 }
 
-.muscle-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 19px;
-}
-
 .muscle-info {
-  margin-top: auto;
+  flex-shrink: 0;
 }
 
 .muscle-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: #fff;
-  margin: 0 0 2px;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
   letter-spacing: -0.01em;
 }
 
 .muscle-meta {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.4);
-  margin: 0;
+  color: var(--text-secondary);
+  margin: 2px 0 0;
   font-weight: 500;
+}
+
+.muscle-illustration {
+  width: 100%;
+  height: auto;
+  flex: 1;
+  object-fit: contain;
+  margin-top: 4px;
 }

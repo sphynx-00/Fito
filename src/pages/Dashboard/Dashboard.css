@@ -53,6 +53,10 @@
   background: var(--text-tertiary);
 }
 
+.current-stats {
+  margin-bottom: 10px;
+}
+
 h4 {
   color: var(--text-secondary);
 }

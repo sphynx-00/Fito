@@ -101,7 +101,7 @@ function Dashboard() {
         dayStreak={dayStreak}
       />
 
-      <h4>Current Stats</h4>
+      <h4 className="current-stats">Current Stats</h4>
       <div className="stats-grid">
         <StatCard logo={ChartNoAxesColumnIncreasing} color="#1F1B29" variant="Start-weight" label="Start weight" value={userStats.weight} unit="kg" />
         <StatCard logo={Cookie} color="#1F1B29" variant="Daily-calories" label="Daily calories" value={userStats.dailyCalories} unit="kcal" />

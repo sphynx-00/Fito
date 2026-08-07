@@ -1,15 +1,21 @@
 import { useState } from 'react';
 import './Workouts.css';
+import Chest from '../../assets/Chest.png';
+import Back from '../../assets/Back.png';
+import Legs from '../../assets/Legs.png';
+import Shoulder from '../../assets/Shoulder.png';
+import Arms from '../../assets/Arms.png';
+import Core from '../../assets/Core1.png';
 
 const filters = ['All', 'Push', 'Pull'];
 
 const bodyParts = [
-  { id: 1, name: 'Chest',     exercises: 5, icon: '💪', iconBg: '#D4A24E' },
-  { id: 2, name: 'Back',      exercises: 5, icon: '🔙', iconBg: '#8B7BE0' },
-  { id: 3, name: 'Legs',      exercises: 6, icon: '🦵', iconBg: '#6BB894' },
-  { id: 4, name: 'Shoulders', exercises: 4, icon: '🏋️', iconBg: '#D08A6B' },
-  { id: 5, name: 'Arms',      exercises: 6, icon: '🦾', iconBg: '#7BA8D4' },
-  { id: 6, name: 'Core',      exercises: 4, icon: '🫀', iconBg: '#C97BA8' },
+  { id: 1, name: 'Chest',     exercises: 5, image: Chest },
+  { id: 2, name: 'Back',      exercises: 5, image: Back },
+  { id: 3, name: 'Legs',      exercises: 6, image: Legs },
+  { id: 4, name: 'Shoulders', exercises: 4, image: Shoulder },
+  { id: 5, name: 'Arms',      exercises: 6, image: Arms },
+  { id: 6, name: 'Core',      exercises: 4, image: Core },
 ];
 
 function Workouts() {
@@ -49,13 +55,11 @@ function Workouts() {
       <div className="muscle-grid">
         {bodyParts.map((part) => (
           <div className="muscle-card" key={part.id}>
-            <div className="muscle-icon" style={{ background: part.iconBg }}>
-              {part.icon}
-            </div>
             <div className="muscle-info">
               <p className="muscle-name">{part.name}</p>
               <p className="muscle-meta">{part.exercises} exercises</p>
             </div>
+            <img className="muscle-illustration" src={part.image} alt={part.name} />
           </div>
         ))}
       </div>
