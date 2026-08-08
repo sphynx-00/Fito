@@ -1,19 +1,28 @@
-
-/* ── header ── */
-.workouts-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text-primary);
+.workouts-header {
   margin-bottom: 10px;
-  letter-spacing: -0.01em;
 }
 
-/* ── search ── */
+.workouts-title {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.workouts-subtitle {
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin: 4px 0 0;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
 .workouts-search {
   margin-bottom: 10px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   background: var(--bg-card);
   border: 0.5px solid var(--border-color);
   border-radius: 14px;
@@ -22,7 +31,7 @@
 
 .search-icon {
   color: var(--text-tertiary);
-  font-size: 13px;
+  font-size: 12px;
   flex-shrink: 0;
 }
 
@@ -31,7 +40,7 @@
   border: none;
   outline: none;
   background: transparent;
-  font-size: 12px;
+  font-size: 11.5px;
   color: var(--text-primary);
 }
 
@@ -39,18 +48,27 @@
   color: var(--text-tertiary);
 }
 
-/* ── filter chips ── */
 .workouts-filters {
   display: flex;
-  gap: 8px;
+  gap: 7px;
   padding: 0 18px;
   margin-bottom: 18px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.workouts-filters::-webkit-scrollbar {
+  display: none;
 }
 
 .filter-chip {
-  padding: 9px 20px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 7px 15px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--text-secondary);
   background: var(--bg-card);
@@ -65,53 +83,72 @@
   border-color: var(--bg-hero);
 }
 
-/* ── muscle grid ── */
 .muscle-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  padding: 0 18px;
+  gap: 9px;
 }
 
 .muscle-card {
   background: var(--bg-card);
-  border-radius: 20px;
-  padding: 16px;
-  aspect-ratio: 0.8;
+  border: 0.5px solid var(--border-color);
+  border-radius: 18px;
+  padding: 13px;
+  aspect-ratio: 0.92;
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: transform 0.15s ease;
   overflow: hidden;
+  transition: transform 0.15s ease;
 }
 
 .muscle-card:active {
   transform: scale(0.97);
 }
 
-.muscle-info {
+.muscle-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   flex-shrink: 0;
 }
 
 .muscle-name {
-  font-size: 17px;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--text-primary);
   margin: 0;
   letter-spacing: -0.01em;
 }
 
 .muscle-meta {
-  font-size: 10px;
-  color: var(--text-secondary);
+  font-size: 9px;
+  color: var(--text-tertiary);
   margin: 2px 0 0;
   font-weight: 500;
 }
 
-.muscle-illustration {
-  width: 100%;
-  height: auto;
+.muscle-arrow {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-purple-light);
+  color: var(--accent-purple);
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.muscle-illus {
   flex: 1;
-  object-fit: contain;
-  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.muscle-illus svg {
+  opacity: 0.9;
 }

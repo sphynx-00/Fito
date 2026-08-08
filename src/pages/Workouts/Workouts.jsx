@@ -1,32 +1,30 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ChestIcon, BackIcon, LegsIcon, ShouldersIcon, ArmsIcon, CoreIcon } from './components/MuscleIcons';
 import './Workouts.css';
-import Chest from '../../assets/Chest.png';
-import Back from '../../assets/Back.png';
-import Legs from '../../assets/Legs.png';
-import Shoulder from '../../assets/Shoulder.png';
-import Arms from '../../assets/Arms.png';
-import Core from '../../assets/Core1.png';
 
-const filters = ['All', 'Push', 'Pull'];
+const filters = ['All', 'Chest', 'Back', 'Legs',];
 
 const bodyParts = [
-  { id: 1, name: 'Chest',     exercises: 5, image: Chest },
-  { id: 2, name: 'Back',      exercises: 5, image: Back },
-  { id: 3, name: 'Legs',      exercises: 6, image: Legs },
-  { id: 4, name: 'Shoulders', exercises: 4, image: Shoulder },
-  { id: 5, name: 'Arms',      exercises: 6, image: Arms },
-  { id: 6, name: 'Core',      exercises: 4, image: Core },
+  { id: 1, name: 'Chest',     exercises: 5, key: 'chest',     Icon: ChestIcon },
+  { id: 2, name: 'Back',      exercises: 5, key: 'back',      Icon: BackIcon },
+  { id: 3, name: 'Legs',      exercises: 6, key: 'legs',      Icon: LegsIcon },
+  { id: 4, name: 'Shoulders', exercises: 4, key: 'shoulders', Icon: ShouldersIcon },
+  { id: 5, name: 'Arms',      exercises: 6, key: 'arms',      Icon: ArmsIcon },
+  { id: 6, name: 'Core',      exercises: 4, key: 'core',      Icon: CoreIcon },
 ];
 
 function Workouts() {
   const [selectedFilter, setSelectedFilter] = useState('All');
   const [search, setSearch] = useState('');
+  const navigate = useNavigate();
 
   return (
     <main className="workouts-content page-transition">
 
       <header className="workouts-header">
         <h1 className="workouts-title">Workouts</h1>
+        <p className="workouts-subtitle">Choose a muscle group</p>
       </header>
 
       <div className="workouts-search">
@@ -54,12 +52,21 @@ function Workouts() {
 
       <div className="muscle-grid">
         {bodyParts.map((part) => (
-          <div className="muscle-card" key={part.id}>
-            <div className="muscle-info">
-              <p className="muscle-name">{part.name}</p>
-              <p className="muscle-meta">{part.exercises} exercises</p>
+          <div
+            className="muscle-card"
+            key={part.id}
+            onClick={() => navigate(`/workouts/${part.key}`)}
+          >
+            <div className="muscle-card-head">
+              <div>
+                <p className="muscle-name">{part.name}</p>
+                <p className="muscle-meta">{part.exercises} exercises</p>
+              </div>
+              <span className="muscle-arrow">›</span>
             </div>
-            <img className="muscle-illustration" src={part.image} alt={part.name} />
+            <div className="muscle-illus">
+              <part.Icon />
+            </div>
           </div>
         ))}
       </div>

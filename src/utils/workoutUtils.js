@@ -1,5 +1,6 @@
 import { programs } from "../models/program";
 import { loadUserProgram } from "../pages/Profile/profileUtils";
+import { loadCustomExercises } from "./customExercises";
 import { loadExerciseWeights } from "./exerciseUtils";
 
 export function getWorkoutStats() {
@@ -14,19 +15,29 @@ export function getWorkoutStats() {
 
   // apply saved weight overrides on top of the base program data
   const weightOverrides = loadExerciseWeights();
-  
-  const todaysWorkoutWithWeights = todaysWorkout ? {
-    ...todaysWorkout,
-    exercises: todaysWorkout.exercises?.map(exercise => {
-      const key = `${todaysWorkout.workoutId}-${exercise.order}`;
-      return weightOverrides[key] !== undefined
-        ? { ...exercise, weight: weightOverrides[key] }
-        : exercise;
-    })
-  } : todaysWorkout;
- 
+  const customExercises = loadCustomExercises();
+
+  let todaysWorkoutFinal = todaysWorkout;
+
+  if (todaysWorkout) {
+    // merge in any custom exercises added to this workout day
+    const custom = customExercises[String(todaysWorkout.workoutId)] || [];
+    const mergedExercises = [...(todaysWorkout.exercises || []), ...custom];
+
+    // then apply saved weight overrides on top
+    todaysWorkoutFinal = {
+      ...todaysWorkout,
+      exercises: mergedExercises.map(exercise => {
+        const key = `${todaysWorkout.workoutId}-${exercise.order}`;
+        return weightOverrides[key] !== undefined
+          ? { ...exercise, weight: weightOverrides[key] }
+          : exercise;
+      })
+    };
+  }
+
   return {
-    todaysWorkout: todaysWorkoutWithWeights,
+    todaysWorkout: todaysWorkoutFinal,
     total,
     completed,
     percentage,
