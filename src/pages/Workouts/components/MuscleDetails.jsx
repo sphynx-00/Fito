@@ -62,7 +62,7 @@ function MuscleDetail() {
         exerciseName: exercise.name,
         sets: exercise.sets,
         reps: exercise.reps,
-        weight: exercise.weight || 20,
+        weight: exercise.weight || 0,
       });
     }
     setVersion(v => v + 1);

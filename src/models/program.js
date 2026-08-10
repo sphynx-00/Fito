@@ -94,11 +94,11 @@ export const programs = [{
       workoutId: 2,
       name: 'Back',
       exercises: [
-        { order: 1, exerciseName: 'Lat Pulldown',      weight: 0, reps: 10, sets: 3 },
-        { order: 2, exerciseName: 'Close Grip Pulldown',      weight: 0, reps: 10, sets: 3 },
-        { order: 3, exerciseName: 'Machine Rows',      weight: 0, reps: 10, sets: 3 },
-        { order: 4, exerciseName: 'Weighted Pull Ups', weight: 0,  reps: 8,  sets: 3 },
-        { order: 5, exerciseName: 'Rear Delt Fly',     weight: 0, reps: 12, sets: 3 },
+        { order: 1, exerciseName: 'Lat Pulldown',        weight: 0, reps: 10, sets: 3 },
+        { order: 2, exerciseName: 'Close Grip Pulldown', weight: 0, reps: 10, sets: 3 },
+        { order: 3, exerciseName: 'Machine Rows',        weight: 0, reps: 10, sets: 3 },
+        { order: 4, exerciseName: 'Weighted Pull Ups',   weight: 0,  reps: 8,  sets: 3 },
+        { order: 5, exerciseName: 'Rear Delt Fly',       weight: 0, reps: 12, sets: 3 },
       ]
     }, {
       workoutId: 3,
@@ -156,10 +156,10 @@ export const programs = [{
       workoutId: 1,
       name: 'Full Body A',
       exercises: [
-        { order: 1, exerciseName: 'Squat',           weight: 60, reps: 8,  sets: 3 },
+        { order: 1, exerciseName: 'Squat',           weight: 0, reps: 8,  sets: 3 },
         { order: 2, exerciseName: 'Bench Press',     weight: 0, reps: 8,  sets: 3 },
-        { order: 3, exerciseName: 'Deadlift',        weight: 60, reps: 8,  sets: 3 },
-        { order: 4, exerciseName: 'Overhead Press',  weight: 40, reps: 8,  sets: 3 },
+        { order: 3, exerciseName: 'Deadlift',        weight: 0, reps: 8,  sets: 3 },
+        { order: 4, exerciseName: 'Overhead Press',  weight: 0, reps: 8,  sets: 3 },
         { order: 5, exerciseName: 'Lat Pulldown',    weight: 0, reps: 10, sets: 3 },
         { order: 6, exerciseName: 'Plank',           weight: 0,  reps: 60, sets: 3 },
       ]
@@ -173,9 +173,9 @@ export const programs = [{
       exercises: [
         { order: 1, exerciseName: 'Romanian Deadlift', weight: 0, reps: 10, sets: 3 },
         { order: 2, exerciseName: 'Incline Bench Press',weight: 0, reps: 10, sets: 3 },
-        { order: 3, exerciseName: 'Leg Press',          weight: 60, reps: 10, sets: 3 },
+        { order: 3, exerciseName: 'Leg Press',          weight: 0, reps: 10, sets: 3 },
         { order: 4, exerciseName: 'Machine Rows',       weight: 0, reps: 10, sets: 3 },
-        { order: 5, exerciseName: 'Lateral Raise',      weight: 30, reps: 12, sets: 3 },
+        { order: 5, exerciseName: 'Lateral Raise',      weight: 0, reps: 12, sets: 3 },
         { order: 6, exerciseName: 'Ab Crunch',          weight: 0,  reps: 20, sets: 3 },
       ]
     }, {
@@ -186,9 +186,9 @@ export const programs = [{
       workoutId: 5,
       name: 'Full Body C',
       exercises: [
-        { order: 1, exerciseName: 'Squat',             weight: 60, reps: 10, sets: 3 },
+        { order: 1, exerciseName: 'Squat',             weight: 0, reps: 10, sets: 3 },
         { order: 2, exerciseName: 'Pull Ups',           weight: 0,  reps: 8,  sets: 3 },
-        { order: 3, exerciseName: 'Dumbbell Press',     weight: 40, reps: 10, sets: 3 },
+        { order: 3, exerciseName: 'Dumbbell Press',     weight: 0, reps: 10, sets: 3 },
         { order: 4, exerciseName: 'Leg Curl',           weight: 0, reps: 12, sets: 3 },
         { order: 5, exerciseName: 'Preacher Curls',     weight: 40, reps: 12, sets: 3 },
         { order: 6, exerciseName: 'Triceps Pressdown',  weight: 40, reps: 12, sets: 3 },
