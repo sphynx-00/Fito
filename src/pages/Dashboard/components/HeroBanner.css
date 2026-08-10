@@ -1,6 +1,6 @@
 .hero-banner {
   margin-bottom: 10px;
-  background: var(--bg-hero);
+  background: var(--bg-card);
   border-radius: 20px;
   padding: 16px;
 }
@@ -29,7 +29,7 @@
 .hero-big {
   font-size: 28px;
   font-weight: 300;
-  color: #fff;
+  color: var(--text-primary);
   letter-spacing: -0.02em;
   line-height: 1;
   margin-bottom: 6px;
@@ -37,14 +37,16 @@
 
 .hero-big span {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.3);
+  /* color: rgba(255, 255, 255, 0.3); */
+  color: var(--text-secondary);
   font-weight: 400;
   margin-left: 5px;
 }
 
 .hero-subtitle {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.4);
+  /* color: rgba(255, 255, 255, 0.4); */
+  color: var(--text-secondary);
   margin: 0 0 12px;
   font-weight: 400;
 }
@@ -86,7 +88,8 @@
 
 .hero-lab {
   font-size: 8px;
-  color: rgba(255, 255, 255, 0.3);
+  /* color: rgba(255, 255, 255, 0.3); */
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }

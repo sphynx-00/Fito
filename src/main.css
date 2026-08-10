@@ -2,7 +2,7 @@
   --bg-page:        #FAFAFA;
   --bg-card:        #FFFFFF;
   --bg-hero:        #161616;
-  --bg-pill:        #161616;
+  --bg-pill:        #FFFFFF;
   --divider:        #F0F0F0;
   --divider-strong: #EDEDED;
   --text-primary:   #161616;
@@ -18,6 +18,7 @@
 [data-theme="dark"] {
   --bg-page:        #0D0D0F;
   --bg-card:        #151517;
+  --bg-pill:        #151517;
   --bg-hero:        #000000;
   --divider:        #1A1A1E;
   --divider-strong: #1F1B29;
