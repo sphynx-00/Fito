@@ -73,7 +73,7 @@
   height: 46px;
   border-radius: 50%;
   background: var(--primary-light);
-  color: var(--primary);
+  color: var(--text-primary);
   font-size: 20px;
   border: none;
   display: flex;
@@ -113,7 +113,7 @@
 
   font-size: 32px;
   font-weight: 500;
-  color: var(--primary);
+  color: var(--text-primary);
   text-align: center;
   border: none;
   border-bottom: 2px solid var(--border-color);
