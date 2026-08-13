@@ -3,7 +3,7 @@ const base = {
   height: 54,
   viewBox: "0 0 24 24",
   fill: "none",
-  stroke: "currentColor",
+  stroke: "var(--text-primary, currentColor)",
   strokeWidth: 1.3,
   strokeLinecap: "round",
 };
