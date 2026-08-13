@@ -11,7 +11,7 @@ function ExerciseRow({ number, name, sets, reps, completed, toggle, weight, edit
         <p className="tw-sets">{sets} sets × {reps} reps</p>
       </div>
 
-      <span className="tw-chip" onClick={editWeight}>{weight} kg</span> 
+      <span className="tw-chip" onClick={editWeight}>{weight > 0 ? `${weight} kg` : '—'}</span> 
     </div>
   );
 }

@@ -1,0 +1,187 @@
+.detail-nav {
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-back {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 0.5px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.detail-back:active {
+  transform: scale(0.92);
+}
+
+/* ── header ── */
+.detail-head {
+  padding: 14px 4px;
+}
+
+.detail-tag {
+  font-size: 9px;
+  color: var(--accent-purple);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.detail-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 5px 0 3px;
+  letter-spacing: -0.02em;
+}
+
+.detail-meta {
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ── destination banner ── */
+.detail-banner {
+  margin: 14px 0 16px;
+  background: var(--bg-hero);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detail-banner-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detail-banner-label {
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.detail-banner-value {
+  font-size: 12px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.detail-banner-count {
+  font-size: 11px;
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+/* ── section label ── */
+.detail-section-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── exercise list ── */
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-bottom: 0.5px solid var(--divider);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.detail-ex-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 3px;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.detail-row.added .detail-ex-name {
+  color: var(--text-secondary);
+}
+
+.detail-ex-sub {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.detail-ex-meta {
+  font-size: 9px;
+  color: var(--text-tertiary);
+}
+
+.detail-equip {
+  font-size: 8px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: var(--accent-purple-light);
+  color: var(--accent-purple);
+  font-weight: 600;
+}
+
+/* ── add button ── */
+.detail-add-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: var(--bg-hero);
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.detail-add-btn.is-added {
+  background: var(--accent-purple-light);
+  color: var(--accent-purple);
+  font-size: 12px;
+}
+
+.detail-add-btn:active {
+  transform: scale(0.9);
+}
+
+.detail-add-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.detail-empty {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}

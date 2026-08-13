@@ -6,6 +6,8 @@ import Workouts from './pages/Workouts/Workouts';
 import History from './pages/History/History';
 import Profile from './pages/Profile/Profile';
 import { useEffect, useState } from 'react';
+import MuscleDetails from './pages/Workouts/components/MuscleDetails';
+
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -34,6 +36,7 @@ function App() {
             <Routes>
               <Route index element={<Dashboard />} />
               <Route path='/workouts' element={<Workouts />} />
+              <Route path='/workouts/:muscle' element={<MuscleDetails />} />
               <Route path='/history' element={<History />} />
               <Route path='/profile' element={
                 <Profile theme={theme} setTheme={setTheme} />
