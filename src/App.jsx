@@ -3,13 +3,19 @@ import { Nav } from './shared/Nav';
 import './App.css';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Workouts from './pages/Workouts/Workouts';
-import History from './pages/History/History';
+import HistoryPage from './pages/History/HistoryPage';
 import Profile from './pages/Profile/Profile';
 import { useEffect, useState } from 'react';
 import MuscleDetails from './pages/Workouts/components/MuscleDetails';
+import PersonalRecords from './pages/History/components/PersonalRecords';
+import * as mock from '../src/pages/History/data';
+import VolumeChart from './pages/History/components/VolumeChart';
 
 
 function App() {
+  const personalRecords = mock.personalRecords;
+  const volume = mock.volume;
+  
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light';
   });
@@ -36,8 +42,12 @@ function App() {
             <Routes>
               <Route index element={<Dashboard />} />
               <Route path='/workouts' element={<Workouts />} />
-              <Route path='/workouts/:muscle' element={<MuscleDetails />} />
-              <Route path='/history' element={<History />} />
+                <Route path='/workouts/:muscle' element={<MuscleDetails />} />
+
+              <Route path='/history' element={<HistoryPage />} />
+                <Route path='/PRs' element={<PersonalRecords records={personalRecords} />} />
+                <Route path='/volume' element={<VolumeChart volume={volume} />} />
+
               <Route path='/profile' element={
                 <Profile theme={theme} setTheme={setTheme} />
               } />

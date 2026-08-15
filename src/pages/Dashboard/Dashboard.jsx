@@ -116,16 +116,15 @@ function Dashboard() {
         </span>
       </div>
 
-      <div className="cards-row">
-        <TodaysWorkout
-          exercises={todaysWorkout?.exercises}
-          workoutName={todaysWorkout?.name}
-          completedList={completedList}
-          handleToggle={handleToggle}
-          onComplete={setWorkoutHistory}
-          onUpdatedWeight={handleUpdateWeight}
-        />
-      </div>
+      <TodaysWorkout
+        exercises={todaysWorkout?.exercises}
+        workoutName={todaysWorkout?.name}
+        completedList={completedList}
+        handleToggle={handleToggle}
+        onComplete={setWorkoutHistory}
+        onUpdatedWeight={handleUpdateWeight}
+      />
+    
     </main>
   );
 }

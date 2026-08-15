@@ -16,13 +16,13 @@
 }
 
 [data-theme="dark"] {
-  --bg-page:        #0D0D0F;
-  --bg-card:        #151517;
+  --bg-page:        #121214;
+  --bg-card:        #1a1a1d;
   --bg-pill:        #151517;
   --bg-hero:        #000000;
   --divider:        #1A1A1E;
   --divider-strong: #1F1B29;
-  --text-primary:   #F2F2F4;
+  --text-primary:   #f2f2f3;
   --text-secondary: #5A5A62;
   --text-tertiary:  #3A3A40;
   --accent-purple:  #A78BFA;

@@ -39,7 +39,6 @@ const handleComplete = () => {
 }
 
   return (
-    <div>
       <div className="workout-card">
           {isRecovery ? (
             <div className="recovery-state">
@@ -90,7 +89,6 @@ const handleComplete = () => {
             </button>
           )}
       </div>
-    </div>
   );
 }
 
