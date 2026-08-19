@@ -1,12 +1,18 @@
 import React from 'react';
 import * as shared from '../styles/shared.styles';
 import * as st from '../styles/personalRecords.styles';
+import { useNavigate } from 'react-router';
 
 const FILTERS = ['All', 'Weight', '1RM'];
 
 export default function PersonalRecords({ records, activeFilter = 'All', onFilter }) {
+  const navigate = useNavigate();
+
   return (
     <div style={shared.section}>
+      <div className="detail-nav">
+        <button className="detail-back" onClick={() => navigate(-1)}>‹</button>
+      </div>
       <div style={shared.sectionHeader}>
         <div style={shared.sectionLabel}>Personal Records</div>
         <div style={st.filters}>

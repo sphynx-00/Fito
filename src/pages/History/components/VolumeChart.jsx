@@ -1,10 +1,17 @@
 import React from 'react';
 import * as shared from '../styles/shared.styles';
 import * as st from '../styles/volumeChart.styles';
+import { useNavigate } from 'react-router';
+
 
 export default function VolumeChart({ volume, onRange }) {
+  const navigate = useNavigate();
+
   return (
     <div style={shared.section}>
+      <div className="detail-nav">
+        <button className="detail-back" onClick={() => navigate(-1)}>‹</button>
+      </div>
       <div style={shared.sectionHeader}>
         <div style={shared.sectionLabel}>Volume</div>
         <div style={st.ranges}>

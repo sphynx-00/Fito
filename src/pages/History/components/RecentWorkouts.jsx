@@ -1,8 +1,10 @@
-import React from 'react';
 import * as shared from '../styles/shared.styles';
 import * as st from '../styles/recentWorkouts.styles';
+import { useState } from 'react';
 
 export default function RecentWorkouts({ workouts, onOpen, onSeeAll }) {
+  const [rotatedId, setRotatedId] = useState(null);
+
   return (
     <div style={shared.section}>
       <div style={shared.sectionHeader}>
@@ -23,7 +25,18 @@ export default function RecentWorkouts({ workouts, onOpen, onSeeAll }) {
             </div>
             <div style={shared.monoMeta}>{w.meta}</div>
           </div>
-          <div style={shared.chevron}>›</div>
+          <div
+            role="button"
+            tabIndex={0}
+            aria-expanded={rotatedId === w.id}
+            style={st.chevron(rotatedId === w.id)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setRotatedId((id) => (id === w.id ? null : w.id));
+            }}
+          >
+            ›
+          </div>
         </div>
       ))}
     </div>

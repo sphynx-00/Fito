@@ -1,4 +1,4 @@
-import { AlignCenter } from 'lucide-react';
+import { AlignCenter, Rotate3D } from 'lucide-react';
 import { colors, fonts, radii } from './tokens';
 
 export const section = { display: 'flex', flexDirection: 'column', gap: 10 };
@@ -65,8 +65,11 @@ export const prBadge = {
 
 export const monoMeta = { fontSize: 12, color: colors.muted, fontFamily: fonts.mono };
 
-export const chevron = { color: colors.faint, fontSize: 18 };
+export const chevron = { color: colors.faint, fontSize: 18, transition: 'transform 0.2s ease' };
 
 export const link = { fontSize: 12, color: colors.accentText, cursor: 'pointer' };
 
 export const column = (gap) => ({ display: 'flex', flexDirection: 'column', gap });
+
+export const historyOpen = { transform: 'rotate(90deg)' };
+

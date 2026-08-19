@@ -9,12 +9,10 @@ function Stat({ value, unit, label, accent }) {
   const handleClick = () => {
     if (label === 'PRs') {
       navigate('/PRs');
-      console.log(label);
     }
 
     if (label === 'Volume') {
       navigate('/volume');
-      console.log(label);
     }
   };
 
