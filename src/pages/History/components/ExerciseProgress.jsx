@@ -41,7 +41,7 @@ export default function ExerciseProgress({ progress, onPickExercise }) {
           {progress.recentSessions.map((r) => (
             <div key={r.date} style={st.sessionRow}>
               <span style={st.sessionDate}>{r.date}</span>
-              <span>{r.result}</span>
+              <span style={st.sessionResult}>{r.result}</span>
             </div>
           ))}
         </div>

@@ -1,8 +1,8 @@
 import { colors, fonts, radii } from './tokens';
 
 export const list = {
-  background: colors.card,
-  border: `1px solid ${colors.border}`,
+  background: 'var(--bg-card)',
+  border: '1px solid var(--border-color)',
   borderRadius: radii.xl,
   overflow: 'hidden',
 };
@@ -12,10 +12,10 @@ export const row = (last) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  borderBottom: last ? 'none' : `1px solid ${colors.border}`,
+  borderBottom: last ? 'none' : '1px solid var(--border-color)',
 });
 
-export const exercise = { color: 'var(--text-primary)', fontSize: 15, fontWeight: 600 };
+export const exercise = { color: 'var(--text-primary)', fontSize: 15, fontWeight: 600, fontFamily: fonts.sans };
 
 export const date = { fontSize: 11, color: colors.muted, fontFamily: fonts.mono };
 

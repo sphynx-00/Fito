@@ -1,7 +1,7 @@
-import { AlignCenter } from 'lucide-react';
+import { AlignCenter, Rotate3D } from 'lucide-react';
 import { colors, fonts, radii } from './tokens';
 
-export const section = { display: 'flex', flexDirection: 'column', gap: 10 };
+export const section = { display: 'flex', flexDirection: 'column', gap: 10, };
 
 export const sectionHeader = { display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' };
 
@@ -11,8 +11,8 @@ export const sectionLabel = {
 };
 
 export const card = {
-  background: colors.card,
-  border: `1px solid ${colors.border}`,
+  background: 'var(--bg-card)',
+  border: '1px solid var(--border-color)',
   borderRadius: radii.xxl,
   padding: 16,
   display: 'flex',
@@ -24,28 +24,26 @@ export const statGrid = (columns) => ({
   display: 'grid',
   gridTemplateColumns: `repeat(${columns},1fr)`,
   gap: 1,
-  background: colors.border,
-  border: `1px solid ${colors.border}`,
+  background: 'var(--border-color)',
   borderRadius: radii.lg,
   overflow: 'hidden',
 });
 
 export const statCell = {
-  background: colors.card, padding: '16px 10px',
+  background: 'var(--bg-card)', padding: '16px 10px',
   display: 'flex', flexDirection: 'column', gap: 4, alignItems: 'center',
-  cursor: 'pointer'
+  cursor: 'pointer',
 };
 
-export const statValue = (accent) => ({
+export const statValue = () => ({
   fontSize: 24, fontWeight: 600, letterSpacing: '-0.02em',
-  color: accent ? colors.accentText : colors.text,
-  
+  color: 'var(--text-primary)',
 });
 
-export const statUnit = { fontSize: 13, color: colors.muted };
+export const statUnit = { fontSize: 13, color: 'var(--text-secondary)' };
 
 export const statLabel = {
-  fontSize: 10, letterSpacing: '0.1em', color: colors.muted, textTransform: 'uppercase',
+  fontSize: 10, letterSpacing: '0.1em', color: 'var(--text-secondary)', textTransform: 'uppercase',
 };
 
 export const pill = (active) => ({
@@ -55,7 +53,7 @@ export const pill = (active) => ({
   fontFamily: fonts.mono,
   cursor: 'pointer',
   background: active ? colors.raised : 'transparent',
-  color: active ? colors.text : colors.muted,
+  color: active ? 'var(--text-primary)' : colors.muted,
 });
 
 export const prBadge = {
@@ -65,8 +63,11 @@ export const prBadge = {
 
 export const monoMeta = { fontSize: 12, color: colors.muted, fontFamily: fonts.mono };
 
-export const chevron = { color: colors.faint, fontSize: 18 };
+export const chevron = { color: colors.faint, fontSize: 18, transition: 'transform 0.2s ease' };
 
 export const link = { fontSize: 12, color: colors.accentText, cursor: 'pointer' };
 
 export const column = (gap) => ({ display: 'flex', flexDirection: 'column', gap });
+
+export const historyOpen = { transform: 'rotate(90deg)' };
+
