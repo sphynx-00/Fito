@@ -10,7 +10,7 @@ export default function MuscleFrequency({ items }) {
         {items.map((m) => (
           <div key={m.muscle} style={st.row}>
             <div style={st.labelRow}>
-              <span>{m.muscle}</span>
+              <span style={st.muscle}>{m.muscle}</span>
               <span style={st.meta}>{m.sessions} · {m.last}</span>
             </div>
             <div style={st.track}>

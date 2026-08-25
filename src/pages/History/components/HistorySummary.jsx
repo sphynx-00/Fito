@@ -1,4 +1,3 @@
-import React from 'react';
 import * as shared from '../styles/shared.styles';
 import * as st from '../styles/historySummary.styles';
 import { useNavigate } from 'react-router';
@@ -7,6 +6,10 @@ function Stat({ value, unit, label, accent }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
+    if (label === 'Workouts') {
+      navigate('/RecentWorkouts');
+    }
+
     if (label === 'PRs') {
       navigate('/PRs');
     }

@@ -10,6 +10,7 @@ import MuscleDetails from './pages/Workouts/components/MuscleDetails';
 import PersonalRecords from './pages/History/components/PersonalRecords';
 import * as mock from '../src/pages/History/data';
 import VolumeChart from './pages/History/components/VolumeChart';
+import RecentWorkouts from './pages/History/components/RecentWorkouts';
 
 
 function App() {
@@ -45,9 +46,10 @@ function App() {
                 <Route path='/workouts/:muscle' element={<MuscleDetails />} />
 
               <Route path='/history' element={<HistoryPage />} />
-                <Route path='/PRs' element={<PersonalRecords records={personalRecords} />} />
+                <Route path='/RecentWorkouts' element={<RecentWorkouts />} />
                 <Route path='/volume' element={<VolumeChart volume={volume} />} />
-
+                <Route path='/PRs' element={<PersonalRecords records={personalRecords} />} />
+                
               <Route path='/profile' element={
                 <Profile theme={theme} setTheme={setTheme} />
               } />

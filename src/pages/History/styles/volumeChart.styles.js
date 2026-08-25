@@ -2,7 +2,7 @@ import { colors, fonts } from './tokens';
 
 export const totalRow = { display: 'flex', alignItems: 'baseline', gap: 10 };
 
-export const total = { color: 'var(--text-primary)', fontSize: 26, fontWeight: 600, letterSpacing: '-0.02em' };
+export const total = { color: 'var(--text-primary)', fontSize: 26, fontWeight: 600, fontFamily: fonts.sans, letterSpacing: '-0.02em' };
 
 export const delta = { fontSize: 12, color: colors.positive, fontFamily: fonts.mono };
 

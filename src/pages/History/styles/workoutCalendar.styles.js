@@ -1,8 +1,8 @@
 import { colors, fonts, radii } from './tokens';
 
 export const card = {
-  background: colors.card,
-  border: `1px solid ${colors.border}`,
+  background: 'var(--bg-card)',
+  border: '1px solid var(--border-color)',
   borderRadius: radii.xxl,
   padding: '18px 16px',
   display: 'flex',
@@ -14,18 +14,18 @@ export const nav = { display: 'flex', alignItems: 'center', justifyContent: 'spa
 
 export const navButton = {
   width: 32, height: 32, borderRadius: 10,
-  border: `1px solid ${colors.border}`,
+  border: '1px solid var(--border-color)',
   display: 'flex', alignItems: 'center', justifyContent: 'center',
-  color: colors.muted, cursor: 'pointer',
+  color: 'var(--text-muted)', cursor: 'pointer',
 };
 
 export const monthLabel = {
-  fontSize: 13, letterSpacing: '0.14em', textTransform: 'uppercase', fontFamily: fonts.mono,
+  fontSize: 13, letterSpacing: '0.14em', textTransform: 'uppercase', fontFamily: fonts.mono, color: 'var(--text-primary)',
 };
 
 export const weekdayRow = {
   display: 'grid', gridTemplateColumns: 'repeat(7,1fr)', gap: 6,
-  fontSize: 10, color: colors.muted, fontFamily: fonts.mono, textAlign: 'center',
+  fontSize: 10, color: 'var(--text-muted)', fontFamily: fonts.mono, textAlign: 'center',
 };
 
 export const grid = { display: 'grid', gridTemplateColumns: 'repeat(7,1fr)', gap: 6 };
@@ -48,7 +48,7 @@ export const dot = (today) => ({
 });
 
 export const selected = {
-  borderTop: `1px solid ${colors.border}`, paddingTop: 14,
+  borderTop: '1px solid var(--border-color)', paddingTop: 14,
   display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, cursor: 'pointer',
 };
 
@@ -56,10 +56,10 @@ export const selectedInfo = { display: 'flex', flexDirection: 'column', gap: 4 }
 
 export const selectedDate = {
   fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase',
-  color: colors.muted, fontFamily: fonts.mono,
+  color: 'var(--text-muted)', fontFamily: fonts.mono,
 };
 
-export const selectedName = { fontSize: 17, fontWeight: 600 };
+export const selectedName = { fontSize: 17, fontWeight: 600, color: 'var(--text-primary)' };
 
 export const selectedRight = { display: 'flex', alignItems: 'center', gap: 10 };
 

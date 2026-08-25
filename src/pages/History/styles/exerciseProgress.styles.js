@@ -14,8 +14,8 @@ export const metrics = { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1
 
 export const metric = { display: 'flex', flexDirection: 'column', gap: 3 };
 
-export const metricValue = (accent) => ({
-  fontSize: 19, fontWeight: 600, color: accent ? colors.accentText : colors.text,
+export const metricValue = () => ({
+  fontSize: 19, fontWeight: 600, color: 'var(--text-primary)',
 });
 
 export const chartBlock = { display: 'flex', flexDirection: 'column', gap: 8 };
@@ -26,7 +26,7 @@ export const axis = {
 };
 
 export const sessions = {
-  borderTop: `1px solid ${colors.border}`, paddingTop: 12,
+  borderTop: '1px solid var(--border-color)', paddingTop: 12,
   display: 'flex', flexDirection: 'column', gap: 9,
   fontFamily: fonts.mono, fontSize: 13,
 };
@@ -34,3 +34,4 @@ export const sessions = {
 export const sessionRow = { display: 'flex', justifyContent: 'space-between' };
 
 export const sessionDate = { color: colors.muted };
+export const sessionResult = { color: 'var(--text-primary)' };

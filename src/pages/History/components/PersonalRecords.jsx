@@ -9,7 +9,7 @@ export default function PersonalRecords({ records, activeFilter = 'All', onFilte
   const navigate = useNavigate();
 
   return (
-    <div style={shared.section}>
+    <div className="page-transition" style={shared.section}>
       <div className="detail-nav">
         <button className="detail-back" onClick={() => navigate(-1)}>‹</button>
       </div>
