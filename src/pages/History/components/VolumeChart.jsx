@@ -10,7 +10,10 @@ export default function VolumeChart({ volume, onRange }) {
   return (
     <div className="page-transition" style={shared.section}>
       <div className="detail-nav">
-        <button className="detail-back" onClick={() => navigate(-1)}>‹</button>
+        <button className="wd-back" type="button" aria-label="Back" onClick={() => navigate(-1)}>
+          <span className="wd-back-icon">‹</span>
+          <span className="wd-back-label back-label">Back</span>
+        </button>
       </div>
       <div style={shared.sectionHeader}>
         <div style={shared.sectionLabel}>Volume</div>

@@ -4,15 +4,22 @@ import { useState } from 'react';
 import { loadFromStorage } from '../../../models/completedWorkouts';
 import { useNavigate } from 'react-router';
 
-export default function RecentWorkouts({ onOpen, onSeeAll }) {
+export default function RecentWorkouts({ onSeeAll }) {
   const [rotatedId, setRotatedId] = useState(null);
   const navigate = useNavigate()
   const workouts = loadFromStorage();
 
+  const onOpen = (workoutId) => {
+    navigate(`/workoutDetails/${workoutId}`);
+  }
+
   return (
     <div className="page-transition" style={shared.section}>
       <div className="detail-nav">
-        <button className="detail-back" onClick={() => navigate(-1)}>‹</button>
+        <button className="wd-back" type="button" aria-label="Back" onClick={() => navigate(-1)}>
+          <span className="wd-back-icon">‹</span>
+          <span className="wd-back-label back-label">Back</span>
+        </button>
       </div>
       <div style={shared.sectionHeader}>
         <div style={shared.sectionLabel}>Recent Workouts</div>
@@ -20,7 +27,7 @@ export default function RecentWorkouts({ onOpen, onSeeAll }) {
       </div>
 
       {workouts.map((w) => (
-        <div key={w.id} style={st.row} onClick={() => onOpen && onOpen(w)}>
+        <div key={w.id} style={st.row} onClick={() => onOpen && onOpen(w.id)}>
           <div style={st.dateCol}>
             <div style={st.month}>{w.month}</div>
             <div style={st.day}>{w.day}</div>

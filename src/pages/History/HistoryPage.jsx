@@ -5,6 +5,7 @@ import ExerciseProgress from './components/ExerciseProgress';
 import MuscleFrequency from './components/MuscleFrequency';
 import BodyWeightChart from './components/BodyWeightChart';
 import * as mock from './data';
+import WorkoutDetails from './components/WorkoutDetails';
 
 export default function HistoryPage({
   summary = mock.monthSummary,

@@ -1,0 +1,234 @@
+.workout-detail {
+  background: var(--bg-page);
+  color: #f2f2f3;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.wd-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.wd-back {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 44px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #8a8a92;
+  font: inherit;
+  cursor: pointer;
+  align-self: flex-start;
+}
+.wd-back:hover { color: #f2f2f3; }
+
+.wd-back-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid #26262b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.back-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.wd-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wd-title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.wd-program {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #8a8a92;
+}
+
+.wd-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #26262b;
+  border: 1px solid #26262b;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.wd-stat-cell {
+  background: #1a1a1d;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.wd-stat-value {
+  font-size: 22px;
+  font-weight: 600;
+}
+.wd-stat-value--accent { color: oklch(0.80 0.15 25); }
+
+.wd-stat-unit {
+  font-size: 12px;
+  color: #8a8a92;
+  margin-left: 2px;
+}
+
+.wd-stat-label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8a8a92;
+}
+
+.wd-pr-card {
+  border: 1px solid oklch(0.72 0.17 25 / 0.35);
+  background: oklch(0.72 0.17 25 / 0.10);
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.wd-pr-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wd-pr-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: oklch(0.80 0.15 25);
+}
+
+.wd-pr-value {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.wd-pr-previous {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #8a8a92;
+  white-space: nowrap;
+}
+
+.wd-exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wd-exercise-card {
+  background: #1a1a1d;
+  border: 1px solid #26262b;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wd-exercise-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.wd-exercise-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.wd-history-link {
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: oklch(0.80 0.15 25);
+  cursor: pointer;
+}
+.wd-history-link:hover { text-decoration: underline; }
+
+.wd-set-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+}
+
+.wd-set-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wd-set-index {
+  width: 16px;
+  color: #5c5c64;
+}
+
+.wd-set-result--pr { color: oklch(0.80 0.15 25); }
+
+.wd-set-pr {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: oklch(0.72 0.17 25 / 0.14);
+  color: oklch(0.80 0.15 25);
+}
+
+.wd-more {
+  width: 100%;
+  text-align: center;
+  padding: 6px 0;
+  border: none;
+  background: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #5c5c64;
+  cursor: pointer;
+}
+.wd-more:hover { color: #8a8a92; }
+
+.wd-readonly-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 14px;
+  border: 1px solid #26262b;
+  border-radius: 14px;
+  color: #8a8a92;
+  font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+}

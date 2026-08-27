@@ -11,6 +11,7 @@ import PersonalRecords from './pages/History/components/PersonalRecords';
 import * as mock from '../src/pages/History/data';
 import VolumeChart from './pages/History/components/VolumeChart';
 import RecentWorkouts from './pages/History/components/RecentWorkouts';
+import WorkoutDetails from './pages/History/components/WorkoutDetails';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
 
               <Route path='/history' element={<HistoryPage />} />
                 <Route path='/RecentWorkouts' element={<RecentWorkouts />} />
+                  <Route path='/workoutDetails/:workoutId' element={<WorkoutDetails />} />
                 <Route path='/volume' element={<VolumeChart volume={volume} />} />
                 <Route path='/PRs' element={<PersonalRecords records={personalRecords} />} />
                 
