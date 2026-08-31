@@ -55,7 +55,7 @@
 .complete-btn {
   display: block;
   width: auto;
-  margin: auto;
+  margin: 10px auto 0px;
   padding: 13px;
   border-radius: 12px;
   border: none;
