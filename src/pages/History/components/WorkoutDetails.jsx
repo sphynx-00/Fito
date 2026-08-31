@@ -51,9 +51,10 @@ function WorkoutDetails () {
 
         <div className="wd-exercise-list">
 
-          <div className="wd-exercise-card">
+          {workout.exercises.map(e => (
+            <div className="wd-exercise-card" key={e.name}>
             <div className="wd-exercise-header">
-              <div className="wd-exercise-name">Bench Press</div>
+              <div className="wd-exercise-name">{e.name}</div>
               <button className="wd-history-link" type="button">History ›</button>
             </div>
             <div className="wd-set-list">
@@ -62,35 +63,12 @@ function WorkoutDetails () {
               <div className="wd-set-row"><span className="wd-set-index">3</span><span className="wd-set-result">65 kg × 7</span></div>
             </div>
           </div>
-
-          <div className="wd-exercise-card">
-            <div className="wd-exercise-header">
-              <div className="wd-exercise-name">Incline Dumbbell Press</div>
-              <button className="wd-history-link" type="button">History ›</button>
-            </div>
-            <div className="wd-set-list">
-              <div className="wd-set-row"><span className="wd-set-index">1</span><span className="wd-set-result">24 kg × 10</span></div>
-              <div className="wd-set-row"><span className="wd-set-index">2</span><span className="wd-set-result">24 kg × 9</span></div>
-              <div className="wd-set-row"><span className="wd-set-index">3</span><span className="wd-set-result">22 kg × 10</span></div>
-            </div>
-          </div>
-
-          <div className="wd-exercise-card">
-            <div className="wd-exercise-header">
-              <div className="wd-exercise-name">Cable Fly</div>
-              <button className="wd-history-link" type="button">History ›</button>
-            </div>
-            <div className="wd-set-list">
-              <div className="wd-set-row"><span className="wd-set-index">1</span><span className="wd-set-result">15 kg × 12</span></div>
-              <div className="wd-set-row"><span className="wd-set-index">2</span><span className="wd-set-result">15 kg × 12</span></div>
-              <div className="wd-set-row"><span className="wd-set-index">3</span><span className="wd-set-result">17.5 kg × 10</span></div>
-            </div>
-          </div>
-
+          ))}
+          
           <button className="wd-more" type="button">4 more exercises</button>
         </div>
 
-        <div className="wd-readonly-note">Read-only · recorded Aug 15</div>
+        <div className="wd-readonly-note">Read-only · recorded {format(date, 'MMMM do')}</div>
       </div>
     </div>
   );
