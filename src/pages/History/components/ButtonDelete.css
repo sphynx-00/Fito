@@ -1,0 +1,34 @@
+.btn-delete {
+  /* reset */
+  cursor: pointer;
+
+  /* layout */
+ 
+
+  /* skin */
+  background: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: oklch(0.72 0.17 22);
+}
+
+.btn-delete:hover {
+  border-color: oklch(0.58 0.20 22 / 0.75);
+}
+
+
+.btn-delete:focus-visible {
+  outline: 2px solid oklch(0.62 0.20 22);
+  outline-offset: 2px;
+}
+
+.btn-delete:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.btn-delete__icon { flex: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-delete { transition: none; }
+}
