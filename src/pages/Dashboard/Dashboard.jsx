@@ -13,13 +13,14 @@ import WeekStrip from "./components/WeekStrip";
 import { loadUser } from "../Profile/profileUtils";
 
 
-function Dashboard() {
+function Dashboard({ pastWorkouts, setPastWorkouts }) {
   const [weightVersion, setWeightVersion] = useState(0);
 
   const { todaysWorkout, total, completed, percentage } = getWorkoutStats();
   const [workoutHistory, setWorkoutHistory] = useState(() => loadFromStorage());
   const userStats = loadUser();
   const isRecovery = todaysWorkout?.name === 'Recovery';
+
 
   // function for Today's workout
   const [completedList, setCompletedList] = useState(() => {
@@ -121,7 +122,7 @@ function Dashboard() {
         workoutName={todaysWorkout?.name}
         completedList={completedList}
         handleToggle={handleToggle}
-        onComplete={setWorkoutHistory}
+        onComplete={setPastWorkouts}
         onUpdatedWeight={handleUpdateWeight}
       />
     

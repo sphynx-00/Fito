@@ -1,4 +1,3 @@
-import React from 'react';
 import * as shared from '../styles/shared.styles';
 import * as st from '../styles/volumeChart.styles';
 import { useNavigate } from 'react-router';

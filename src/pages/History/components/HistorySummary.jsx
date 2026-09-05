@@ -30,11 +30,11 @@ function Stat({ value, unit, label, accent }) {
   );
 }
 
-export default function HistorySummary({ summary }) {
+export default function HistorySummary({ pastWorkouts, summary }) {
   return (
     <>
       <div style={shared.statGrid(4)}>
-        <Stat value={summary.workouts} label="Workouts" />
+        <Stat value={pastWorkouts.length} label="Workouts" />
         <Stat value={summary.volume} label="Volume" />
         <Stat value={summary.prs} label="PRs" accent />
         <Stat value={summary.avgMinutes} unit=" m" label="Avg." />

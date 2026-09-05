@@ -103,6 +103,17 @@ export const completedWorkouts = [
 
 export function saveWorkoutHistory(workoutName, exercises) {
   const today = getAdjustedDate();
+
+  const exercisesWithWeight = exercises.map(e => ({
+    name: e.exerciseName,
+    sets: e.sets,
+    reps: e.reps,
+    weight: e.weight,   // ← now preserved
+  }));
+
+  const totalVolume = exercisesWithWeight.reduce(
+    (sum, e) => sum + (e.sets * e.reps * e.weight), 0
+  );
   
   const completedWorkout = {
     id:        Date.now(),
@@ -112,13 +123,10 @@ export function saveWorkoutHistory(workoutName, exercises) {
     day:       today.getDate().toString(),
     month:     today.toLocaleString('default', { month: 'short' }).toUpperCase(),
     status:    'Done',
-    exercises: exercises.map(e => ({
-      name: e.exerciseName,
-      sets: e.sets,
-      reps: e.reps,
-    }))
+    totalVolume: totalVolume,          // ← new field
+    exercises: exercisesWithWeight,
   };
-
+  
   saveToStorage(completedWorkout);
 }
 
@@ -129,6 +137,17 @@ function saveToStorage(completedWorkout) {
   localStorage.setItem('completedWorkout', JSON.stringify(updated));
 }
 
+// export function loadFromStorage() {
+//  return JSON.parse(localStorage.getItem('completedWorkout') || '[]');
+// }
+
 export function loadFromStorage() {
- return JSON.parse(localStorage.getItem('completedWorkout') || '[]');
+  try {
+    const raw = localStorage.getItem('completedWorkout');
+    const parsed = JSON.parse(raw || '[]');
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (error) {
+    console.error('Failed to parse completedWorkout from localStorage:', error);
+    return [];
+  }
 }

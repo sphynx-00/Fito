@@ -85,6 +85,7 @@
 .wd-stat-value {
   font-size: 22px;
   font-weight: 600;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
 }
 .wd-stat-value--accent { color: oklch(0.80 0.15 290); }
 

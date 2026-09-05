@@ -11,6 +11,7 @@ const [isCompleted, setIsCompleted] = useState(() => {
   return JSON.parse(localStorage.getItem('isCompleted') || 'false');
 });
 
+
 const [weightEdit, setWeightEdit] = useState(null);
 
 /* Save new weight value */

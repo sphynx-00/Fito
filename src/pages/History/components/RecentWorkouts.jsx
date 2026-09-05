@@ -1,15 +1,11 @@
 import * as shared from '../styles/shared.styles';
 import * as st from '../styles/recentWorkouts.styles';
-import { loadFromStorage } from '../../../models/completedWorkouts';
 import { useNavigate } from 'react-router';
 import './ButtonDelete.css';
 import DeleteModal from './DeleteModal';
 import { useState } from 'react';
 
-export default function RecentWorkouts({ onSeeAll }) {
-  const [workouts, setWorkouts] = useState(() => {
-    return loadFromStorage();
-  });
+export default function RecentWorkouts({ pastWorkouts, setPastWorkouts, onSeeAll }) {
   const [showModal, setShowModal] = useState(null);
   const [showToast, setShowToast] = useState(false);
 
@@ -24,8 +20,8 @@ export default function RecentWorkouts({ onSeeAll }) {
   }
 
   const onDelete = (workoutId) => {
-    const updatedWorkouts = workouts.filter(w => w.id !== workoutId);
-    setWorkouts(updatedWorkouts);
+    const updatedWorkouts = pastWorkouts.filter(w => w.id !== workoutId);
+    setPastWorkouts(updatedWorkouts);
     localStorage.setItem('completedWorkout', JSON.stringify(updatedWorkouts));
     setShowModal(null);
   }
@@ -47,7 +43,7 @@ export default function RecentWorkouts({ onSeeAll }) {
         <div style={shared.link} onClick={onSeeAll}>See all</div>
       </div>
 
-      {workouts.map((w) => (
+      {pastWorkouts.map((w) => (
         <div key={w.id} style={st.row} onClick={() => onOpen && onOpen(w.id)}>
           <div style={st.dateCol}>
             <div style={st.month}>{w.month}</div>

@@ -5,9 +5,10 @@ import ExerciseProgress from './components/ExerciseProgress';
 import MuscleFrequency from './components/MuscleFrequency';
 import BodyWeightChart from './components/BodyWeightChart';
 import * as mock from './data';
-import WorkoutDetails from './components/WorkoutDetails';
+
 
 export default function HistoryPage({
+  pastWorkouts,
   summary = mock.monthSummary,
   calendar = mock.calendar,
   selectedDay = mock.selectedDay,
@@ -36,7 +37,7 @@ export default function HistoryPage({
           </div>
         </div>
 
-        <HistorySummary summary={summary} />
+        <HistorySummary pastWorkouts={pastWorkouts} summary={summary} />
         <WorkoutCalendar calendar={calendar} selected={selectedDay} onOpenWorkout={onOpenWorkout} />
         <ExerciseProgress progress={exerciseProgress} />
         <MuscleFrequency items={muscleFrequency} />

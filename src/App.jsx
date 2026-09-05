@@ -12,9 +12,14 @@ import * as mock from '../src/pages/History/data';
 import VolumeChart from './pages/History/components/VolumeChart';
 import RecentWorkouts from './pages/History/components/RecentWorkouts';
 import WorkoutDetails from './pages/History/components/WorkoutDetails';
+import { loadFromStorage } from './models/completedWorkouts';
 
 
 function App() {
+  const [pastWorkouts, setPastWorkouts] = useState(() => {
+      return loadFromStorage();
+    });
+
   const personalRecords = mock.personalRecords;
   const volume = mock.volume;
   
@@ -42,13 +47,13 @@ function App() {
           <main className="main-content">
 
             <Routes>
-              <Route index element={<Dashboard />} />
+              <Route index element={<Dashboard pastWorkouts={pastWorkouts} setPastWorkouts={setPastWorkouts}/>} />
               <Route path='/workouts' element={<Workouts />} />
                 <Route path='/workouts/:muscle' element={<MuscleDetails />} />
 
-              <Route path='/history' element={<HistoryPage />} />
-                <Route path='/RecentWorkouts' element={<RecentWorkouts />} />
-                  <Route path='/workoutDetails/:workoutId' element={<WorkoutDetails />} />
+              <Route path='/history' element={<HistoryPage pastWorkouts={pastWorkouts}/>} />
+                <Route path='/RecentWorkouts' element={<RecentWorkouts pastWorkouts={pastWorkouts} setPastWorkouts={setPastWorkouts}/>} />
+                  <Route path='/workoutDetails/:workoutId' element={<WorkoutDetails pastWorkouts={pastWorkouts}/>} />
                 <Route path='/volume' element={<VolumeChart volume={volume} />} />
                 <Route path='/PRs' element={<PersonalRecords records={personalRecords} />} />
                 
