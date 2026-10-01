@@ -34,7 +34,7 @@
 }
 
 .tw-num {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--text-tertiary);
   font-weight: 600;
   width: 14px;
@@ -51,7 +51,7 @@
 }
 
 .tw-name {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--text-primary);
   font-weight: 600;
   margin: 0 0 2px;
@@ -64,13 +64,13 @@
 }
 
 .tw-sets {
-  font-size: 9.5px;
-  color: var(--text-tertiary);
+  font-size: 12px;
+  color: var(--text-secondary);
   margin: 0;
 }
 
 .tw-chip {
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--text-primary);
   background: var(--divider-strong);

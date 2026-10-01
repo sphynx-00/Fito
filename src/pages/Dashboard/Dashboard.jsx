@@ -102,7 +102,7 @@ function Dashboard({ pastWorkouts, setPastWorkouts }) {
         dayStreak={dayStreak}
       />
 
-      <h4 className="current-stats">Current Stats</h4>
+      <h3 className="current-stats">Current Stats</h3>
       <div className="stats-grid">
         <StatCard logo={ChartNoAxesColumnIncreasing} color="#1F1B29" variant="Start-weight" label="Start weight" value={userStats.weight} unit="kg" />
         <StatCard logo={Cookie} color="#1F1B29" variant="Daily-calories" label="Daily calories" value={userStats.dailyCalories} unit="kcal" />
@@ -110,7 +110,7 @@ function Dashboard({ pastWorkouts, setPastWorkouts }) {
       </div>
 
       <div className="workout-log-container">
-        <h4>Workout Log</h4>
+        <h3>Workout Log</h3>
         <span className={isRecovery ? 'badge-hidden' : `badge ${getBadgeClass()}`}>
           <span className="badge-dot" />
           {getBadgeStatus()}
