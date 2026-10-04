@@ -14,6 +14,7 @@ const bodyParts = [
   { id: 6, name: 'Core',      exercises: 4, key: 'core',      Icon: CoreIcon },
 ];
 
+
 function Workouts() {
   const [selectedFilter, setSelectedFilter] = useState('All');
   const [search, setSearch] = useState('');
