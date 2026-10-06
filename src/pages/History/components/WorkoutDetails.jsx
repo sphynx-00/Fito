@@ -3,13 +3,12 @@ import './WorkoutDetails.css';
 import { loadFromStorage } from '../../../models/completedWorkouts';
 import { format } from 'date-fns';
 
-function WorkoutDetails () {
+function WorkoutDetails ({ pastWorkouts }) {
   const { workoutId } = useParams();
-  const workouts = loadFromStorage();
+  const workouts = pastWorkouts;
   const workout = workouts.find((w) => String(w.id) === workoutId);
   const date = new Date(workout.date);
   const formattedDate = format(date, 'MMMM do, yyyy');
-
   const navigate = useNavigate();
 
   return (
@@ -32,22 +31,24 @@ function WorkoutDetails () {
             <div className="wd-stat-label">Duration</div>
           </div>
           <div className="wd-stat-cell">
-            <div className="wd-stat-value">8,450<span className="wd-stat-unit">kg</span></div>
+            <div className="wd-stat-value">{workout.totalVolume}<span className="wd-stat-unit">kg</span></div>
             <div className="wd-stat-label">Volume</div>
           </div>
           <div className="wd-stat-cell">
-            <div className="wd-stat-value wd-stat-value--accent">1</div>
+            <div className="wd-stat-value wd-stat-value--accent">0</div>
             <div className="wd-stat-label">PR</div>
           </div>
         </div>
 
-        <div className="wd-pr-card">
+        {/* FOR PR FEATURE SOON */}
+
+        {/* <div className="wd-pr-card">
           <div className="wd-pr-info">
             <div className="wd-pr-label">New PR</div>
             <div className="wd-pr-value">Bench Press — 70 kg</div>
           </div>
           <div className="wd-pr-previous">prev 67.5</div>
-        </div>
+        </div> */}
 
         <div className="wd-exercise-list">
 
@@ -58,9 +59,10 @@ function WorkoutDetails () {
               <button className="wd-history-link" type="button">History ›</button>
             </div>
             <div className="wd-set-list">
-              <div className="wd-set-row"><span className="wd-set-index">1</span><span className="wd-set-result">60 kg × 10</span></div>
-              <div className="wd-set-row"><span className="wd-set-index">2</span><span className="wd-set-result wd-set-result--pr">70 kg × 5</span><span className="wd-set-pr">PR</span></div>
-              <div className="wd-set-row"><span className="wd-set-index">3</span><span className="wd-set-result">65 kg × 7</span></div>
+              <div className="wd-set-row"><span className="wd-set-index">1</span><span className="wd-set-result">{e.weight} kg × {e.sets}</span></div>
+              <div className="wd-set-row"><span className="wd-set-index">2</span><span className="wd-set-result">{e.weight} kg × {e.sets}</span></div>
+              {/* <div className="wd-set-row"><span className="wd-set-index">3</span><span className="wd-set-result wd-set-result--pr">70 kg × 5</span><span className="wd-set-pr">PR</span></div> */}
+              
             </div>
           </div>
           ))}

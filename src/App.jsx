@@ -5,7 +5,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Workouts from './pages/Workouts/Workouts';
 import HistoryPage from './pages/History/HistoryPage';
 import Profile from './pages/Profile/Profile';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import MuscleDetails from './pages/Workouts/components/MuscleDetails';
 import PersonalRecords from './pages/History/components/PersonalRecords';
 import * as mock from '../src/pages/History/data';
@@ -19,9 +19,17 @@ function App() {
   const [pastWorkouts, setPastWorkouts] = useState(() => {
       return loadFromStorage();
     });
+  
+  const totalVolume = useMemo(
+    () => pastWorkouts.reduce((sum, w) => sum + (w.totalVolume || 0), 0),
+    [pastWorkouts]
+  );
 
   const personalRecords = mock.personalRecords;
-  const volume = mock.volume;
+  const volume = {
+    ...mock.volume,
+    total: `${totalVolume.toLocaleString()} kg`,
+  };
   
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light';

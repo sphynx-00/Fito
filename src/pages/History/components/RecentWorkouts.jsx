@@ -54,7 +54,8 @@ export default function RecentWorkouts({ pastWorkouts, setPastWorkouts, onSeeAll
               <div style={st.name}>{w.name}</div>
               {w.prs > 0 && <div style={shared.prBadge}>{w.prs} PR{w.prs > 1 ? 's' : ''}</div>}
             </div>
-            <div style={shared.monoMeta}>{w.exercises.length} exercises · 68 min · 8,450 kg</div>
+
+            <div style={shared.monoMeta}>{w.exercises.length} exercises · {w.duration} min · {w.totalVolume} kg</div>
           </div>
           <div
             className="btn-delete"
