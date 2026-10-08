@@ -25,6 +25,7 @@ function App() {
     [pastWorkouts]
   );
 
+
   const personalRecords = mock.personalRecords;
   const volume = {
     ...mock.volume,
@@ -59,7 +60,7 @@ function App() {
               <Route path='/workouts' element={<Workouts />} />
                 <Route path='/workouts/:muscle' element={<MuscleDetails />} />
 
-              <Route path='/history' element={<HistoryPage pastWorkouts={pastWorkouts}/>} />
+              <Route path='/history' element={<HistoryPage totalVolume={totalVolume} pastWorkouts={pastWorkouts}/>} />
                 <Route path='/RecentWorkouts' element={<RecentWorkouts pastWorkouts={pastWorkouts} setPastWorkouts={setPastWorkouts}/>} />
                   <Route path='/workoutDetails/:workoutId' element={<WorkoutDetails pastWorkouts={pastWorkouts}/>} />
                 <Route path='/volume' element={<VolumeChart volume={volume} />} />

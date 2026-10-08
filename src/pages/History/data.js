@@ -8,14 +8,36 @@ export const monthSummary = {
   volumeDeltaLabel: 'volume vs. July',
 };
 
-export const calendar = {
-  month: 'August 2026',
-  firstWeekdayOffset: 5, // Mon-first grid; Aug 1 2026 is a Saturday
-  daysInMonth: 31,
-  lastRenderedDay: 23,
-  workoutDays: [3, 5, 6, 8, 10, 12, 13, 15],
-  today: 15,
-};
+export function buildCalendar(date = new Date(), workoutDays = []) {
+  const year = date.getFullYear();
+  const month = date.getMonth(); // 0-11
+
+  // Day 0 of the *next* month = last day of this month
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  // getDay(): Sun=0 ... Sat=6. Convert to Monday-first: Mon=0 ... Sun=6
+  const firstWeekdayOffset = (new Date(year, month, 1).getDay() + 6) % 7;
+
+  return {
+    month: date.toLocaleString('en-US', { month: 'long', year: 'numeric' }),
+    firstWeekdayOffset,
+    daysInMonth,
+    lastRenderedDay: date.getDate(),
+    today: date.getDate(),
+    workoutDays,
+  };
+}
+
+export const calendar = buildCalendar(new Date(), [1, 3, 4, 6]);
+
+// export const calendar = {
+//   month: 'August 2026',
+//   firstWeekdayOffset: 5, // Mon-first grid; Aug 1 2026 is a Saturday
+//   daysInMonth: 31,
+//   lastRenderedDay: 23,
+//   workoutDays: [3, 5, 6, 8, 10, 12, 13, 15],
+//   today: 15,
+// };
 
 export const selectedDay = {
   dateLabel: 'August 15',

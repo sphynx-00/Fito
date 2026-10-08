@@ -59,8 +59,8 @@ function WorkoutDetails ({ pastWorkouts }) {
               <button className="wd-history-link" type="button">History ›</button>
             </div>
             <div className="wd-set-list">
-              <div className="wd-set-row"><span className="wd-set-index">1</span><span className="wd-set-result">{e.weight} kg × {e.sets}</span></div>
-              <div className="wd-set-row"><span className="wd-set-index">2</span><span className="wd-set-result">{e.weight} kg × {e.sets}</span></div>
+              <div className="wd-set-row"><span className="wd-set-index">1</span><span className="wd-set-result">{e.weight} kg × {e.reps}</span></div>
+              <div className="wd-set-row"><span className="wd-set-index">2</span><span className="wd-set-result">{e.weight} kg × {e.reps}</span></div>
               {/* <div className="wd-set-row"><span className="wd-set-index">3</span><span className="wd-set-result wd-set-result--pr">70 kg × 5</span><span className="wd-set-pr">PR</span></div> */}
               
             </div>
