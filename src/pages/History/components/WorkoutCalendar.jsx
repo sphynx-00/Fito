@@ -11,7 +11,7 @@ export default function WorkoutCalendar({ calendar, selected, onPrev, onNext, on
     cells.push(<div key={`pad-${i}`} style={st.pad} />);
   }
 
-  for (let d = 1; d <= calendar.lastRenderedDay; d += 1) {
+  for (let d = 1; d <= calendar.daysInMonth; d += 1) {
     const state = {
       done: calendar.workoutDays.includes(d),
       today: d === calendar.today,
