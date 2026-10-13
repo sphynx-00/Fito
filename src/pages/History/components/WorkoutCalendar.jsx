@@ -4,7 +4,7 @@ import * as st from '../styles/workoutCalendar.styles';
 
 const WEEKDAYS = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
-export default function WorkoutCalendar({ calendar, selected, onPrev, onNext, onSelectDay, onOpenWorkout }) {
+export default function WorkoutCalendar({ isCompleted, calendar, selected, onPrev, onNext, onSelectDay, onOpenWorkout }) {
   const cells = [];
 
   for (let i = 0; i < calendar.firstWeekdayOffset; i += 1) {
@@ -20,7 +20,7 @@ export default function WorkoutCalendar({ calendar, selected, onPrev, onNext, on
     cells.push(
       <div key={d} style={st.day(state)} onClick={() => onSelectDay && onSelectDay(d)}>
         {d}
-        {(state.done || state.today) && <div style={st.dot(state.today)} />}
+        {(state.today ? isCompleted : state.done) && <div style={st.dot(state.today)} />}
       </div>,
     );
   }

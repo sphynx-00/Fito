@@ -6,10 +6,10 @@ import { useState } from "react";
 import CompletedState from "./CompletedState";
 import WeightSheet from "./WeightSheet";
 
-function TodaysWorkout({ workoutName, exercises, onUpdatedWeight, completedList, handleToggle, onComplete }) {
-const [isCompleted, setIsCompleted] = useState(() => {
-  return JSON.parse(localStorage.getItem('isCompleted') || 'false');
-});
+function TodaysWorkout({ isCompleted, setIsCompleted, workoutName, exercises, onUpdatedWeight, completedList, handleToggle, onComplete }) {
+// const [isCompleted, setIsCompleted] = useState(() => {
+//   return JSON.parse(localStorage.getItem('isCompleted') || 'false');
+// });
 
 
 const [weightEdit, setWeightEdit] = useState(null);

@@ -42,6 +42,7 @@ export const day = ({ done, today, faded }) => {
   return { ...base, color: faded ? colors.dim : colors.faint };
 };
 
+
 export const dot = (today) => ({
   width: 4, height: 4, borderRadius: radii.pill,
   background: today ? colors.onAccent : colors.accent,

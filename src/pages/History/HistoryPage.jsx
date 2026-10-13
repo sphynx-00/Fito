@@ -8,6 +8,7 @@ import * as mock from './data';
 
 
 export default function HistoryPage({
+  isCompleted,
   totalVolume,
   pastWorkouts,
   summary = mock.monthSummary,
@@ -39,7 +40,7 @@ export default function HistoryPage({
         </div>
 
         <HistorySummary totalVolume={totalVolume} pastWorkouts={pastWorkouts} summary={summary} />
-        <WorkoutCalendar calendar={calendar} selected={selectedDay} onOpenWorkout={onOpenWorkout} />
+        <WorkoutCalendar isCompleted={isCompleted} calendar={calendar} selected={selectedDay} onOpenWorkout={onOpenWorkout} />
         <ExerciseProgress progress={exerciseProgress} />
         <MuscleFrequency items={muscleFrequency} />
         <BodyWeightChart data={bodyWeight} />

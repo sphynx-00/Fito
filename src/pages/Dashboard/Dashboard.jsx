@@ -13,7 +13,7 @@ import WeekStrip from "./components/WeekStrip";
 import { loadUser } from "../Profile/profileUtils";
 
 
-function Dashboard({ pastWorkouts, setPastWorkouts }) {
+function Dashboard({ isCompleted, setIsCompleted, pastWorkouts, setPastWorkouts }) {
   const [weightVersion, setWeightVersion] = useState(0);
 
   const { todaysWorkout, total, completed, percentage } = getWorkoutStats();
@@ -118,6 +118,8 @@ function Dashboard({ pastWorkouts, setPastWorkouts }) {
       </div>
 
       <TodaysWorkout
+        isCompleted={isCompleted}
+        setIsCompleted={setIsCompleted}
         exercises={todaysWorkout?.exercises}
         workoutName={todaysWorkout?.name}
         completedList={completedList}

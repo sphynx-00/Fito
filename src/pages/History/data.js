@@ -1,4 +1,4 @@
-import { completedWorkouts, loadFromStorage } from "../../models/completedWorkouts";
+import { loadFromStorage } from "../../models/completedWorkouts";
 
 export const monthSummary = {
   period: 'August 2026',
@@ -30,8 +30,8 @@ export function buildCalendar(date = new Date(), workoutDays = []) {
   };
 }
 
-const completedWorkoutList = loadFromStorage()
-const workoutDays = completedWorkoutList.map((w) => Number(w.day))
+const completedWorkoutList = loadFromStorage();
+export const workoutDays = completedWorkoutList.map((w) => Number(w.day));
 
 export const calendar = buildCalendar(new Date(), workoutDays);
 
