@@ -33,13 +33,7 @@ export function buildCalendar(date = new Date(), workoutDays = []) {
 const completedWorkoutList = loadFromStorage();
 export const workoutDays = completedWorkoutList.map((w) => Number(w.day));
 
-const prefix = `${viewDate.getFullYear()}-${String(viewDate.getMonth() + 1).padStart(2, '0')}`; // "2026-10"
-
-const recoveryDays = recoveryDates
-  .filter(k => k.startsWith(prefix))
-  .map(k => Number(k.split('-')[2]));
-
-const calendar = { ...buildCalendar(viewDate, workoutDays), recoveryDays };);
+export const calendar = buildCalendar(new Date(), workoutDays);
 
 // export const calendar = {
 //   month: 'August 2026',
