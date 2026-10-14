@@ -42,11 +42,18 @@ export const day = ({ done, today, faded }) => {
   return { ...base, color: faded ? colors.dim : colors.faint };
 };
 
-
-export const dot = (today) => ({
+export const dot = (today, type = 'done') => ({
   width: 4, height: 4, borderRadius: radii.pill,
-  background: today ? colors.onAccent : colors.accent,
+  background:
+    type === 'recovery'
+      ? colors.recovery               
+      : today ? colors.onAccent : colors.accent,
 });
+
+// export const dot = (today) => ({
+//   width: 4, height: 4, borderRadius: radii.pill,
+//   background: today ? colors.onAccent : colors.accent,
+// });
 
 export const selected = {
   borderTop: '1px solid var(--border-color)', paddingTop: 14,

@@ -9,6 +9,7 @@ export const colors = {
   dim: '#3a3a40',
   bar: '#4a4a52',
   barBg: '#2e2e34',
+  recovery : 'oklch(0.78 0.15 145)',
   accent: 'oklch(0.72 0.17 290)',
   accentText: 'oklch(0.80 0.15 290)',
   accentSoft: 'oklch(0.72 0.17 290 / 0.14)',

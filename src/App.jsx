@@ -68,7 +68,7 @@ function App() {
                 <Route path='/workouts/:muscle' element={<MuscleDetails />} />
 
               <Route path='/history' element={<HistoryPage isCompleted={isCompleted} 
-                totalVolume={totalVolume} pastWorkouts={pastWorkouts}/>} 
+                totalVolume={totalVolume.toLocaleString()} pastWorkouts={pastWorkouts}/>} 
               />
                 <Route path='/RecentWorkouts' element={<RecentWorkouts pastWorkouts={pastWorkouts} setPastWorkouts={setPastWorkouts}/>} />
                   <Route path='/workoutDetails/:workoutId' element={<WorkoutDetails pastWorkouts={pastWorkouts}/>} />
