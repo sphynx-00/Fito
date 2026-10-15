@@ -1,7 +1,6 @@
 import React from 'react';
 import * as shared from '../styles/shared.styles';
 import * as st from '../styles/workoutCalendar.styles';
-import { getWorkoutStats } from '../../../utils/workoutUtils';
 
 const WEEKDAYS = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
@@ -11,35 +10,29 @@ export default function WorkoutCalendar({ isCompleted, calendar, selected, onPre
   for (let i = 0; i < calendar.firstWeekdayOffset; i += 1) {
     cells.push(<div key={`pad-${i}`} style={st.pad} />);
   }
-
-  const { todaysWorkout } = getWorkoutStats();
   
   for (let d = 1; d <= calendar.daysInMonth; d += 1) {
-    const isRecovery = todaysWorkout?.name === 'Recovery';
+  const state = {
+    done: calendar.workoutDays.includes(d),
+    today: d === calendar.today,
+    faded: d > calendar.today,
+  };
 
-    const state = {
-      done: calendar.workoutDays.includes(d),
-      today: d === calendar.today,
-      faded: d > calendar.today,
-      isRecovery: isRecovery
-    };
-    
-    let dotType = null;
+  let dotType = null;
 
-    if (state.today) {
-      if (state.isRecovery) dotType = 'recovery';   // state.isRecovery, not isRecovery
-      else if (isCompleted) dotType = 'done';
-    } else if (state.done) {
-      dotType = 'done';
-    }
-
-    cells.push(
-      <div key={d} style={st.day(state)} onClick={() => onSelectDay && onSelectDay(d)}>
-        {d}
-        {dotType && <div style={st.dot(state.today, dotType)} />}
-      </div>,
-    );
+  if (calendar.recoveryDays.includes(d) && !state.faded) {
+    dotType = 'recovery';
+  } else if (state.today ? isCompleted : state.done) {
+    dotType = 'done';
   }
+
+  cells.push(
+    <div key={d} style={st.day(state)} onClick={() => onSelectDay && onSelectDay(d)}>
+      {d}
+      {dotType && <div style={st.dot(state.today, dotType)} />}
+    </div>,
+  );
+}
 
   return (
     <div style={st.card}>

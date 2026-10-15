@@ -1,4 +1,5 @@
 import { loadFromStorage } from "../../models/completedWorkouts";
+import { getWorkoutStats } from "../../utils/workoutUtils";
 
 export const monthSummary = {
   period: 'August 2026',
@@ -12,13 +13,17 @@ export const monthSummary = {
 
 export function buildCalendar(date = new Date(), workoutDays = []) {
   const year = date.getFullYear();
-  const month = date.getMonth(); // 0-11
+  const month = date.getMonth();
 
-  // Day 0 of the *next* month = last day of this month
   const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-  // getDay(): Sun=0 ... Sat=6. Convert to Monday-first: Mon=0 ... Sun=6
   const firstWeekdayOffset = (new Date(year, month, 1).getDay() + 6) % 7;
+
+  // every Wednesday (3) and Sunday (0) of this month
+  const recoveryDays = [];
+  for (let d = 1; d <= daysInMonth; d += 1) {
+    const weekday = new Date(year, month, d).getDay();
+    if (weekday === 0 || weekday === 3) recoveryDays.push(d);
+  }
 
   return {
     month: date.toLocaleString('en-US', { month: 'long', year: 'numeric' }),
@@ -27,6 +32,7 @@ export function buildCalendar(date = new Date(), workoutDays = []) {
     lastRenderedDay: date.getDate(),
     today: date.getDate(),
     workoutDays,
+    recoveryDays,
   };
 }
 
