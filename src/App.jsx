@@ -13,12 +13,16 @@ import VolumeChart from './pages/History/components/VolumeChart';
 import RecentWorkouts from './pages/History/components/RecentWorkouts';
 import WorkoutDetails from './pages/History/components/WorkoutDetails';
 import { loadFromStorage } from './models/completedWorkouts';
+import { getAdjustedDate } from './utils/workoutUtils';
 
 
 function App() {
   const [isCompleted, setIsCompleted] = useState(() => {
-    return JSON.parse(localStorage.getItem('isCompleted') || 'false');
-  });
+  const today = getAdjustedDate().toLocaleDateString('en-ca');
+  if (localStorage.getItem('workoutDate') !== today) return false;
+  return localStorage.getItem('isCompleted') === 'true';
+});
+
 
   const [pastWorkouts, setPastWorkouts] = useState(() => {
       return loadFromStorage();
