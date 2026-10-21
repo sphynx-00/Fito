@@ -111,9 +111,11 @@ export function getPercentage(completed, total) {
 
 export function getStartOfWeek(date) {
   const today = new Date(date);
-  const dayOfWeek = today.getDay();
+  today.setHours(0, 0, 0, 0);
 
+  const dayOfWeek = today.getDay();
   const diff = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+  
   const monday = new Date(today);
   monday.setDate(today.getDate() + diff);
   return monday;
