@@ -14,6 +14,7 @@ import RecentWorkouts from './pages/History/components/RecentWorkouts';
 import WorkoutDetails from './pages/History/components/WorkoutDetails';
 import { loadFromStorage } from './models/completedWorkouts';
 import { getAdjustedDate } from './utils/workoutUtils';
+import { getVolumeStats } from './utils/volumeStats';
 
 
 function App() {
@@ -27,19 +28,28 @@ function App() {
   const [pastWorkouts, setPastWorkouts] = useState(() => {
       return loadFromStorage();
     });
-  
-  const totalVolume = useMemo(
-    () => pastWorkouts.reduce((sum, w) => sum + (w.totalVolume || 0), 0),
-    [pastWorkouts]
-  );
 
+  const stats = useMemo(() => getVolumeStats(pastWorkouts), [pastWorkouts]);
 
-  const personalRecords = mock.personalRecords;
   const volume = {
     ...mock.volume,
-    total: `${totalVolume.toLocaleString()} kg`,
+    total: `${stats.total.toLocaleString()}`,
+    delta: stats.delta,
+    bars: stats.bars,
   };
+
+  // const totalVolume = useMemo(
+  //   () => pastWorkouts.reduce((sum, w) => sum + (w.totalVolume || 0), 0),
+  //   [pastWorkouts]
+  // );
+
+  // const volume = {
+  //   ...mock.volume,
+  //   total: `${totalVolume.toLocaleString()} kg`,
+  // };
   
+  const personalRecords = mock.personalRecords;
+
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light';
   });
@@ -72,7 +82,7 @@ function App() {
                 <Route path='/workouts/:muscle' element={<MuscleDetails />} />
 
               <Route path='/history' element={<HistoryPage isCompleted={isCompleted} 
-                totalVolume={totalVolume.toLocaleString()} pastWorkouts={pastWorkouts}/>} 
+                totalVolume={volume.total} pastWorkouts={pastWorkouts}/>} 
               />
                 <Route path='/RecentWorkouts' element={<RecentWorkouts pastWorkouts={pastWorkouts} setPastWorkouts={setPastWorkouts}/>} />
                   <Route path='/workoutDetails/:workoutId' element={<WorkoutDetails pastWorkouts={pastWorkouts}/>} />
