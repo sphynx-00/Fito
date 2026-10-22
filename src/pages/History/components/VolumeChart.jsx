@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import * as shared from '../styles/shared.styles';
 import * as st from '../styles/volumeChart.styles';
 import { useNavigate } from 'react-router';
@@ -5,6 +6,13 @@ import { useNavigate } from 'react-router';
 
 export default function VolumeChart({ volume, onRange }) {
   const navigate = useNavigate();
+
+  const [grown, setGrown] = useState(false);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setGrown(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
 
   return (
     <div className="page-transition" style={shared.section}>
@@ -31,10 +39,12 @@ export default function VolumeChart({ volume, onRange }) {
           <div style={st.delta}>{volume.delta}</div>
         </div>
 
-        <div style={st.bars(volume.bars.length)}>
-          {volume.bars.map((b) => (
+        <div style={st.bars}>
+          {volume.bars.map((b, i) => (
             <div key={b.label} style={st.barCol}>
-              <div style={st.bar(b)} />
+              <div style={st.barTrack}>
+                <div style={st.bar({ ...b, grown, index: i })} />
+              </div>
               <div style={st.barLabel}>{b.label}</div>
             </div>
           ))}
