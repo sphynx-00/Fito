@@ -137,10 +137,6 @@ function saveToStorage(completedWorkout) {
   localStorage.setItem('completedWorkout', JSON.stringify(updated));
 }
 
-// export function loadFromStorage() {
-//  return JSON.parse(localStorage.getItem('completedWorkout') || '[]');
-// }
-
 export function loadFromStorage() {
   try {
     const raw = localStorage.getItem('completedWorkout');
@@ -151,3 +147,7 @@ export function loadFromStorage() {
     return [];
   }
 }
+
+// export function loadFromStorage() {
+//  return JSON.parse(localStorage.getItem('completedWorkout') || '[]');
+// }

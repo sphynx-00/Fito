@@ -1,5 +1,4 @@
 import { loadFromStorage } from "../../models/completedWorkouts";
-import { getWorkoutStats } from "../../utils/workoutUtils";
 
 export const monthSummary = {
   period: 'August 2026',
@@ -88,7 +87,6 @@ export const personalRecords = [
 export const volume = {
   total: '32,450 kg',
   delta: '↑ 8.4%',
-  ranges: ['Week', 'Month', '3M'],
   activeRange: 'Month',
   bars: [
     { label: 'W1', pct: 48 },
