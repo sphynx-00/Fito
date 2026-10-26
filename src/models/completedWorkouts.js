@@ -111,9 +111,19 @@ export function saveWorkoutHistory(workoutName, exercises) {
     weight: e.weight,   // ← now preserved
   }));
 
-  const totalVolume = exercisesWithWeight.reduce(
-    (sum, e) => sum + (e.sets * e.reps * e.weight), 0
-  );
+  
+  // const totalVolume = exercisesWithWeight.reduce(
+  //   (sum, e) => sum + (e.sets * e.reps * e.weight), 0
+  // );
+
+  const totalVolume = exercisesWithWeight.reduce((sum, e) => {
+  const sets = Number(e.sets) || 0;
+  const reps = Number(e.reps) || 0;
+  const weight = Number(e.weight) || 0;
+
+    if (weight === 0) return sum; // no weight entered, skip it
+    return sum + sets * reps * weight;
+  }, 0);
   
   const completedWorkout = {
     id:        Date.now(),
