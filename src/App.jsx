@@ -35,6 +35,7 @@ function App() {
     ...mock.volume,
     total: `${stats.total.toLocaleString()}`,
     delta: stats.delta,
+    isDown: stats.isDown,
     bars: stats.bars,
   };
 

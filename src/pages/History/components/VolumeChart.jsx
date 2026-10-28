@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 const filters = ['Week', 'Month', '3M'];
 
 export default function VolumeChart({ volume }) {
+console.log(volume.delta, volume.isDown);
 const [selectedFilter, setSelectedFilter] = useState('Week');
 const navigate = useNavigate();
 
@@ -38,7 +39,8 @@ useEffect(() => {
       <div style={shared.card}>
         <div style={st.totalRow}>
           <div style={st.total}>{volume.total}</div>
-          <div style={st.delta}>{volume.delta}</div>
+          {/* <div style={st.delta}>{volume.delta}</div> */}
+          <div style={st.delta(volume.delta)}>{volume.delta}</div>
         </div>
 
         <div style={st.bars}>

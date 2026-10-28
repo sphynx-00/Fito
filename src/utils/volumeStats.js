@@ -40,9 +40,13 @@ export function getVolumeStats(workouts, now = new Date()) {
 
   const cur  = kg[kg.length - 1];
   const prev = kg.length > 1 ? kg[kg.length - 2] : 0;
-  const delta = prev === 0
+  const isDown = prev > 0 && cur < prev;
+  const delta =
+  prev === 0
     ? '–'
-    : `${cur >= prev ? '↑' : '↓'} ${Math.abs(((cur - prev) / prev) * 100).toFixed(1)}%`;
+    : cur === prev
+      ? '→ 0.0%'
+      : `${cur > prev ? '↑' : '↓'} ${Math.abs(((cur - prev) / prev) * 100).toFixed(1)}%`;
 
-  return { total: cur, delta, bars };
+  return { total: cur, delta, isDown, bars };
 }

@@ -41,9 +41,9 @@ export default function HistoryPage({
 
         <HistorySummary totalVolume={totalVolume} pastWorkouts={pastWorkouts} summary={summary} />
         <WorkoutCalendar isCompleted={isCompleted} calendar={calendar} selected={selectedDay} onOpenWorkout={onOpenWorkout} />
-        <ExerciseProgress progress={exerciseProgress} />
+        {/* <ExerciseProgress progress={exerciseProgress} />
         <MuscleFrequency items={muscleFrequency} />
-        <BodyWeightChart data={bodyWeight} />
+        <BodyWeightChart data={bodyWeight} /> */}
       </div>
     </div>
   );

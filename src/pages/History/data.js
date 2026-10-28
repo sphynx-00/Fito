@@ -84,17 +84,17 @@ export const personalRecords = [
   { exercise: 'Deadlift', result: '150 kg × 1', date: 'Jul 28, 2026' },
 ];
 
-export const volume = {
-  total: '32,450 kg',
-  delta: '↑ 8.4%',
-  activeRange: 'Month',
-  bars: [
-    { label: 'W1', pct: 48 },
-    { label: 'W2', pct: 62 },
-    { label: 'W3', pct: 58 },
-    { label: 'W4', pct: 88, current: true },
-  ],
-};
+// export const volume = {
+//   total: '32,450 kg',
+//   delta: '↑ 8.4%',
+//   activeRange: 'Month',
+//   bars: [
+//     { label: 'W1', pct: 48 },
+//     { label: 'W2', pct: 62 },
+//     { label: 'W3', pct: 58 },
+//     { label: 'W4', pct: 88, current: true },
+//   ],
+// };
 
 export const muscleFrequency = [
   { muscle: 'Chest', sessions: 8, last: 'today', pct: 100, current: true },

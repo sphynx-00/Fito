@@ -4,7 +4,15 @@ export const totalRow = { display: 'flex', alignItems: 'baseline', gap: 10 };
 
 export const total = { color: 'var(--text-primary)', fontSize: 26, fontWeight: 600, fontFamily: fonts.sans, letterSpacing: '-0.02em' };
 
-export const delta = { fontSize: 12, color: colors.positive, fontFamily: fonts.mono };
+// export const delta = { fontSize: 12, color: colors.positive, fontFamily: fonts.mono };
+
+export const delta = (text = '') => {
+  let color = colors.neutral;                    // your neutral color name
+  if (text.startsWith('↓')) color = colors.negative;
+  else if (text.startsWith('↑')) color = colors.positive;
+
+  return { fontSize: 12, color, fontFamily: fonts.mono };
+};
 
 // fixed height: percent heights below need something to measure against
 export const bars = {
