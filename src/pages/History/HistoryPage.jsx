@@ -6,7 +6,6 @@ import MuscleFrequency from './components/MuscleFrequency';
 import BodyWeightChart from './components/BodyWeightChart';
 import * as mock from './data';
 
-
 export default function HistoryPage({
   isCompleted,
   totalVolume,
@@ -14,14 +13,12 @@ export default function HistoryPage({
   summary = mock.monthSummary,
   calendar = mock.calendar,
   selectedDay = mock.selectedDay,
-  exerciseProgress = mock.exerciseProgress,
-  muscleFrequency = mock.muscleFrequency,
-  bodyWeight = mock.bodyWeight,
   programFilters = ['ALL', 'UL/PPL'],
   activeProgram = 'ALL',
   onOpenWorkout,
   onSelectProgram,
 }) {
+
   return (
     <div className="history-content page-transition" style={st.page}>
       <div style={st.scroll}>

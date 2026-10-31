@@ -22,3 +22,11 @@ export const date = { fontSize: 11, color: colors.muted, fontFamily: fonts.mono 
 export const result = { fontSize: 15, fontWeight: 600, color: colors.accentText, fontFamily: fonts.mono };
 
 export const filters = { display: 'flex', gap: 6 };
+
+export const empty = {
+  padding: '28px 16px',
+  textAlign: 'center',
+  color: colors.muted,
+  fontSize: 13,
+  fontFamily: fonts.sans,
+};

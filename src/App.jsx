@@ -15,6 +15,7 @@ import WorkoutDetails from './pages/History/components/WorkoutDetails';
 import { loadFromStorage } from './models/completedWorkouts';
 import { getAdjustedDate } from './utils/workoutUtils';
 import { getVolumeStats } from './utils/volumeStats';
+import { getPRs } from './utils/prStats';
 
 
 function App() {
@@ -24,10 +25,11 @@ function App() {
   return localStorage.getItem('isCompleted') === 'true';
 });
 
-
   const [pastWorkouts, setPastWorkouts] = useState(() => {
       return loadFromStorage();
     });
+
+  const records = getPRs(pastWorkouts);
 
   const stats = useMemo(() => getVolumeStats(pastWorkouts), [pastWorkouts]);
 
@@ -38,18 +40,6 @@ function App() {
     isDown: stats.isDown,
     bars: stats.bars,
   };
-
-  // const totalVolume = useMemo(
-  //   () => pastWorkouts.reduce((sum, w) => sum + (w.totalVolume || 0), 0),
-  //   [pastWorkouts]
-  // );
-
-  // const volume = {
-  //   ...mock.volume,
-  //   total: `${totalVolume.toLocaleString()} kg`,
-  // };
-  
-  const personalRecords = mock.personalRecords;
 
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light';
@@ -82,13 +72,13 @@ function App() {
               <Route path='/workouts' element={<Workouts />} />
                 <Route path='/workouts/:muscle' element={<MuscleDetails />} />
 
-              <Route path='/history' element={<HistoryPage isCompleted={isCompleted} 
+              <Route path='/history' element={<HistoryPage records={records} isCompleted={isCompleted} 
                 totalVolume={volume.total} pastWorkouts={pastWorkouts}/>} 
               />
                 <Route path='/RecentWorkouts' element={<RecentWorkouts pastWorkouts={pastWorkouts} setPastWorkouts={setPastWorkouts}/>} />
                   <Route path='/workoutDetails/:workoutId' element={<WorkoutDetails pastWorkouts={pastWorkouts}/>} />
                 <Route path='/volume' element={<VolumeChart volume={volume} />} />
-                <Route path='/PRs' element={<PersonalRecords records={personalRecords} />} />
+                <Route path='/PRs' element={<PersonalRecords records={records} />} />
                 
               <Route path='/profile' element={
                 <Profile theme={theme} setTheme={setTheme} />
