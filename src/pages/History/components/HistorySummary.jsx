@@ -42,9 +42,6 @@ export default function HistorySummary({ totalVolume, pastWorkouts, summary }) {
         <Stat value={prs.length} label="PRs" accent />
         <Stat value={summary.avgMinutes} unit=" m" label="Avg." />
       </div>
-      <div style={st.delta}>
-        <span style={st.deltaValue}>{summary.volumeDelta}</span> {summary.volumeDeltaLabel}
-      </div>
     </>
   );
 }

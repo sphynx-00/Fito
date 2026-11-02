@@ -48,7 +48,7 @@ export default function WorkoutCalendar({ isCompleted, calendar, selected, onPre
 
       <div style={st.grid}>{cells}</div>
 
-      {selected && (
+      {/* {selected && (
         <div style={st.selected} onClick={onOpenWorkout}>
           <div style={st.selectedInfo}>
             <div style={st.selectedDate}>{selected.dateLabel}</div>
@@ -62,7 +62,7 @@ export default function WorkoutCalendar({ isCompleted, calendar, selected, onPre
             <div style={shared.chevron}>›</div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
