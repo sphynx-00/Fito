@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router';
 const filters = ['Week', 'Month', '3M'];
 
 export default function VolumeChart({ volume }) {
-console.log(volume.delta, volume.isDown);
+  
 const [selectedFilter, setSelectedFilter] = useState('Week');
 const navigate = useNavigate();
 
