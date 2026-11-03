@@ -1,4 +1,4 @@
-import { colors, fonts } from './tokens';
+import { colors, fonts } from '../../../sharedStyle/shared.styles';
 
 export const delta = {
   display: 'flex', alignItems: 'center', gap: 8,

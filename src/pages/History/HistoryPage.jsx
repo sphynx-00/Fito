@@ -16,7 +16,7 @@ export default function HistoryPage({
   exerciseProgress = mock.exerciseProgress,
   muscleFrequency = mock.muscleFrequency,
   bodyWeight = mock.bodyWeight,
-  programFilters = ['ALL', 'UL/PPL'],
+  programFilters = ['UL/PPL'],
   activeProgram = 'ALL',
   onOpenWorkout,
   onSelectProgram,

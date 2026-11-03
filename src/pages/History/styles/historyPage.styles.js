@@ -1,4 +1,4 @@
-import { colors, fonts, radii } from './tokens';
+import { colors, fonts, radii } from '../../../sharedStyle/shared.styles';
 
 export const page = {
   background: 'var(--bg-page)',
@@ -13,7 +13,7 @@ export const scroll = { display: 'flex', flexDirection: 'column', gap: 22, flex:
 
 export const header = { display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' };
 
-export const title = { fontSize: 30, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--text-primary)' };
+export const title = { fontSize: 30, fontWeight: 700, letterSpacing: '-0.02em', color: colors.text };
 
 export const subtitle = { fontSize: 14, color: 'var(--text-muted)', marginTop: 2 };
 

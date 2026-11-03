@@ -1,5 +1,3 @@
-import { colors } from "./tokens";
-
 export const section = { display: 'flex', flexDirection: 'column', gap: 10, paddingBottom: 20 };
 
 export const header = { display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' };

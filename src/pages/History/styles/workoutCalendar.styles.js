@@ -1,4 +1,4 @@
-import { colors, fonts, radii } from './tokens';
+import { colors, fonts, radii } from '../../../sharedStyle/shared.styles';
 
 export const card = {
   background: 'var(--bg-card)',

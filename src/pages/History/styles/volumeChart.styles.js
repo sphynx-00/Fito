@@ -1,4 +1,4 @@
-import { colors, fonts } from './tokens';
+import { colors, fonts } from '../../../sharedStyle/shared.styles';
 
 export const totalRow = { display: 'flex', alignItems: 'baseline', gap: 10 };
 
