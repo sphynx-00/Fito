@@ -1,4 +1,4 @@
-import { colors, fonts, radii } from '../../../sharedStyle/shared.styles';
+import { colors, fonts, radii } from '../../../sharedStyle/tokens';
 
 export const page = { background: colors.bg, color: colors.text, fontFamily: fonts.sans, minHeight: '100vh' };
 

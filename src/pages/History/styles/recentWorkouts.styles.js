@@ -1,5 +1,4 @@
-import { colors, fonts, radii } from '../../../sharedStyle/shared.styles';
-
+import { colors, fonts, radii } from '../../../sharedStyle/tokens';
 export const row = {
   background: 'var(--bg-card)',
   border: '1px solid var(--border-color)',
