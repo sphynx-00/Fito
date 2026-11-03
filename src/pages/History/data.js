@@ -1,3 +1,5 @@
+import { loadFromStorage } from "../../models/completedWorkouts";
+
 export const monthSummary = {
   period: 'August 2026',
   workouts: 14,
@@ -10,13 +12,17 @@ export const monthSummary = {
 
 export function buildCalendar(date = new Date(), workoutDays = []) {
   const year = date.getFullYear();
-  const month = date.getMonth(); // 0-11
+  const month = date.getMonth();
 
-  // Day 0 of the *next* month = last day of this month
   const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-  // getDay(): Sun=0 ... Sat=6. Convert to Monday-first: Mon=0 ... Sun=6
   const firstWeekdayOffset = (new Date(year, month, 1).getDay() + 6) % 7;
+
+  // every Wednesday (3) and Sunday (0) of this month
+  const recoveryDays = [];
+  for (let d = 1; d <= daysInMonth; d += 1) {
+    const weekday = new Date(year, month, d).getDay();
+    if (weekday === 0 || weekday === 3) recoveryDays.push(d);
+  }
 
   return {
     month: date.toLocaleString('en-US', { month: 'long', year: 'numeric' }),
@@ -25,10 +31,19 @@ export function buildCalendar(date = new Date(), workoutDays = []) {
     lastRenderedDay: date.getDate(),
     today: date.getDate(),
     workoutDays,
+    recoveryDays,
   };
 }
 
-export const calendar = buildCalendar(new Date(), [1, 3, 4, 6]);
+const completedWorkoutList = loadFromStorage();
+const now = new Date();
+const prefix = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`; // "2026-11"
+
+export const workoutDays = completedWorkoutList
+  .filter((w) => w.date.startsWith(prefix))
+  .map((w) => Number(w.day));
+
+export const calendar = buildCalendar(now, workoutDays);
 
 // export const calendar = {
 //   month: 'August 2026',
@@ -74,18 +89,17 @@ export const personalRecords = [
   { exercise: 'Deadlift', result: '150 kg × 1', date: 'Jul 28, 2026' },
 ];
 
-export const volume = {
-  total: '32,450 kg',
-  delta: '↑ 8.4%',
-  ranges: ['Week', 'Month', '3M'],
-  activeRange: 'Month',
-  bars: [
-    { label: 'W1', pct: 48 },
-    { label: 'W2', pct: 62 },
-    { label: 'W3', pct: 58 },
-    { label: 'W4', pct: 88, current: true },
-  ],
-};
+// export const volume = {
+//   total: '32,450 kg',
+//   delta: '↑ 8.4%',
+//   activeRange: 'Month',
+//   bars: [
+//     { label: 'W1', pct: 48 },
+//     { label: 'W2', pct: 62 },
+//     { label: 'W3', pct: 58 },
+//     { label: 'W4', pct: 88, current: true },
+//   ],
+// };
 
 export const muscleFrequency = [
   { muscle: 'Chest', sessions: 8, last: 'today', pct: 100, current: true },

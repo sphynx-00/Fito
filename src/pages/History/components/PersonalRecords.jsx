@@ -1,4 +1,3 @@
-import React from 'react';
 import * as shared from '../styles/shared.styles';
 import * as st from '../styles/personalRecords.styles';
 import { useNavigate } from 'react-router';
@@ -7,6 +6,11 @@ const FILTERS = ['All', 'Weight', '1RM'];
 
 export default function PersonalRecords({ records, activeFilter = 'All', onFilter }) {
   const navigate = useNavigate();
+  const prs = records.map((p) => ({
+    exercise: p.name,
+    date: p.date,
+    result: `${p.weight} kg`,
+  }));
 
   return (
     <div className="page-transition" style={shared.section}>
@@ -25,8 +29,9 @@ export default function PersonalRecords({ records, activeFilter = 'All', onFilte
       </div>
 
       <div style={st.list}>
-        {records.map((r, i) => (
-          <div key={r.exercise} style={st.row(i === records.length - 1)}>
+        {prs.length === 0 && <div style={st.empty}>No PRs yet</div>}
+        {prs.map((r, i) => (
+          <div key={`${r.date}-${r.exercise}`} style={st.row(i === records.length - 1)}>
             <div>
               <div style={st.exercise}>{r.exercise}</div>
               <div style={st.date}>{r.date}</div>

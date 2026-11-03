@@ -4,7 +4,6 @@ export const page = {
   background: 'var(--bg-page)',
   color: colors.text,
   fontFamily: fonts.sans,
-  minHeight: '100vh',
   display: 'flex',
   flexDirection: 'column',
 };

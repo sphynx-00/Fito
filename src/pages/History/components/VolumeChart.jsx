@@ -1,10 +1,21 @@
+import { useEffect, useState } from 'react';
 import * as shared from '../styles/shared.styles';
 import * as st from '../styles/volumeChart.styles';
 import { useNavigate } from 'react-router';
 
+const filters = ['Week', 'Month', '3M'];
 
-export default function VolumeChart({ volume, onRange }) {
-  const navigate = useNavigate();
+export default function VolumeChart({ volume }) {
+console.log(volume.delta, volume.isDown);
+const [selectedFilter, setSelectedFilter] = useState('Week');
+const navigate = useNavigate();
+
+const [grown, setGrown] = useState(false);
+
+useEffect(() => {
+  const id = requestAnimationFrame(() => setGrown(true));
+  return () => cancelAnimationFrame(id);
+}, []);
 
   return (
     <div className="page-transition" style={shared.section}>
@@ -17,9 +28,9 @@ export default function VolumeChart({ volume, onRange }) {
       <div style={shared.sectionHeader}>
         <div style={shared.sectionLabel}>Volume</div>
         <div style={st.ranges}>
-          {volume.ranges.map((r) => (
-            <div key={r} style={shared.pill(r === volume.activeRange)} onClick={() => onRange && onRange(r)}>
-              {r}
+          {filters.map((f) => (
+            <div key={f} style={shared.pill(f === selectedFilter)} onClick={() => setSelectedFilter(f)}>
+              {f}
             </div>
           ))}
         </div>
@@ -28,13 +39,16 @@ export default function VolumeChart({ volume, onRange }) {
       <div style={shared.card}>
         <div style={st.totalRow}>
           <div style={st.total}>{volume.total}</div>
-          <div style={st.delta}>{volume.delta}</div>
+          {/* <div style={st.delta}>{volume.delta}</div> */}
+          <div style={st.delta(volume.delta)}>{volume.delta}</div>
         </div>
 
-        <div style={st.bars(volume.bars.length)}>
-          {volume.bars.map((b) => (
+        <div style={st.bars}>
+          {volume.bars.map((b, i) => (
             <div key={b.label} style={st.barCol}>
-              <div style={st.bar(b)} />
+              <div style={st.barTrack}>
+                <div style={st.bar({ ...b, grown, index: i })} />
+              </div>
               <div style={st.barLabel}>{b.label}</div>
             </div>
           ))}

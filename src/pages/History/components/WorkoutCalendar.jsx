@@ -4,26 +4,35 @@ import * as st from '../styles/workoutCalendar.styles';
 
 const WEEKDAYS = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
-export default function WorkoutCalendar({ calendar, selected, onPrev, onNext, onSelectDay, onOpenWorkout }) {
+export default function WorkoutCalendar({ isCompleted, calendar, selected, onPrev, onNext, onSelectDay, onOpenWorkout }) {
   const cells = [];
 
   for (let i = 0; i < calendar.firstWeekdayOffset; i += 1) {
     cells.push(<div key={`pad-${i}`} style={st.pad} />);
   }
+  
+  for (let d = 1; d <= calendar.daysInMonth; d += 1) {
+  const state = {
+    done: calendar.workoutDays.includes(d),
+    today: d === calendar.today,
+    faded: d > calendar.today,
+  };
 
-  for (let d = 1; d <= calendar.lastRenderedDay; d += 1) {
-    const state = {
-      done: calendar.workoutDays.includes(d),
-      today: d === calendar.today,
-      faded: d > calendar.today,
-    };
-    cells.push(
-      <div key={d} style={st.day(state)} onClick={() => onSelectDay && onSelectDay(d)}>
-        {d}
-        {(state.done || state.today) && <div style={st.dot(state.today)} />}
-      </div>,
-    );
+  let dotType = null;
+
+  if (calendar.recoveryDays.includes(d) && !state.faded) {
+    dotType = 'recovery';
+  } else if (state.today ? isCompleted : state.done) {
+    dotType = 'done';
   }
+
+  cells.push(
+    <div key={d} style={st.day(state)} onClick={() => onSelectDay && onSelectDay(d)}>
+      {d}
+      {dotType && <div style={st.dot(state.today, dotType)} />}
+    </div>,
+  );
+}
 
   return (
     <div style={st.card}>
@@ -39,7 +48,7 @@ export default function WorkoutCalendar({ calendar, selected, onPrev, onNext, on
 
       <div style={st.grid}>{cells}</div>
 
-      {selected && (
+      {/* {selected && (
         <div style={st.selected} onClick={onOpenWorkout}>
           <div style={st.selectedInfo}>
             <div style={st.selectedDate}>{selected.dateLabel}</div>
@@ -53,7 +62,7 @@ export default function WorkoutCalendar({ calendar, selected, onPrev, onNext, on
             <div style={shared.chevron}>›</div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

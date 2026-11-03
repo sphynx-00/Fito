@@ -6,21 +6,19 @@ import MuscleFrequency from './components/MuscleFrequency';
 import BodyWeightChart from './components/BodyWeightChart';
 import * as mock from './data';
 
-
 export default function HistoryPage({
+  isCompleted,
   totalVolume,
   pastWorkouts,
   summary = mock.monthSummary,
   calendar = mock.calendar,
   selectedDay = mock.selectedDay,
-  exerciseProgress = mock.exerciseProgress,
-  muscleFrequency = mock.muscleFrequency,
-  bodyWeight = mock.bodyWeight,
-  programFilters = ['UL/PPL'],
+  programFilters = ['ALL', 'UL/PPL'],
   activeProgram = 'ALL',
   onOpenWorkout,
   onSelectProgram,
 }) {
+
   return (
     <div className="history-content page-transition" style={st.page}>
       <div style={st.scroll}>
@@ -39,10 +37,10 @@ export default function HistoryPage({
         </div>
 
         <HistorySummary totalVolume={totalVolume} pastWorkouts={pastWorkouts} summary={summary} />
-        <WorkoutCalendar calendar={calendar} selected={selectedDay} onOpenWorkout={onOpenWorkout} />
-        <ExerciseProgress progress={exerciseProgress} />
+        <WorkoutCalendar isCompleted={isCompleted} calendar={calendar} selected={selectedDay} onOpenWorkout={onOpenWorkout} />
+        {/* <ExerciseProgress progress={exerciseProgress} />
         <MuscleFrequency items={muscleFrequency} />
-        <BodyWeightChart data={bodyWeight} />
+        <BodyWeightChart data={bodyWeight} /> */}
       </div>
     </div>
   );
