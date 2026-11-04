@@ -1,10 +1,8 @@
-import React from 'react';
-import * as shared from '../styles/shared.styles';
 import * as st from '../styles/workoutCalendar.styles';
 
 const WEEKDAYS = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
-export default function WorkoutCalendar({ isCompleted, calendar, selected, onPrev, onNext, onSelectDay, onOpenWorkout }) {
+export default function WorkoutCalendar({ isCompleted, calendar, onPrev, onNext, onSelectDay }) {
   const cells = [];
 
   for (let i = 0; i < calendar.firstWeekdayOffset; i += 1) {

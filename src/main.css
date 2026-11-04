@@ -14,6 +14,10 @@
   --logo-purple:    #8B5CF6;
   --accent-gold:    #E0AE5A;
   --border-color:   #e3e3e8;
+
+  --toggle-track-off: #0f172a;
+  --toggle-track-on: #8b7cf6;    
+  --toggle-knob: #e8eaf0; 
 }
 
 [data-theme="dark"] {

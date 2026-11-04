@@ -35,7 +35,7 @@ export default function HistoryPage({
     .map((w) => Number(w.day));
 
   const calendar = historyData.buildCalendar(viewDate, workoutDays);
-  console.log(calendar.today, calendar.lastPastDay, calendar.recoveryDays);
+
   return (
     <div className="history-content page-transition" style={st.page}>
       <div style={st.scroll}>
