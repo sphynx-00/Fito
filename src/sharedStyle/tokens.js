@@ -15,7 +15,7 @@ export const colors = {
   accentLine: 'oklch(0.72 0.17 290 / 0.35)',
   accentFill: 'oklch(0.72 0.17 290 / 0.10)',
   onAccent: '#12080a',
-  positive: 'oklch(0.78 0.15 145)',
+  recovery: 'oklch(0.78 0.15 145)',
 };
 
 export const fonts = {

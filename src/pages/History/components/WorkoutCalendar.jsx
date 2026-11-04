@@ -15,7 +15,7 @@ export default function WorkoutCalendar({ isCompleted, calendar, selected, onPre
   const state = {
     done: calendar.workoutDays.includes(d),
     today: d === calendar.today,
-    faded: d > calendar.today,
+    faded: d > calendar.lastPastDay,
   };
 
   let dotType = null;

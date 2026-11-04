@@ -26,7 +26,7 @@ export default function HistoryPage({
   const onNext = () =>
     setViewDate((d) => new Date(d.getFullYear(), d.getMonth() + 1, 1));
 
-  
+
   const pad = (n) => String(n).padStart(2, '0');
   const prefix = `${viewDate.getFullYear()}-${pad(viewDate.getMonth() + 1)}`; // e.g. "2026-10"
 
@@ -35,7 +35,7 @@ export default function HistoryPage({
     .map((w) => Number(w.day));
 
   const calendar = historyData.buildCalendar(viewDate, workoutDays);
-
+  console.log(calendar.today, calendar.lastPastDay, calendar.recoveryDays);
   return (
     <div className="history-content page-transition" style={st.page}>
       <div style={st.scroll}>
