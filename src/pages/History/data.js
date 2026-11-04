@@ -10,26 +10,36 @@ export const monthSummary = {
   volumeDeltaLabel: 'volume vs. July',
 };
 
-export function buildCalendar(date = new Date(), workoutDays = []) {
-  const year = date.getFullYear();
-  const month = date.getMonth();
-
+export function buildCalendar(viewDate, workoutDays = [], now = new Date()) {
+  const year = viewDate.getFullYear();
+  const month = viewDate.getMonth();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const firstWeekdayOffset = (new Date(year, month, 1).getDay() + 6) % 7;
 
-  // every Wednesday (3) and Sunday (0) of this month
+  const viewKey = year * 12 + month;
+  const nowKey = now.getFullYear() * 12 + now.getMonth();
+
+  let today = null;                    // no "today" highlight in other months
+  let lastPastDay = daysInMonth;       // past month: nothing faded
+  if (viewKey === nowKey) {
+    today = now.getDate();
+    lastPastDay = today;
+  } else if (viewKey > nowKey) {
+    lastPastDay = 0;                   // future month: everything faded
+  }
+
   const recoveryDays = [];
   for (let d = 1; d <= daysInMonth; d += 1) {
-    const weekday = new Date(year, month, d).getDay();
-    if (weekday === 0 || weekday === 3) recoveryDays.push(d);
+    const wd = new Date(year, month, d).getDay();
+    if (wd === 0 || wd === 3) recoveryDays.push(d);   // Sun and Wed
   }
 
   return {
-    month: date.toLocaleString('en-US', { month: 'long', year: 'numeric' }),
+    month: viewDate.toLocaleString('en-US', { month: 'long', year: 'numeric' }),
     firstWeekdayOffset,
     daysInMonth,
-    lastRenderedDay: date.getDate(),
-    today: date.getDate(),
+    today,
+    lastPastDay,
     workoutDays,
     recoveryDays,
   };
