@@ -1,5 +1,5 @@
 import { AlignCenter, Rotate3D } from 'lucide-react';
-import { colors, fonts, radii } from '../../../sharedStyle/tokens';
+import { colors, fonts, radii } from './tokens';
 
 export const section = { display: 'flex', flexDirection: 'column', gap: 10, };
 

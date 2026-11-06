@@ -1,0 +1,10 @@
+.muscle-img {
+  filter: invert(1);   /* light mode (default): white lines become black */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+[data-theme="dark"] .muscle-img {
+  filter: none;        /* dark mode: keep white lines */
+}

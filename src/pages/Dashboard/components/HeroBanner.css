@@ -36,7 +36,7 @@
 }
 
 .hero-big span {
-  font-size: 12px;
+  font-size: 15px;
   /* color: rgba(255, 255, 255, 0.3); */
   color: var(--text-secondary);
   font-weight: 400;
@@ -44,7 +44,7 @@
 }
 
 .hero-subtitle {
-  font-size: 11px;
+  font-size: 15px;
   /* color: rgba(255, 255, 255, 0.4); */
   color: var(--text-secondary);
   margin: 0 0 12px;
@@ -52,8 +52,8 @@
 }
 
 .hero-track {
-  width: 31%;
-  height: 5px;
+  width: 36%;
+  height: 8px;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 2px;
   margin-bottom: 5px;
@@ -81,13 +81,13 @@
 }
 
 .hero-val {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--accent-purple);
 }
 
 .hero-lab {
-  font-size: 8px;
+  font-size: 10px;
   /* color: rgba(255, 255, 255, 0.3); */
   color: var(--text-secondary);
   text-transform: uppercase;

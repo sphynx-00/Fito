@@ -122,7 +122,7 @@
 }
 
 .muscle-meta {
-  font-size: 9px;
+  font-size: 10px;
   color: var(--text-tertiary);
   margin: 2px 0 0;
   font-weight: 500;
@@ -147,6 +147,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 6px;
+  overflow: hidden;
 }
 
 .muscle-illus svg {

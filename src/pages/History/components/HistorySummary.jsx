@@ -1,5 +1,4 @@
-import * as shared from '../styles/shared.styles';
-import * as st from '../styles/historySummary.styles';
+import * as shared from '../../../sharedStyle/shared.styles';
 import { useNavigate } from 'react-router';
 import { getPRs } from '../../../utils/prStats';
 
@@ -39,7 +38,7 @@ export default function HistorySummary({ totalVolume, pastWorkouts, summary }) {
       <div style={shared.statGrid(4)}>
         <Stat value={pastWorkouts.length} label="Workouts" />
         <Stat value={totalVolume} label="Volume" />
-        <Stat value={prs.length} label="PRs" accent />
+        <Stat value={prs.length} label="PRs"/>
         <Stat value={summary.avgMinutes} unit=" m" label="Avg." />
       </div>
     </>
